@@ -1,5 +1,7 @@
 package ItsaspekoHoria;
 
+import java.util.Scanner;
+
 public class Jokalaria {
 	
 	//atributuak
@@ -15,4 +17,15 @@ public class Jokalaria {
 	}
 	
 	//metodoak
+	
+	public void flotaKokatu (){
+		int luzera;
+		Laukia variableLaukia;
+		Scanner entrada=new Scanner(System.in);
+		System.out.println("HegazkinOntzia kokatu mesedez");
+		variableLaukia = entrada.getClass();
+		
+	}
+	
+	
 }
