@@ -11,13 +11,16 @@ public class Jokalaria {
 	private Flota flota;
 	
 	//eraikitzailea
-	public Jokalaria (float pDirua){
+	public Jokalaria (){
+		this.armamentua= new Armamentua();
 		this.jokalariFlota = new Taula();
 		this.etsaiarenFlota = new Taula();
+		this.flota=new Flota();
 	}
 	
 	//metodoak
 	
+
 	public void flotaKokatu (){
 		int luzera;
 		Laukia variableLaukia;
@@ -27,5 +30,5 @@ public class Jokalaria {
 		
 	}
 	
-	
+
 }
