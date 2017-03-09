@@ -22,11 +22,15 @@ public class Jokalaria {
 	
 
 	public void flotaKokatu (){
-		int luzera;
-		Laukia variableLaukia;
-		Scanner entrada=new Scanner(System.in);
-		System.out.println("HegazkinOntzia kokatu mesedez");
-		variableLaukia = entrada.getClass();
+		int pLerroa=0;
+		int pZutabea=0;
+		for (int i=0; i==this.flota.getOntziKop();i++){
+			this.ontziaKokatu(pLerroa, pZutabea, this.flota.getOntzia(i));
+		}
+		
+	}
+	
+	public void ontziaKokatu(int pLerroa, int pZutabea, Ontzia pOntzia){
 		
 	}
 	

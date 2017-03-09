@@ -13,12 +13,12 @@ public class Armamentua {
 	private ArrayList<Arma> nireArmak;
 	
 	//eraikitzailea
-	public Armamentua(int pBonbaKop, int pRadarKop, int pMisilZuzenduKop, int pEzkutuaKop, int pMisilKop){
-		this.bonbaKop=pBonbaKop;
-		this.radarKop=pRadarKop;
-		this.misilZuzenduKop=pMisilZuzenduKop;
-		this.ezkutuaKop=pEzkutuaKop;
-		this.misilKop=pMisilKop;
+	public Armamentua(){
+		this.bonbaKop=3;
+		this.radarKop=2;
+		this.misilZuzenduKop=3;
+		this.ezkutuaKop=1;
+		this.misilKop=4;
 		this.nireArmak=new ArrayList<Arma>();
 	}
 
