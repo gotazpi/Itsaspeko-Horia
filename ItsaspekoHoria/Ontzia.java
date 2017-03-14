@@ -13,13 +13,13 @@ public abstract class Ontzia {
 		this.konponketaKostua=pKonponketaKostua;
 	}
 	
-	public boolean ezkutatu(){
+	public void ezkutatu(){
 		if (!ezkutua){
 			ezkutua=true;
-			return true;
+			System.out.println("Ontzia ezkutatu da!");
 		}
 		else{
-			return false;
+			System.out.println("Dagoeneko ezkutaturik zegoen");
 		}
 	}
 

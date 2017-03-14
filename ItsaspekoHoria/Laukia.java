@@ -7,10 +7,12 @@ public class Laukia {
 	private int lerro;
 	
 	//eraikitzailea
-	public Laukia (boolean pOntziaDago, int pZutabe, int pLerro){
-		this.ontziaDago=pOntziaDago;
+	public Laukia (int pZutabe, int pLerro){
+		this.ontziaDago=false;
 		this.zutabe=pZutabe;
 		this.lerro=pLerro;
 	}
-
+	public boolean OntziaDago(){
+		return ontziaDago;
+	}
 }

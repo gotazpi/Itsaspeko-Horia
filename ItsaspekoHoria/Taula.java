@@ -11,10 +11,12 @@ public class Taula {
 		Laukia taulaMatrizea[][] = new Laukia[10][10];
 		for (int i=0; i<10; i++){
 			for (int j=0; j<10; j++){
-				taulaMatrizea[i][j]= new Laukia (false, i, j);
+				taulaMatrizea[i][j]= new Laukia (i, j);
 			}	
 		}	
 	}
-	
+	public boolean OntziaDago(int x, int y){
+		return taulaMatrizea[x][y].OntziaDago();
+	}
 	//metodoak
 }

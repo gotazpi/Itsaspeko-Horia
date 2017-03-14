@@ -17,9 +17,10 @@ public class Ordenagailua {
 	
 	//metodoak
 	public boolean OntziaEzkutatu(int pLerroa, int pZutabea){
-		if jokalariFlota.OntziaDago(){
+		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
 			return jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}
+		else System.out.println("Ez dago ontzirik");
 	}
 	
 }

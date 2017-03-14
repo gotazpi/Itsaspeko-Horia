@@ -25,7 +25,7 @@ public class Jokalaria {
 		int pLerroa=0;
 		int pZutabea=0;
 		int pNorantza;
-		for (int i=0; i==this.flota.getOntziKop();i++){
+		for (int i=0; i<=this.flota.getOntziKop();i++){
 			this.jokalariFlota.ontziaKokatu(pLerroa, pZutabea, pNorantza, this.flota.getOntzia(i));
 		}
 		
