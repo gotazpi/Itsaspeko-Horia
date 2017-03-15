@@ -6,13 +6,14 @@ import java.util.Scanner;
 public class Jokalaria {
 	
 	//atributuak
+	private static Jokalaria nireJokalaria;
 	private Taula jokalariFlota;
 	private Taula etsaiarenFlota;
 	private Armamentua armamentua;
 	private Flota flota;
 	
 	//eraikitzailea
-	public Jokalaria (){
+	private Jokalaria (){
 		this.armamentua= new Armamentua();
 		this.jokalariFlota = new Taula();
 		this.etsaiarenFlota = new Taula();
@@ -20,6 +21,13 @@ public class Jokalaria {
 	}
 	
 	//metodoak
+	
+	public static Jokalaria getJokalaria(){
+		if (nireJokalaria==null){
+			nireJokalaria= new Jokalaria();
+		}
+		return nireJokalaria;
+	}
 	
 
 /*	public void flotaKokatu (){ // el metodo esta mal, no se usa iterador
@@ -34,6 +42,7 @@ public class Jokalaria {
 		
 	}
 	*/
+	
 	public void ontziaKokatu(int pLerroa, int pZutabea,int pNorantza, Ontzia pOntzia){
 		jokalariFlota.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
 	}
@@ -42,6 +51,14 @@ public class Jokalaria {
 			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}
 		else System.out.println("Ez dago ontzirik");
+	}
+	
+	public Taula getTaula(){
+		return this.jokalariFlota;
+	}
+	
+	public Flota getFlota(){
+		return this.flota;
 	}
 
 }

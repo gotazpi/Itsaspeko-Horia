@@ -5,14 +5,17 @@ import java.util.ArrayList;
 public class Taula {
 	//atributuak
 	private Laukia taulaMatrizea[][]; 
-
+	private int ontziKop;
+	private int kont;
 	
 	//eraikitzailea
 	public Taula(){
+		ontziKop=0;
+		kont=0;
 		Laukia taulaMatrizea[][] = new Laukia[10][10];
 		for (int i=0; i<10; i++){
 			for (int j=0; j<10; j++){
-				taulaMatrizea[i][j]= new Laukia (i, j);
+				taulaMatrizea[i][j]= new Laukia (i,j);
 			}	
 		}	
 		
@@ -73,9 +76,18 @@ public class Taula {
    
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
-	   taulaMatrizea[x][y].setOntziaDago();
+	   if (kont==0){
+		   ontziKop++;
+		   kont=pOntzia.getLuzera()-1;
+	   }
+	   else{
+		   kont--;
+	   }
    	}    	
  
+   public int ontziKop(){
+	   return ontziKop;
+   }
    
    public void ontziaKokatu(Ontzia ontzia, int x, int y){
   			ipiniOntzia(x, y, ontzia);
