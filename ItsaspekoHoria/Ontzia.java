@@ -22,5 +22,8 @@ public abstract class Ontzia {
 			System.out.println("Dagoeneko ezkutaturik zegoen");
 		}
 	}
+	public int getLuzera(){
+		return luzera;
+	}
 
 }

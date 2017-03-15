@@ -1,6 +1,7 @@
 package ItsaspekoHoria;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Flota {
 	
@@ -36,5 +37,4 @@ public class Flota {
 	public Ontzia getOntzia(int i){
 		return this.ontziak[i];
 	}
-
 }
