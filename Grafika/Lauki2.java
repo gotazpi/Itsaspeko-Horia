@@ -44,11 +44,37 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		System.out.println(i);
-		System.out.println(j);
-		if (Jokalaria.getJokalaria().getTaula().libreDago(i, j)){
+		if (Jokalaria.getJokalaria().getTaula().lekuaDago(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera(), i, j, 1)){
 			this.aldatuIrudia();
-			Jokalaria.getJokalaria().getTaula().ipiniOntzia(i, j, Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()));
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==2){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+			}
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==3){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+2, j).aldatuIrudia();
+			}
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==4){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+2, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+3, j).aldatuIrudia();
+			}
+			Jokalaria.getJokalaria().getTaula().ontziOsoaKokatu(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()), i, j, 1);
 		}
+		/*if (Jokalaria.getJokalaria().getTaula().lekuaDago(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera(), i, j, 1)){
+			this.aldatuIrudia();
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==2){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+			}
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==3){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+2, j).aldatuIrudia();
+			}
+			if (Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera()==4){
+				Leihoa.getLeihoa().getLaukia2(i+1, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+2, j).aldatuIrudia();
+				Leihoa.getLeihoa().getLaukia2(i+3, j).aldatuIrudia();
+			}
+			Jokalaria.getJokalaria().getTaula().ontziOsoaKokatu(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()), i, j, 1);
+		}*/
 	}
 }

@@ -31,7 +31,7 @@ public class Laukia {
 	public void setOntziaDago(){
 		ontziaDago=true;
 	}
-	public boolean OntziaDago(){
+	public boolean ontziaDago(){
 		return ontziaDago;
 	}
 	public void setOntzia(Ontzia pOntzia){

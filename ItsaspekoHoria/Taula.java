@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Taula {
 	//atributuak
-	private Laukia taulaMatrizea[][]; 
+	private Laukia[][] taulaMatrizea; 
 	private int ontziKop;
 	private int kont;
 	
@@ -12,20 +12,23 @@ public class Taula {
 	public Taula(){
 		ontziKop=0;
 		kont=0;
-		Laukia taulaMatrizea[][] = new Laukia[10][10];
+		taulaMatrizea = new Laukia[10][10];
 		for (int i=0; i<10; i++){
 			for (int j=0; j<10; j++){
 				taulaMatrizea[i][j]= new Laukia (i,j);
 			}	
 		}	
-		
 	}
+	
 	public Ontzia getOntzia(int x, int y){
 		return taulaMatrizea[x][y].getOntzia();
 	}
 	public boolean OntziaDago(int x, int y){
-		return taulaMatrizea[x][y].OntziaDago();
+		System.out.println(taulaMatrizea!=null);
+		System.out.println(kont);
+		return taulaMatrizea[x][y].getOntziaDago();
 	}
+	
 	public boolean libreDago(int x, int y){
         if (!taulaMatrizea[x][y].getOntziaDago() && !taulaMatrizea[x][y].getBarkuaHurbil()){
        	 return true;
@@ -76,6 +79,7 @@ public class Taula {
    
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
+	   taulaMatrizea[x][y].setOntziaDago();
 	   if (kont==0){
 		   ontziKop++;
 		   kont=pOntzia.getLuzera()-1;
@@ -116,6 +120,7 @@ public class Taula {
 		   		for(int i=0; i<=luzera; i++){
 		   			ontziaKokatu(ontzia, x-i, y);
 		   		}
+		   	}
+		   	ontziKop++;
 	   }
-   }
    }}

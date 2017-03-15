@@ -22,14 +22,28 @@ import javax.swing.JButton;
 
 import Grafika.Lauki1;
 import ItsaspekoHoria.*;
+import javax.swing.JList;
 
 
 public class Leihoa extends JFrame {
-
+	
+	private static Leihoa nireLeihoa;
 	private JPanel contentPane;
 	private Lauki1[][] matrix1;
 	private Lauki2[][] matrix2;
 
+	public static Leihoa getLeihoa(){
+		if (nireLeihoa==null){
+			nireLeihoa = new Leihoa();
+		}
+		return nireLeihoa;
+	}
+	
+	public Lauki2 getLaukia2(int i, int j){
+		return matrix2[i][j];
+	}
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +51,7 @@ public class Leihoa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Jokalaria j = Jokalaria.getJokalaria();
 					Leihoa frame = new Leihoa();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -49,7 +64,7 @@ public class Leihoa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Leihoa() {
+	private Leihoa() {
 		
 		this.matrix1=new Lauki1[10][10];
 		this.matrix2=new Lauki2[10][10];
@@ -62,12 +77,16 @@ public class Leihoa extends JFrame {
 		setContentPane(contentPane);
 		
 		
+		
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
 		contentPane.add(panel1, BorderLayout.EAST);
 		contentPane.add(panel2, BorderLayout.WEST);
 		panel1.setLayout(new GridLayout(10, 10, 0, 0));
 		panel2.setLayout(new GridLayout(10, 10, 0, 0));
+		
+		JList list = new JList();
+		contentPane.add(list, BorderLayout.CENTER);
 		
 		Lauki1 pLauki1=null;
 		for(int lerro=0; lerro<10; lerro++){
