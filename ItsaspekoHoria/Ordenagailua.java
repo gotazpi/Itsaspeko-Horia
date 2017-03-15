@@ -16,7 +16,7 @@ public class Ordenagailua {
 		}
 	
 	//metodoak
-	public boolean OntziaEzkutatu(int pLerroa, int pZutabea){
+	public void OntziaEzkutatu(int pLerroa, int pZutabea){
 		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
 			return jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}

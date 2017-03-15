@@ -34,6 +34,11 @@ public class Jokalaria {
 	public void ontziaKokatu(int pLerroa, int pZutabea,int pNorantza, Ontzia pOntzia){
 		
 	}
-	
+	public void OntziaEzkutatu(int pLerroa, int pZutabea){
+		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
+			return jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
+		}
+		else System.out.println("Ez dago ontzirik");
+	}
 
 }
