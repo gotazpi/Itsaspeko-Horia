@@ -46,13 +46,13 @@ public class Taula {
    		}
    	};
    	if (norabidea==1){
-   		if(luzera+x>9)libre=false;
+   		if(luzera+x>10)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
    			libre=!taulaMatrizea[x+i][y].getOntziaDago()&&!taulaMatrizea[x+i][y].getBarkuaHurbil();
    		}
    	};
    	if (norabidea==2){
-   		if(luzera+y>9)libre=false;
+   		if(luzera+y>10)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
    			libre=!taulaMatrizea[x][y+i].getOntziaDago()&&!taulaMatrizea[x][y+i].getBarkuaHurbil();
    		}
@@ -80,8 +80,8 @@ public class Taula {
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
 	   taulaMatrizea[x][y].setOntziaDago();
-	   System.out.print(y);
-		System.out.println(x);
+	   System.out.print(y + " ");
+	   System.out.println(x);
 
    	}    	
    

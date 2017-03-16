@@ -18,6 +18,7 @@ private int i,j;
 		this.addMouseListener(this);
 	}
 	
+	
 	public void aldatuIrudia(){
 		this.setBackground(java.awt.Color.black);
 	}
@@ -50,8 +51,6 @@ private int i,j;
 		if(Jokalaria.getJokalaria().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
 			Jokalaria.getJokalaria().getFlota().urrengoa();
 			this.aldatuIrudia();
-			
-			//Leihoa.getLeihoa().setKoloreakMatrix2(i, j, ontzia.getLuzera());
 		};
 		
 		

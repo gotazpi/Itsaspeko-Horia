@@ -36,7 +36,6 @@ public class Leihoa extends JFrame {
 	private Lauki2[][] matrix2;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	
 	public static Leihoa getLeihoa(){
 		if (nireLeihoa==null){
@@ -75,7 +74,7 @@ public class Leihoa extends JFrame {
 		this.matrix2=new Lauki2[10][10];
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 900);
+		setBounds(100, 100, 1000, 900);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -159,19 +158,6 @@ public class Leihoa extends JFrame {
 		lblY.setBounds(801, 807, 34, 14);
 		contentPane.add(lblY);
 		
-		JLabel lblNorabidea = new JLabel("Norabidea: 0(gorantz) 1(eskumarantz) 2(beherantz) 3(ezkerrerantz)");
-		lblNorabidea.setEnabled(false);
-		lblNorabidea.setBounds(628, 409, 336, 14);
-		contentPane.add(lblNorabidea);
-		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setEnabled(false);
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setBounds(638, 434, 326, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
 		Lauki1 pLauki1=null;
 		for(int lerro=0; lerro<10; lerro++){
 			for(int zutabe=0; zutabe<10; zutabe++){
@@ -189,6 +175,8 @@ public class Leihoa extends JFrame {
 				panel2.add(pLauki2);
 			}
 		}
+		
+		//this.setResizable(false);
 		
 	}
 	public int getNorabidea(){
