@@ -37,29 +37,29 @@ public class Taula {
         }       
    }
    
-   public boolean lekuaDago (int luzera, int x, int y, int norabidea){//0(gorantz) 1(eskumarantz) 2(beherantz) 3(ezkerrerantz)
+   public boolean lekuaDago (int luzera, int x, int y, int norabidea){//0() 1(beherantz) 2() 3()
    	boolean libre=true;
 	if (norabidea==0){
-		if(luzera>y+1)libre=false;
-   		for(int i=0; i<=luzera&&libre; i++){
+		if(luzera-1>y)libre=false;
+   		for(int i=0; i<luzera&&libre; i++){
    			libre=!taulaMatrizea[x][y-i].getOntziaDago()&&!taulaMatrizea[x][y-i].getBarkuaHurbil();
    		}
    	};
    	if (norabidea==1){
    		if(luzera+x>9)libre=false;
-   		for(int i=0; i<=luzera&&libre; i++){
-   			libre=!taulaMatrizea[x+1][y].getOntziaDago()&&!taulaMatrizea[x+1][y].getBarkuaHurbil();
+   		for(int i=0; i<luzera&&libre; i++){
+   			libre=!taulaMatrizea[x+i][y].getOntziaDago()&&!taulaMatrizea[x+i][y].getBarkuaHurbil();
    		}
    	};
    	if (norabidea==2){
    		if(luzera+y>9)libre=false;
-   		for(int i=0; i<=luzera&&libre; i++){
+   		for(int i=0; i<luzera&&libre; i++){
    			libre=!taulaMatrizea[x][y+i].getOntziaDago()&&!taulaMatrizea[x][y+i].getBarkuaHurbil();
    		}
    	};
    	if (norabidea==3){
-   		if(luzera>x+1)libre=false;
-   		for(int i=0; i<=luzera&&libre; i++){
+   		if(luzera-1>x)libre=false;
+   		for(int i=0; i<luzera&&libre; i++){
    			libre=!taulaMatrizea[x-i][y].getOntziaDago()&&!taulaMatrizea[x-i][y].getBarkuaHurbil();
    		}
    	};
@@ -80,47 +80,41 @@ public class Taula {
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
 	   taulaMatrizea[x][y].setOntziaDago();
-	   if (kont==0){
-		   ontziKop++;
-		   kont=pOntzia.getLuzera()-1;
-	   }
-	   else{
-		   kont--;
-	   }
+	   System.out.print(y);
+		System.out.println(x);
+
    	}    	
- 
-   public int ontziKop(){
-	   return ontziKop;
-   }
    
    public void ontziaKokatu(Ontzia ontzia, int x, int y){
   			ipiniOntzia(x, y, ontzia);
   			inguruaAldatu(x, y);
    }
    
-   public void ontziOsoaKokatu(Ontzia ontzia, int x, int y, int norabidea){//0(gorantz) 1(eskumarantz) 2(beherantz) 3(ezkerrerantz)
+   public boolean ontziOsoaKokatu(Ontzia ontzia, int x, int y, int norabidea){
 	   int luzera = ontzia.getLuzera();
+	   boolean kokatua = false;
 	   if (lekuaDago(luzera, x, y, norabidea)){
+		   kokatua=true;
 		   if (norabidea==0){
-		   		for(int i=0; i<=luzera; i++){
+		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x, y-i);
 		   		}
 		   	};
 		   	if (norabidea==1){
-		   		for(int i=0; i<=luzera; i++){
+		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x+i, y);
 		   		}
 		   	};
 		   	if (norabidea==2){
-		   		for(int i=0; i<=luzera; i++){
+		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x, y+i);
 		   		}
 		   	};
 		   	if (norabidea==3){
-		   		for(int i=0; i<=luzera; i++){
+		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x-i, y);
 		   		}
 		   	}
-		   	ontziKop++;
 	   }
+	   return kokatua;
    }}
