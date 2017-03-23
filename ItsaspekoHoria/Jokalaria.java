@@ -1,19 +1,16 @@
 package ItsaspekoHoria;
 
-import java.util.Iterator;
-import java.util.Scanner;
 
-public class Jokalaria {
+public abstract class Jokalaria {
 	
 	//atributuak
-	private static Jokalaria nireJokalaria;
-	private Taula jokalariFlota;
-	private Taula etsaiarenFlota;
-	private Armamentua armamentua;
-	private Flota flota;
+	protected Taula jokalariFlota;
+	protected Taula etsaiarenFlota;
+	protected Armamentua armamentua;
+	protected Flota flota;
 	
 	//eraikitzailea
-	private Jokalaria (){
+	public Jokalaria (){
 		this.armamentua= new Armamentua();
 		this.jokalariFlota = new Taula();
 		this.etsaiarenFlota = new Taula();
@@ -21,14 +18,6 @@ public class Jokalaria {
 	}
 	
 	//metodoak
-	
-	public static Jokalaria getJokalaria(){
-		if (nireJokalaria==null){
-			nireJokalaria= new Jokalaria();
-		}
-		return nireJokalaria;
-	}
-	
 
 /*	public void flotaKokatu (){ // el metodo esta mal, no se usa iterador
 		for (int i=0; i<this.flota.getOntziKop();i++){
@@ -43,16 +32,6 @@ public class Jokalaria {
 	}
 	*/
 	
-	public void ontziaKokatu(int pLerroa, int pZutabea,int pNorantza, Ontzia pOntzia){
-		jokalariFlota.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
-	}
-	public void OntziaEzkutatu(int pLerroa, int pZutabea){
-		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
-			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
-		}
-		else System.out.println("Ez dago ontzirik");
-	}
-	
 	public Taula getTaula(){
 		return this.jokalariFlota;
 	}
@@ -60,5 +39,6 @@ public class Jokalaria {
 	public Flota getFlota(){
 		return this.flota;
 	}
-
+	
+	
 }

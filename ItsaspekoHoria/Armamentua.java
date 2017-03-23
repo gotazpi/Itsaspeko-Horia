@@ -21,5 +21,9 @@ public class Armamentua {
 		this.misilKop=4;
 		this.nireArmak=new ArrayList<Arma>();
 	}
+	
+	public void radarraKokatu(int x, int y){
+		
+	}
 
 }

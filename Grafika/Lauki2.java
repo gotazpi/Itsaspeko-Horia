@@ -45,11 +45,11 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		int norabidea = Jokalaria.getJokalaria().getFlota().getNorabidea();
-		int zein = Jokalaria.getJokalaria().getFlota().getZein();
-		Ontzia ontzia = Jokalaria.getJokalaria().getFlota().getOntzia(zein);
-		if(Jokalaria.getJokalaria().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
-			Jokalaria.getJokalaria().getFlota().urrengoa();
+		int norabidea = Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
+		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
+		Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
+		if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
+			Erabiltzailea.getErabiltzailea().getFlota().urrengoa();
 			this.aldatuIrudia();
 		};
 		

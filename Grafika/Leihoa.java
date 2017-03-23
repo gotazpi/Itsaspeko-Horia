@@ -56,7 +56,7 @@ public class Leihoa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Jokalaria j = Jokalaria.getJokalaria();
+					Erabiltzailea j = Erabiltzailea.getErabiltzailea();
 					Leihoa frame = new Leihoa();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -94,7 +94,7 @@ public class Leihoa extends JFrame {
 		JButton btnNewButton_1 = new JButton("Ezkutatu");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Jokalaria.getJokalaria().getTaula().getOntzia(Integer.parseInt(textField.getText().trim())-1, Integer.parseInt(textField_1.getText().trim())-1).ezkutatu();
+				Erabiltzailea.getErabiltzailea().getTaula().getOntzia(Integer.parseInt(textField.getText().trim())-1, Integer.parseInt(textField_1.getText().trim())-1).ezkutatu();
 			}
 		});
 		btnNewButton_1.setBounds(628, 758, 119, 38);
@@ -103,7 +103,7 @@ public class Leihoa extends JFrame {
 		JButton button = new JButton("Gorantz");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Jokalaria.getJokalaria().getFlota().setNorabidea(3);
+				Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(3);
 			}
 		});
 		button.setBounds(628, 709, 119, 38);
@@ -112,7 +112,7 @@ public class Leihoa extends JFrame {
 		JButton button_1 = new JButton("Beherantz");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Jokalaria.getJokalaria().getFlota().setNorabidea(1);
+				Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(1);
 			}
 		});
 		button_1.setBounds(628, 659, 119, 38);
@@ -121,7 +121,7 @@ public class Leihoa extends JFrame {
 		JButton button_2 = new JButton("Eskumarantz");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Jokalaria.getJokalaria().getFlota().setNorabidea(2);
+				Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(2);
 			}
 		});
 		button_2.setBounds(628, 612, 119, 38);
@@ -130,7 +130,7 @@ public class Leihoa extends JFrame {
 		JButton button_3 = new JButton("Ezkerrerantz");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Jokalaria.getJokalaria().getFlota().setNorabidea(0);
+				Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(0);
 			}
 		});
 		button_3.setBounds(628, 565, 119, 38);
@@ -180,7 +180,7 @@ public class Leihoa extends JFrame {
 		
 	}
 	public int getNorabidea(){
-		return Jokalaria.getJokalaria().getFlota().getNorabidea();
+		return Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
 	}
 	public void setKoloreakMatrix2(int x,int y, int luzera){//0(gorantz) 1(eskumarantz) 2(beherantz) 3(ezkerrerantz)
 		if (getNorabidea()==0){for(int i=0; i<=luzera; i++){

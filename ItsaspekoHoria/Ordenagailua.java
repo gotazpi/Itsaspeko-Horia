@@ -1,26 +1,34 @@
 package ItsaspekoHoria;
 
-public class Ordenagailua {
-	//ATRIBUTUAK
-	private Taula jokalariFlota;
-	private Taula etsaiarenFlota;
-	private Armamentua armamentua;
-	private Flota flota;
+public class Ordenagailua extends Jokalaria{
+	//atributuak
+	private static Ordenagailua nireOrdenagailua = null;
 	
 	//eraikitzailea
-	public Ordenagailua (){
-		this.armamentua= new Armamentua();
-		this.jokalariFlota = new Taula();
-		this.etsaiarenFlota = new Taula();
-		this.flota=new Flota();
+	private Ordenagailua (){
+		super();
+	}
+	
+	public static Ordenagailua getOrdenagailua(){
+		if (nireOrdenagailua==null){
+			nireOrdenagailua = new Ordenagailua();
 		}
+		return nireOrdenagailua;
+	}
 	
 	//metodoak
-	public void OntziaEzkutatu(int pLerroa, int pZutabea){
+	
+	/*public void ontziaEzkutatu(int pLerroa, int pZutabea){
 		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
 			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}
 		else System.out.println("Ez dago ontzirik");
-	}
+	}*/
 	
+	public void ontziaKokatu(){
+		//TODO
+	}
+	public void ontziaEzkutatu(){
+		//TODO
+	}
 }
