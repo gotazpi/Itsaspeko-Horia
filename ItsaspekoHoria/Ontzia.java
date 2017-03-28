@@ -11,6 +11,7 @@ public abstract class Ontzia {
 	public Ontzia (int pLuzera, float pKonponketaKostua){
 		this.luzera=pLuzera;
 		this.konponketaKostua=pKonponketaKostua;
+		this.ezkutua=false;
 	}
 	
 	public void ezkutatu(){

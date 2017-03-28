@@ -49,7 +49,7 @@ private int i,j;
 		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
 		Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
 		if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
-			Erabiltzailea.getErabiltzailea().getFlota().urrengoa();
+			Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
 			this.aldatuIrudia();
 		};
 		

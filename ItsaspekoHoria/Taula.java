@@ -21,7 +21,7 @@ public class Taula {
 	public Ontzia getOntzia(int x, int y){
 		return taulaMatrizea[x][y].getOntzia();
 	}
-	public boolean OntziaDago(int x, int y){
+	public boolean ontziaDago(int x, int y){
 		System.out.println(taulaMatrizea!=null);
 		System.out.println(kont);
 		//return taulaMatrizea[x][y].getOntziaDago();

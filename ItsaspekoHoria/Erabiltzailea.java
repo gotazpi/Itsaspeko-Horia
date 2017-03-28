@@ -22,7 +22,7 @@ public class Erabiltzailea extends Jokalaria{
 	}
 	
 	public void ontziaEzkutatu(int pLerroa, int pZutabea){
-		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
+		if (jokalariFlota.ontziaDago(pLerroa, pZutabea)){
 			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}
 		else System.out.println("Ez dago ontzirik");

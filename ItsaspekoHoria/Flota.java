@@ -47,7 +47,7 @@ public class Flota {
 	public int getZein(){
 		return zein;
 	}
-	public void urrengoa(){
+	public void hurrengoa(){
 		zein++;
 	}
 }
