@@ -1,7 +1,5 @@
 package ItsaspekoHoria;
 
-import java.util.ArrayList;
-
 public class Taula {
 	//atributuak
 	private Laukia[][] taulaMatrizea; 
@@ -26,68 +24,73 @@ public class Taula {
 	public boolean OntziaDago(int x, int y){
 		System.out.println(taulaMatrizea!=null);
 		System.out.println(kont);
-		return taulaMatrizea[x][y].getOntziaDago();
+		//return taulaMatrizea[x][y].getOntziaDago();
+		return (taulaMatrizea[x][y].getEgoera() instanceof OntziaDago);
 	}
 	
-	public boolean libreDago(int x, int y){
-        if (!taulaMatrizea[x][y].getOntziaDago() && !taulaMatrizea[x][y].getBarkuaHurbil()){
+	public boolean libreDago(int x, int y){		
+        if (taulaMatrizea[x][y].getEgoera() instanceof Ura){
        	 return true;
         }else{
        	 return false;
         }       
    }
    
-   public boolean lekuaDago (int luzera, int x, int y, int norabidea){//0() 1(beherantz) 2() 3()
+   public boolean lekuaDago (int luzera, int x, int y, int norabidea){//0(gora) 1(behera) 2(eskuma) 3(ezkerra)
    	boolean libre=true;
 	if (norabidea==0){
 		if(luzera-1>y)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
-   			libre=!taulaMatrizea[x][y-i].getOntziaDago()&&!taulaMatrizea[x][y-i].getBarkuaHurbil();
+   			libre=libreDago(x,y-i);
+   			//libre=!taulaMatrizea[x][y-i].getOntziaDago()&&!taulaMatrizea[x][y-i].getBarkuaHurbil();
    		}
-   	};
+   	}
    	if (norabidea==1){
    		if(luzera+x>10)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
-   			libre=!taulaMatrizea[x+i][y].getOntziaDago()&&!taulaMatrizea[x+i][y].getBarkuaHurbil();
+   			libre=libreDago(x+i,y);
+   			//libre=!taulaMatrizea[x+i][y].getOntziaDago()&&!taulaMatrizea[x+i][y].getBarkuaHurbil();
    		}
-   	};
+   	}
    	if (norabidea==2){
    		if(luzera+y>10)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
-   			libre=!taulaMatrizea[x][y+i].getOntziaDago()&&!taulaMatrizea[x][y+i].getBarkuaHurbil();
+   			libre=libreDago(x,y+i);
+   			//libre=!taulaMatrizea[x][y+i].getOntziaDago()&&!taulaMatrizea[x][y+i].getBarkuaHurbil();
    		}
-   	};
+   	}
    	if (norabidea==3){
    		if(luzera-1>x)libre=false;
    		for(int i=0; i<luzera&&libre; i++){
-   			libre=!taulaMatrizea[x-i][y].getOntziaDago()&&!taulaMatrizea[x-i][y].getBarkuaHurbil();
+   			libre=libreDago(x-i,y);
+   			//libre=!taulaMatrizea[x-i][y].getOntziaDago()&&!taulaMatrizea[x-i][y].getBarkuaHurbil();
    		}
-   	};
+   	}
    	return libre;
    }
 
    public void inguruaAldatu(int x, int y){
-	   if (x>0&&y>0)taulaMatrizea[x-1][y-1].setBarkuaHurbil();
-	   if (x>0)taulaMatrizea[x-1][y].setBarkuaHurbil();	   
-	   if (x>0&&y<9)taulaMatrizea[x-1][y+1].setBarkuaHurbil();
-	   if (y>0)taulaMatrizea[x][y-1].setBarkuaHurbil();
-	   if (y<9)taulaMatrizea[x][y+1].setBarkuaHurbil();
-	   if (x<9&&y>0)taulaMatrizea[x+1][y-1].setBarkuaHurbil();
-	   if (x<9)taulaMatrizea[x+1][y].setBarkuaHurbil();
-	   if (x<9&&y<9)taulaMatrizea[x+1][y+1].setBarkuaHurbil();
+	   if (x>0&&y>0&&taulaMatrizea[x-1][y-1].getEgoera() instanceof Ura)taulaMatrizea[x-1][y-1].egoeraAldatu(new BarkuaHurbil());
+	   if (x>0&&taulaMatrizea[x-1][y].getEgoera() instanceof Ura)taulaMatrizea[x-1][y].egoeraAldatu(new BarkuaHurbil());  
+	   if (x>0&&y<9&&taulaMatrizea[x-1][y+1].getEgoera() instanceof Ura)taulaMatrizea[x-1][y+1].egoeraAldatu(new BarkuaHurbil());
+	   if (y>0&&taulaMatrizea[x][y-1].getEgoera() instanceof Ura)taulaMatrizea[x][y-1].egoeraAldatu(new BarkuaHurbil());
+	   if (y<9&&taulaMatrizea[x][y+1].getEgoera() instanceof Ura)taulaMatrizea[x][y+1].egoeraAldatu(new BarkuaHurbil());
+	   if (x<9&&y>0&&taulaMatrizea[x+1][y-1].getEgoera() instanceof Ura)taulaMatrizea[x+1][y-1].egoeraAldatu(new BarkuaHurbil());
+	   if (x<9&&taulaMatrizea[x+1][y].getEgoera() instanceof Ura)taulaMatrizea[x+1][y].egoeraAldatu(new BarkuaHurbil());
+	   if (x<9&&y<9&&taulaMatrizea[x+1][y+1].getEgoera() instanceof Ura)taulaMatrizea[x+1][y+1].egoeraAldatu(new BarkuaHurbil());
    }
    
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
-	   taulaMatrizea[x][y].setOntziaDago();
-	   System.out.print(y + " ");
-	   System.out.println(x);
+	   taulaMatrizea[x][y].egoeraAldatu(new OntziaDago());
+	   System.out.print(x + " ");
+	   System.out.println(y);
 
    	}    	
    
    public void ontziaKokatu(Ontzia ontzia, int x, int y){
-  			ipiniOntzia(x, y, ontzia);
-  			inguruaAldatu(x, y);
+  			ipiniOntzia(x,y,ontzia);
+  			inguruaAldatu(x,y);
    }
    
    public boolean ontziOsoaKokatu(Ontzia ontzia, int x, int y, int norabidea){
