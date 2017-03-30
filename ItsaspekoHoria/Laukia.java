@@ -45,4 +45,6 @@ public class Laukia {
 	public Egoera getEgoera(){
 		return this.egoera;
 	}
+	
+	public void koloreAldatu(){}
 }

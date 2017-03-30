@@ -27,5 +27,8 @@ public class Erabiltzailea extends Jokalaria{
 		}
 		else System.out.println("Ez dago ontzirik");
 	}
+	
+	public void radarra(int x, int y){
+		etsaiarenFlota.radarKontsultatu(x, y);}
 
 }

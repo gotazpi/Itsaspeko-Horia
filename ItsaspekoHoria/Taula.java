@@ -120,4 +120,20 @@ public class Taula {
 		   	}
 	   }
 	   return kokatua;
-   }}
+   }
+
+   public void radarKontsultatu(int x, int y){
+	   if (taulaMatrizea[x-1][y-1].getEgoera() instanceof OntziaDago)taulaMatrizea[x][y].koloreAldatu();
+	   if (x>0&&y>0&&taulaMatrizea[x-1][y-1].getEgoera() instanceof OntziaDago)taulaMatrizea[x-1][y-1].koloreAldatu();
+	   if (x>0&&taulaMatrizea[x-1][y].getEgoera() instanceof OntziaDago)taulaMatrizea[x-1][y].koloreAldatu();  
+	   if (x>0&&y<9&&taulaMatrizea[x-1][y+1].getEgoera() instanceof OntziaDago)taulaMatrizea[x-1][y+1].koloreAldatu();
+	   if (y>0&&taulaMatrizea[x][y-1].getEgoera() instanceof OntziaDago)taulaMatrizea[x][y-1].koloreAldatu();
+	   if (y<9&&taulaMatrizea[x][y+1].getEgoera() instanceof OntziaDago)taulaMatrizea[x][y+1].koloreAldatu();
+	   if (x<9&&y>0&&taulaMatrizea[x+1][y-1].getEgoera() instanceof OntziaDago)taulaMatrizea[x+1][y-1].koloreAldatu();
+	   if (x<9&&taulaMatrizea[x+1][y].getEgoera() instanceof OntziaDago)taulaMatrizea[x+1][y].koloreAldatu();
+	   if (x<9&&y<9&&taulaMatrizea[x+1][y+1].getEgoera() instanceof OntziaDago)taulaMatrizea[x+1][y+1].koloreAldatu(); 
+	   
+   }
+   
+   
+}

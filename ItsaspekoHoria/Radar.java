@@ -2,13 +2,16 @@ package ItsaspekoHoria;
 
 public class Radar extends Arma {
 	//atribituak
-	private int kontsultaKop;
+	private static int erradioa=1;
 	//eraikitzailea
 	public Radar (){
 		super(25);
-		this.kontsultaKop=3;	//aldatu daiteke
 	}
 	
 	//metodoak
+	
+	
+	
+	
 
 }

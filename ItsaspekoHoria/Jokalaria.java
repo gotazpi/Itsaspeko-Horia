@@ -41,4 +41,8 @@ public abstract class Jokalaria {
 	}
 	
 	
+	
+	public void radarraJarri(int x, int y){
+		etsaiarenFlota.radarKontsultatu(x, y);
+	}
 }

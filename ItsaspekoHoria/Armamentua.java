@@ -15,7 +15,7 @@ public class Armamentua {
 	//eraikitzailea
 	public Armamentua(){
 		this.bonbaKop=3;
-		this.radarKop=2;
+		this.radarKop=3;
 		this.misilZuzenduKop=3;
 		this.ezkutuaKop=1;
 		this.misilKop=4;
