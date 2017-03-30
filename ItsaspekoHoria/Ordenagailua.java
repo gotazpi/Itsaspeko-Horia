@@ -1,5 +1,7 @@
 package ItsaspekoHoria;
 
+import java.util.Random;
+
 public class Ordenagailua extends Jokalaria{
 	//atributuak
 	private static Ordenagailua nireOrdenagailua = null;
@@ -18,17 +20,35 @@ public class Ordenagailua extends Jokalaria{
 	
 	//metodoak
 	
-	/*public void ontziaEzkutatu(int pLerroa, int pZutabea){
-		if (jokalariFlota.OntziaDago(pLerroa, pZutabea)){
-			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
+	public void ontziaKokatu(Ontzia pOntzia){
+		int zein=0;
+		while(zein<10){
+			int x=this.posizioaLortu();
+			int y=this.posizioaLortu();
+			int norabidea=this.norabideaLortu();
+			Ontzia ontzia = Ordenagailua.getOrdenagailua().getFlota().getOntzia(zein);
+			if(Ordenagailua.getOrdenagailua().getTaula().ontziOsoaKokatu(ontzia, x, y, norabidea)){
+				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+			}
 		}
-		else System.out.println("Ez dago ontzirik");
-	}*/
-	
-	public void ontziaKokatu(){
-		//TODO
 	}
 	public void ontziaEzkutatu(){
-		//TODO
+		int x=this.posizioaLortu();
+		int y=this.posizioaLortu();
+		if (jokalariFlota.ontziaDago(x,y)){
+			jokalariFlota.getOntzia(x,y).ezkutatu();
+		}
 	}
+	
+	public int posizioaLortu(){
+		Random random = new Random() ;
+		int balioa = random.nextInt(10);
+		return balioa;
+	}
+	
+	public int norabideaLortu(){
+		Random random = new Random() ;
+		int balioa = random.nextInt(4);
+		return balioa;
+	}	
 }
