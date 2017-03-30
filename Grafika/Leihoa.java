@@ -22,10 +22,15 @@ import javax.swing.JButton;
 
 import Grafika.Lauki1;
 import ItsaspekoHoria.*;
+
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import java.util.Observable;
+import java.util.Observer;
+
 
 
 public class Leihoa extends JFrame {
@@ -52,7 +57,7 @@ public class Leihoa extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void hasiera() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -78,8 +83,6 @@ public class Leihoa extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		
 		
 		JPanel panel1 = new JPanel();
 		panel1.setBounds(98, 11, 520, 387);
@@ -167,6 +170,7 @@ public class Leihoa extends JFrame {
 			}
 		}
 		
+		
 		Lauki2 pLauki2=null;
 		for(int lerro=0; lerro<10; lerro++){
 			for(int zutabe=0; zutabe<10; zutabe++){
@@ -182,6 +186,15 @@ public class Leihoa extends JFrame {
 	public int getNorabidea(){
 		return Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
 	}
+	
+	public void refresh(){
+		contentPane.validate();
+		contentPane.repaint();
+		this.validate();
+		this.repaint();
+	}
+	
+	
 	public void setKoloreakMatrix2(int x,int y, int luzera){//0(gorantz) 1(eskumarantz) 2(beherantz) 3(ezkerrerantz)
 		if (getNorabidea()==0){for(int i=0; i<=luzera; i++){
 			

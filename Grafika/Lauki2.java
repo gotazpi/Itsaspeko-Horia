@@ -2,6 +2,7 @@ package Grafika;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Observable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,6 +22,10 @@ private int i,j;
 	
 	public void aldatuIrudia(){
 		this.setBackground(java.awt.Color.black);
+		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
+		this.validate();
+		this.repaint();
+		Leihoa.getLeihoa().refresh();
 	}
 	
 	@Override
