@@ -3,12 +3,10 @@ package ItsaspekoHoria;
 public class Taula {
 	//atributuak
 	private Laukia[][] taulaMatrizea; 
-	private int ontziKop;
 	private int kont;
 	
 	//eraikitzailea
 	public Taula(){
-		ontziKop=0;
 		kont=0;
 		taulaMatrizea = new Laukia[10][10];
 		for (int i=0; i<10; i++){
@@ -135,5 +133,14 @@ public class Taula {
 	   
    }
    
+   public void tiroEgin(int pX, int pY){
+	   if (ontziaDago(pX, pY)){
+		   getOntzia(pX, pY).ikutu(pX, pY);
+		   //beste txanda
+	   }
+	   else{
+		   //txanda pasa
+	   }
+   }
    
 }

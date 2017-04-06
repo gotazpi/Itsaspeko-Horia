@@ -35,8 +35,8 @@ public class Ordenagailua extends Jokalaria{
 	public void ontziaEzkutatu(){
 		int x=this.posizioaLortu();
 		int y=this.posizioaLortu();
-		if (jokalariFlota.ontziaDago(x,y)){
-			jokalariFlota.getOntzia(x,y).ezkutatu();
+		if (jokalariarenTaula.ontziaDago(x,y)){
+			jokalariarenTaula.getOntzia(x,y).ezkutatu();
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class Ordenagailua extends Jokalaria{
 		if (this.armamentua.getRadarKop()!=0){
 			int x = this.posizioaLortu();
 			int y = this.posizioaLortu();
-			etsaiarenFlota.radarKontsultatu(x, y);
+			etsaiarenTaula.radarKontsultatu(x, y);
 		}
 		this.armamentua.radarKopKendu();
 	}

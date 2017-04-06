@@ -18,17 +18,28 @@ public class Erabiltzailea extends Jokalaria{
 	}
 	
 	public void ontziaKokatu(int pLerroa, int pZutabea,int pNorantza, Ontzia pOntzia){
-		jokalariFlota.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
+		jokalariarenTaula.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
 	}
 	
 	public void ontziaEzkutatu(int pLerroa, int pZutabea){
-		if (jokalariFlota.ontziaDago(pLerroa, pZutabea)){
-			jokalariFlota.getOntzia(pLerroa, pZutabea).ezkutatu();
+		if (jokalariarenTaula.ontziaDago(pLerroa, pZutabea)){
+			jokalariarenTaula.getOntzia(pLerroa, pZutabea).ezkutatu();
 		}
 		else System.out.println("Ez dago ontzirik");
 	}
 	
-	public void radarra(int x, int y){
-		etsaiarenFlota.radarKontsultatu(x, y);}
+	public void radarra(int pX, int pY){
+		etsaiarenTaula.radarKontsultatu(pX, pY);
+	}
+	
+	public boolean tiroEgin(int pX, int pY){
+		if (etsaiarenTaula.ontziaDago(pX, pY)&&!(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))){
+			etsaiarenTaula.tiroEgin(pX,pY);
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 }

@@ -4,17 +4,19 @@ package ItsaspekoHoria;
 public abstract class Jokalaria {
 	
 	//atributuak
-	protected Taula jokalariFlota;
-	protected Taula etsaiarenFlota;
+	protected Taula jokalariarenTaula;
+	protected Taula etsaiarenTaula;
 	protected Armamentua armamentua;
 	protected Flota flota;
+	protected int dirua;
 	
 	//eraikitzailea
 	public Jokalaria (){
 		this.armamentua= new Armamentua();
-		this.jokalariFlota = new Taula();
-		this.etsaiarenFlota = new Taula();
+		this.jokalariarenTaula = new Taula();
+		this.etsaiarenTaula = new Taula();
 		this.flota=new Flota();
+		dirua=100;
 	}
 	
 	//metodoak
@@ -33,7 +35,7 @@ public abstract class Jokalaria {
 	*/
 	
 	public Taula getTaula(){
-		return this.jokalariFlota;
+		return this.jokalariarenTaula;
 	}
 	
 	public Flota getFlota(){
@@ -43,6 +45,6 @@ public abstract class Jokalaria {
 	
 	
 	public void radarraJarri(int x, int y){
-		etsaiarenFlota.radarKontsultatu(x, y);
+		etsaiarenTaula.radarKontsultatu(x, y);
 	}
 }
