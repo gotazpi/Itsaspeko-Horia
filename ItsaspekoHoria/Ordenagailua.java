@@ -51,4 +51,13 @@ public class Ordenagailua extends Jokalaria{
 		int balioa = random.nextInt(4);
 		return balioa;
 	}	
+	
+	public void radarra(){
+		if (this.armamentua.getRadarKop()!=0){
+			int x = this.posizioaLortu();
+			int y = this.posizioaLortu();
+			etsaiarenFlota.radarKontsultatu(x, y);
+		}
+		this.armamentua.radarKopKendu();
+	}
 }

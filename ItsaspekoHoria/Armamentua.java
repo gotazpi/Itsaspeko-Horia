@@ -22,8 +22,11 @@ public class Armamentua {
 		this.nireArmak=new ArrayList<Arma>();
 	}
 	
-	public void radarraKokatu(int x, int y){
-		
+	public int getRadarKop(){
+		return this.radarKop;
 	}
 
+	public void radarKopKendu(){
+		this.radarKop--;
+	}
 }
