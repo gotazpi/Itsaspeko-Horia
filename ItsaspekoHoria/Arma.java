@@ -11,4 +11,6 @@ public abstract class Arma {
 	}
 	
 	//metodoak
+	public abstract void erabili(Taula etsailarenTaula, int pX, int pY);
+	
 }

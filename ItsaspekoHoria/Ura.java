@@ -1,5 +1,5 @@
 package ItsaspekoHoria;
 
-public class Ura implements Egoera {
+public class Ura implements EgoeraLaukia {
 
 }

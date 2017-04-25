@@ -36,7 +36,7 @@ public class Ordenagailua extends Jokalaria{
 		int x=this.posizioaLortu();
 		int y=this.posizioaLortu();
 		if (jokalariarenTaula.ontziaDago(x,y)){
-			jokalariarenTaula.getOntzia(x,y).ezkutatu();
+			jokalariarenTaula.getOntzia(x,y).egoeraAldatu(new Ezkutatu());;
 		}
 	}
 	

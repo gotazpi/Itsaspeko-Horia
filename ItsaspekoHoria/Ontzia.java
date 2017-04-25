@@ -5,17 +5,19 @@ public abstract class Ontzia {
 	//atributuak
 	private int luzera;
 	private float konponketaKostua;
-	private boolean ezkutua;
+	private EgoeraOntzia egoeraOntzia;
 	private Koordenatuak[] koordenatuak;
+	private int jasandakoBonbaKop;
 	
 	//erabiltzailea
 	public Ontzia (int pLuzera, float pKonponketaKostua){
 		this.luzera=pLuzera;
 		this.konponketaKostua=pKonponketaKostua;
-		this.ezkutua=false;
+		this.egoeraOntzia= new IkutuGabe();
+		this.jasandakoBonbaKop=0;
 	}
 	
-	public void ezkutatu(){
+	/*public void ezkutatu(){
 		if (!ezkutua){
 			ezkutua=true;
 			System.out.println("Ontzia ezkutatu da!");
@@ -23,7 +25,8 @@ public abstract class Ontzia {
 		else{
 			System.out.println("Dagoeneko ezkutaturik zegoen");
 		}
-	}
+	}*/
+	
 	public int getLuzera(){
 		return luzera;
 	}
@@ -45,5 +48,23 @@ public abstract class Ontzia {
 		}
 		return aux;
 	}
-
+	
+	public void egoeraAldatu(EgoeraOntzia egoeraBerria){
+		this.egoeraOntzia=egoeraBerria;
+	}
+	
+	public EgoeraOntzia getEgoera(){
+		return this.egoeraOntzia;
+	}
+	
+	public boolean jasandakoBonbaKopGainditu(){
+		if (this.jasandakoBonbaKop==1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public void jasandakoBonbaKopAldatu(int pKop){
+		this.jasandakoBonbaKop=pKop;
+	}
 }

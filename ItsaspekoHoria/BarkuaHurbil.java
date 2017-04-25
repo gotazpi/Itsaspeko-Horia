@@ -1,5 +1,5 @@
 package ItsaspekoHoria;
 
-public class BarkuaHurbil implements Egoera{
+public class BarkuaHurbil implements EgoeraLaukia{
 
 }

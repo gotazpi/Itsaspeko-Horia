@@ -9,5 +9,13 @@ public class Misil extends Arma{
 	}
 	
 	//metodoak
+	public void erabili(Taula etsaiarenTaula, int pX, int pY){
+		Ontzia ontziBat=etsaiarenTaula.getOntzia(pX, pY);
+		if (ontziBat.getEgoera() instanceof Ezkutatuta){
+			ontziBat.egoeraAldatu(new IkutuGabe());
+		}else{
+			ontziBat.egoeraAldatu(new Suntsituta());
+		}
+	}
 
 }

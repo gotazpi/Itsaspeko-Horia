@@ -42,9 +42,9 @@ public abstract class Jokalaria {
 		return this.flota;
 	}
 	
-	
-	
 	public void radarraJarri(int x, int y){
 		etsaiarenTaula.radarKontsultatu(x, y);
 	}
+	 
+	
 }

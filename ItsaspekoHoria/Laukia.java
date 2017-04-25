@@ -2,7 +2,7 @@ package ItsaspekoHoria;
 
 public class Laukia {
 	//atributuak
-	private Egoera egoera;
+	private EgoeraLaukia egoera;
 	private int zutabe;
 	private int lerro;
 	private Ontzia ontzia;
@@ -15,7 +15,7 @@ public class Laukia {
 		this.ontzia=null;
 	}
 	
-	public void egoeraAldatu(Egoera pEgoeraBerria){
+	public void egoeraAldatu(EgoeraLaukia pEgoeraBerria){
 		this.egoera=pEgoeraBerria;
 	}
 
@@ -42,7 +42,7 @@ public class Laukia {
 	public Ontzia getOntzia(){
 		return ontzia;
 	}
-	public Egoera getEgoera(){
+	public EgoeraLaukia getEgoera(){
 		return this.egoera;
 	}
 	
