@@ -21,12 +21,11 @@ public class Ordenagailua extends Jokalaria{
 	//metodoak
 	
 	public void ontziaKokatu(Ontzia pOntzia){
-		int zein=0;
-		while(zein<10){
+		for(int i=0; i<10 ; i++){
 			int x=this.posizioaLortu();
 			int y=this.posizioaLortu();
 			int norabidea=this.norabideaLortu();
-			Ontzia ontzia = Ordenagailua.getOrdenagailua().getFlota().getOntzia(zein);
+			Ontzia ontzia = Ordenagailua.getOrdenagailua().getFlota().getOntzia(i);
 			if(Ordenagailua.getOrdenagailua().getTaula().ontziOsoaKokatu(ontzia, x, y, norabidea)){
 				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
 			}
@@ -36,7 +35,7 @@ public class Ordenagailua extends Jokalaria{
 		int x=this.posizioaLortu();
 		int y=this.posizioaLortu();
 		if (jokalariarenTaula.ontziaDago(x,y)){
-			jokalariarenTaula.getOntzia(x,y).egoeraAldatu(new Ezkutatu());;
+			jokalariarenTaula.getOntzia(x,y).ezkutatu();
 		}
 	}
 	

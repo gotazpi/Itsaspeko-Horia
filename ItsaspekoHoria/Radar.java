@@ -7,6 +7,11 @@ public class Radar extends Arma {
 	public Radar (){
 		super(25);
 	}
+	@Override
+	public void erabili(Taula etsailarenTaula, int pX, int pY) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//metodoak
 	

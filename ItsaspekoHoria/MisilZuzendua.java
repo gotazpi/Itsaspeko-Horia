@@ -7,6 +7,12 @@ public class MisilZuzendua extends Arma {
 	public MisilZuzendua(){
 		super(45);
 	}
+
+	@Override
+	public void erabili(Taula etsailarenTaula, int pX, int pY) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//metodoak
 

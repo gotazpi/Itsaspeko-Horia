@@ -20,8 +20,6 @@ public class Taula {
 		return taulaMatrizea[x][y].getOntzia();
 	}
 	public boolean ontziaDago(int x, int y){
-		System.out.println(taulaMatrizea!=null);
-		System.out.println(kont);
 		//return taulaMatrizea[x][y].getOntziaDago();
 		return (taulaMatrizea[x][y].getEgoera() instanceof OntziaDago);
 	}

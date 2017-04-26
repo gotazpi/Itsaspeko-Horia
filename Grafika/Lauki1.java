@@ -6,6 +6,10 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import ItsaspekoHoria.Erabiltzailea;
+import ItsaspekoHoria.Ontzia;
+import ItsaspekoHoria.Ordenagailua;
+
 public class Lauki1 extends JButton implements MouseListener {
 
 private int i,j;
@@ -38,6 +42,27 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-	}
+		
+		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			this.aldatuIrudiaUrdina();
+			//txanda pasa
+		};
+		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			this.aldatuIrudiaGorria();
+		};
+}
+	public void aldatuIrudiaGorria(){
+		this.setBackground(java.awt.Color.red);
+		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
+		this.validate();
+		this.repaint();
+		Leihoa.getLeihoa().refresh();}
+	
+	public void aldatuIrudiaUrdina(){
+		this.setBackground(java.awt.Color.blue);
+		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
+		this.validate();
+		this.repaint();
+		Leihoa.getLeihoa().refresh();}
+	
 }

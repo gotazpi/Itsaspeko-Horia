@@ -19,7 +19,6 @@ private int i,j;
 		this.addMouseListener(this);
 	}
 	
-	
 	public void aldatuIrudia(){
 		this.setBackground(java.awt.Color.black);
 		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
@@ -47,7 +46,7 @@ private int i,j;
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 	}
-
+	
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		int norabidea = Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();

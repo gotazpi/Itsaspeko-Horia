@@ -17,15 +17,14 @@ public abstract class Ontzia {
 		this.jasandakoBonbaKop=0;
 	}
 	
-	/*public void ezkutatu(){
-		if (!ezkutua){
-			ezkutua=true;
+	public void ezkutatu(){
+		if (!(egoeraOntzia instanceof Ezkutatuta)){
+			this.egoeraAldatu(new Ezkutatuta());
 			System.out.println("Ontzia ezkutatu da!");
 		}
 		else{
-			System.out.println("Dagoeneko ezkutaturik zegoen");
+			System.out.println("Dagoeneko ezkutaturik zegoen");}
 		}
-	}*/
 	
 	public int getLuzera(){
 		return luzera;
