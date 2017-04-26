@@ -7,6 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import ItsaspekoHoria.Erabiltzailea;
+import ItsaspekoHoria.Ezkutatuta;
+import ItsaspekoHoria.IkutuGabe;
 import ItsaspekoHoria.Ontzia;
 import ItsaspekoHoria.Ordenagailua;
 
@@ -42,17 +44,25 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		
-		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
-			this.aldatuIrudiaUrdina();
-			//txanda pasa
-		};
-		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
-			this.aldatuIrudiaGorria();
-		};
+		zerDagoen();
+
 }
 	public void aldatuIrudiaGorria(){
 		this.setBackground(java.awt.Color.red);
+		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
+		this.validate();
+		this.repaint();
+		Leihoa.getLeihoa().refresh();}
+	
+	public void aldatuIrudiaBerdea(){
+		this.setBackground(java.awt.Color.green);
+		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
+		this.validate();
+		this.repaint();
+		Leihoa.getLeihoa().refresh();}
+	
+	public void aldatuIrudiaHoria(){
+		this.setBackground(java.awt.Color.yellow);
 		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
 		this.validate();
 		this.repaint();
@@ -65,4 +75,17 @@ private int i,j;
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
-}
+	public void zerDagoen(){
+		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			this.aldatuIrudiaUrdina();
+		};
+		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			if(!(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
+				this.aldatuIrudiaHoria();}
+			else if(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof IkutuGabe){
+				this.aldatuIrudiaBerdea();}
+			else aldatuIrudiaGorria();
+		};
+	}
+	}
+	
