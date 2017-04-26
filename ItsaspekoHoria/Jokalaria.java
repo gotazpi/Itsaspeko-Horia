@@ -28,9 +28,9 @@ public abstract class Jokalaria {
 		return this.flota;
 	}
 	
-	public void radarraJarri(int x, int y){
+	/*public void radarraJarri(int x, int y){
 		etsaiarenTaula.radarKontsultatu(x, y);
-	}
+	}*/
 	 
 	public boolean ontziakDauzka(){
 		if (this.flota.getOntziKop()!=0){

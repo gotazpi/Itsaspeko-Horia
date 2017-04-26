@@ -20,6 +20,7 @@ private int i,j;
 		this.i=pI;
 		this.j=pJ;
 		this.addMouseListener(this);
+		
 	}
 	
 	@Override
@@ -44,14 +45,16 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		int aux = Leihoa.getLeihoa().getZerEgin();
+		int aux = Leihoa.getLeihoa().getZerEgin();;
 		if (aux==0){//tiro
 			tirokatu(i,j);
+			System.out.println("Bang");
 			
 		}
 		
 		if (aux==1){//radar
 			zerDagoenRadar();
+			System.out.println("pirililiii");
 		}
 		
 
