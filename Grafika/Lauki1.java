@@ -125,11 +125,8 @@ private int i,j;
 				//txanda pasa
 			}
 			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
-				this.aldatuIrudiaGorria();}
-			
-			else if(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
 				this.aldatuIrudiaGorria();
-				//txanda pasa
+				
 			}
 		};}
 	}

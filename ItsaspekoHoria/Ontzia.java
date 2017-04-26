@@ -40,10 +40,12 @@ public abstract class Ontzia {
 	
 	private Koordenatuak bilatuKoordenatuak(int pX, int pY){
 		Koordenatuak aux=null;
-		for(int i=0;i==koordenatuak.length;i++){
+		int i=0;
+		while (i!=koordenatuak.length){
 			if (koordenatuak[i].koordenatuaDa(pX,pY)){
 				aux=koordenatuak[i];
 			}
+			i++;
 		}
 		return aux;
 	}
