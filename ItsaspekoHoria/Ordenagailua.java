@@ -28,7 +28,7 @@ public class Ordenagailua extends Jokalaria{
 			int norabidea=this.norabideaLortu();
 			Ontzia ontzia = Ordenagailua.getOrdenagailua().getFlota().getOntzia(i);
 			if(Ordenagailua.getOrdenagailua().getTaula().ontziOsoaKokatu(ontzia, x, y, norabidea)){
-				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+				Ordenagailua.getOrdenagailua().getFlota().hurrengoa();
 				 i++;
 			}
 		}
