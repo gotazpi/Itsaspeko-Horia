@@ -51,12 +51,13 @@ private int i,j;
 	public void mouseReleased(MouseEvent arg0) {
 		int norabidea = Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
 		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
-		Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
-		if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
-			Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
-			this.aldatuIrudia();
-		};
-		
+		if (zein<=9){
+			Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
+			if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
+				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+				this.aldatuIrudia();
+			};
+		}
 		
 		}
 		/*if (Jokalaria.getJokalaria().getTaula().lekuaDago(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera(), i, j, 1)){

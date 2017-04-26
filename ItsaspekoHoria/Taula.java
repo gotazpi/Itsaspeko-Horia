@@ -81,7 +81,6 @@ public class Taula {
 	   taulaMatrizea[x][y].egoeraAldatu(new OntziaDago());
 	   System.out.print(x + " ");
 	   System.out.println(y);
-
    	}    	
    
    public void ontziaKokatu(Ontzia ontzia, int x, int y){
@@ -97,21 +96,25 @@ public class Taula {
 		   if (norabidea==0){
 		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x, y-i);
+		   			ontzia.koordenatuakJarri(x, y, i);
 		   		}
 		   	};
 		   	if (norabidea==1){
 		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x+i, y);
+		   			ontzia.koordenatuakJarri(x, y, i);
 		   		}
 		   	};
 		   	if (norabidea==2){
 		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x, y+i);
+		   			ontzia.koordenatuakJarri(x, y, i);
 		   		}
 		   	};
 		   	if (norabidea==3){
 		   		for(int i=0; i<luzera; i++){
 		   			ontziaKokatu(ontzia, x-i, y);
+		   			ontzia.koordenatuakJarri(x, y, i);
 		   		}
 		   	}
 	   }

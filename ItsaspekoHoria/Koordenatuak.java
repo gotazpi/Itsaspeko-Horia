@@ -44,4 +44,5 @@ public class Koordenatuak {
 	public void ikutu(){
 		ikutua=true;
 	}
+	
 }
