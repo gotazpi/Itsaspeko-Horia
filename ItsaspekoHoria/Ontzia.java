@@ -66,4 +66,11 @@ public abstract class Ontzia {
 	public void jasandakoBonbaKopAldatu(int pKop){
 		this.jasandakoBonbaKop=pKop;
 	}
+	
+	public void koordenatuakJarri (int pX, int pY, int i){
+		if (koordenatuak==null){
+			koordenatuak = new Koordenatuak[luzera];
+		}
+		koordenatuak[i] = new Koordenatuak(pX, pY);
+	}
 }
