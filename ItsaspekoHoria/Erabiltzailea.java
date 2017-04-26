@@ -28,8 +28,9 @@ public class Erabiltzailea extends Jokalaria{
 		else System.out.println("Ez dago ontzirik");
 	}
 	
-	public void radarra(int pX, int pY){
-		etsaiarenTaula.radarKontsultatu(pX, pY);
+	public void radarra(Radar radar, int pX, int pY){
+		//etsaiarenTaula.radarKontsultatu(pX, pY);
+		radar.erabili(this.etsaiarenTaula, pX, pY);
 	}
 	
 	public boolean tiroEgin(int pX, int pY){

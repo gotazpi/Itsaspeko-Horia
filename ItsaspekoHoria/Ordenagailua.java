@@ -20,7 +20,7 @@ public class Ordenagailua extends Jokalaria{
 	
 	//metodoak
 	
-	public void ontziaKokatu(Ontzia pOntzia){
+	public void ontziaKokatu(){
 		for(int i=0; i<10 ; i++){
 			int x=this.posizioaLortu();
 			int y=this.posizioaLortu();
