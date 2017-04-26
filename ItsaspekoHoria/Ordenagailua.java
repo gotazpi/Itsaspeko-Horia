@@ -20,14 +20,16 @@ public class Ordenagailua extends Jokalaria{
 	
 	//metodoak
 	
-	public void ontziaKokatu(Ontzia pOntzia){
-		for(int i=0; i<10 ; i++){
+	public void ontziaKokatu(){
+		int i=0;
+		while(i<10){
 			int x=this.posizioaLortu();
 			int y=this.posizioaLortu();
 			int norabidea=this.norabideaLortu();
 			Ontzia ontzia = Ordenagailua.getOrdenagailua().getFlota().getOntzia(i);
 			if(Ordenagailua.getOrdenagailua().getTaula().ontziOsoaKokatu(ontzia, x, y, norabidea)){
 				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+				 i++;
 			}
 		}
 	}

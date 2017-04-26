@@ -17,7 +17,6 @@ public class Jokoa{
 	
 	private Jokoa(){
 		super();
-		this.jokoaHasieratu();
 	}
 	
 	public static Jokoa getJokoa(){
@@ -32,6 +31,7 @@ public class Jokoa{
 		erabiltzailea = Erabiltzailea.getErabiltzailea();
 		erabiltzailearenTaula = erabiltzailea.getTaula();
 		ordenagailuarenTaula = ordenagailua.getTaula();
+		jokoaHasieratu();
 		Leihoa.getLeihoa().hasiera();
 	}
 	
@@ -45,12 +45,12 @@ public class Jokoa{
 		return false;
 	}
 	
-	public void jokoaHasieratu(){
+	public static void jokoaHasieratu(){
 		//TODO armamentua hasieratu eta gauza gehiago
-		this.ordenagailua.ontziaKokatu();
+		ordenagailua.ontziaKokatu();
 	}
 
-	public void jokatu(){   //METODO NAGUSIA
+/*	public void jokatu(){   //METODO NAGUSIA
 		if (jokatuDaiteke()){
 			if (txanda==0){
 				erabiltzailea.jokatu();
@@ -63,14 +63,14 @@ public class Jokoa{
 			this.norkIrabaziDu();	
 		}	
 	}
-	
+*/	
 	public void txandaPasa(){
 		if (txanda==0){
 			txanda=1;
-			this.jokatu();
+			//this.jokatu();
 		}else{
 			txanda=0;
-			this.jokatu();
+			//this.jokatu();
 		}
 	}
 	

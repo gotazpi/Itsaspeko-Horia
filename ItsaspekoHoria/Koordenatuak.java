@@ -4,7 +4,7 @@ public class Koordenatuak {
 	//atributuak
 	private int errenkada;
 	private int zutabea;
-	private boolean ikutua;
+	private boolean ikutua=false;
 	
 	//eraikitzailea
 	public Koordenatuak(int pErrenkada, int pZutabea){

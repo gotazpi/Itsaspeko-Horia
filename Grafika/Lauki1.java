@@ -44,7 +44,16 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		zerDagoen();
+		int aux = Leihoa.getLeihoa().getZerEgin();
+		if (aux==0){//tiro
+			tirokatu(i,j);
+			
+		}
+		
+		if (aux==1){//radar
+			zerDagoenRadar();
+		}
+		
 
 }
 	public void aldatuIrudiaGorria(){
@@ -75,17 +84,51 @@ private int i,j;
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
-	public void zerDagoen(){
+	public void zerDagoen(int i, int j){
+		if(i>=0&&i<=9&&j>=0&&j<=9){
 		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
 			this.aldatuIrudiaUrdina();
 		};
 		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
-			if(!(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
+			if((Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
 				this.aldatuIrudiaHoria();}
 			else if(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof IkutuGabe){
 				this.aldatuIrudiaBerdea();}
 			else aldatuIrudiaGorria();
+		};}
+	}
+	
+	public void zerDagoenRadar(){
+		zerDagoen(i-1,j-1);
+		zerDagoen(i-1,j);
+		zerDagoen(i-1,j+1);
+		zerDagoen(i,j-1);
+		zerDagoen(i,j);
+		zerDagoen(i,j+1);
+		zerDagoen(i+1,j-1);
+		zerDagoen(i+1,j);
+		zerDagoen(i+1,j-1);		
+		Leihoa.getLeihoa().refresh();
+	}
+	
+	public void tirokatu(int i, int j){
+		if(i>=0&&i<=9&&j>=0&&j<=9){
+		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			this.aldatuIrudiaUrdina();
 		};
+		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			if((Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
+				this.aldatuIrudiaHoria();
+				//txanda pasa
+			}
+			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
+				this.aldatuIrudiaGorria();}
+			
+			else if(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
+				this.aldatuIrudiaGorria();
+				//txanda pasa
+			}
+		};}
 	}
-	}
+}
 	

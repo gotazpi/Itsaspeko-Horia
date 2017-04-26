@@ -1,6 +1,7 @@
 package Grafika;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
@@ -41,6 +42,7 @@ public class Leihoa extends JFrame {
 	private Lauki2[][] matrix2;
 	private JTextField textField;
 	private JTextField textField_1;
+	private int zerEgin=0;
 
 	public static Leihoa getLeihoa() {
 		if (nireLeihoa == null) {
@@ -160,14 +162,24 @@ public class Leihoa extends JFrame {
 		lblY.setHorizontalAlignment(SwingConstants.CENTER);
 		lblY.setBounds(801, 807, 34, 14);
 		contentPane.add(lblY);
-
-		JRadioButton rdbtnKokatu = new JRadioButton("Kokatu");
-		rdbtnKokatu.setBounds(638, 11, 109, 23);
-		contentPane.add(rdbtnKokatu);
-
-		JRadioButton rdbtnEzkutatu = new JRadioButton("Ezkutatu");
-		rdbtnEzkutatu.setBounds(638, 37, 109, 23);
-		contentPane.add(rdbtnEzkutatu);
+		
+		JButton btnTiroEgin = new JButton("Tiro egin");
+		btnTiroEgin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				zerEgin=0;
+			}
+		});
+		btnTiroEgin.setBounds(648, 11, 89, 23);
+		contentPane.add(btnTiroEgin);
+		
+		JButton btnRadarra = new JButton("Radarra");
+		btnRadarra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				zerEgin=1;
+			}
+		});
+		btnRadarra.setBounds(648, 45, 89, 23);
+		contentPane.add(btnRadarra);
 
 		Lauki1 pLauki1 = null;
 		for (int lerro = 0; lerro < 10; lerro++) {
@@ -189,11 +201,10 @@ public class Leihoa extends JFrame {
 
 		// Group the radio buttons.
 		ButtonGroup group = new ButtonGroup();
-		group.add(rdbtnKokatu);
-		group.add(rdbtnEzkutatu);
 
 	}
-
+	
+	
 	public int getNorabidea() {
 		return Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
 	}
@@ -204,39 +215,7 @@ public class Leihoa extends JFrame {
 		this.validate();
 		this.repaint();
 	}
-
-	public void setKoloreakMatrix2(int x, int y, int luzera) {// 0(gorantz)
-																// 1(eskumarantz)
-																// 2(beherantz)
-																// 3(ezkerrerantz)
-		if (getNorabidea() == 0) {
-			for (int i = 0; i <= luzera; i++) {
-
-				System.out.print(y - i + 1);
-				System.out.println(x + 1);
-			}
-		}
-		if (getNorabidea() == 1) {
-			for (int i = 0; i <= luzera; i++) {
-				System.out.print(y + 1);
-				System.out.println(x + i + 1);
-				matrix2[x + 1][y].aldatuIrudia();
-			}
-		}
-		if (getNorabidea() == 2) {
-			for (int i = 0; i <= luzera; i++) {
-				System.out.print(y + i + 1);
-				System.out.println(x + 1);
-				matrix2[x][y + 1].aldatuIrudia();
-			}
-		}
-		if (getNorabidea() == 3) {
-			for (int i = 0; i <= luzera; i++) {
-				System.out.print(y + 1);
-				System.out.println(x - i + 1);
-				matrix2[x - 1][y].aldatuIrudia();
-			}
-		}
+	public int getZerEgin(){
+		return zerEgin;
 	}
-
 }

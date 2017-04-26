@@ -40,7 +40,7 @@ public abstract class Jokalaria {
 		}
 	}
 	
-	public void jokatu(){
+/*	public void jokatu(){
 		int erantzuna=this.galdetuZerEgin();
 		if (erantzuna==1){
 			this.armaErosi(arma); //armen zerrenda bat egertuko zaizu hau klikatu ostean
@@ -52,7 +52,7 @@ public abstract class Jokalaria {
 			}
 		}	
 	}
-	
+*/	
 	
 	public void armaErosi(String arma){
 		Biltegia biltegia = Biltegia.getNireBiltegia();
