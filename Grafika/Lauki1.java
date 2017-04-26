@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import ItsaspekoHoria.Erabiltzailea;
 import ItsaspekoHoria.Ezkutatuta;
 import ItsaspekoHoria.IkutuGabe;
+import ItsaspekoHoria.Jokoa;
 import ItsaspekoHoria.Ontzia;
 import ItsaspekoHoria.Ordenagailua;
 
@@ -45,7 +46,7 @@ private int i,j;
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		int aux = Leihoa.getLeihoa().getZerEgin();;
+		int aux = Jokoa.getJokoa().getZeregin();
 		if (aux==0){//tiro
 			tirokatu(i,j);
 			System.out.println("Bang");
@@ -95,23 +96,23 @@ private int i,j;
 		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
 			if((Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
 				this.aldatuIrudiaHoria();}
-			else if(Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof IkutuGabe){
+			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i, j)){
 				this.aldatuIrudiaBerdea();}
 			else aldatuIrudiaGorria();
 		};}
 	}
 	
 	public void zerDagoenRadar(){
-		zerDagoen(i-1,j-1);
-		zerDagoen(i-1,j);
-		zerDagoen(i-1,j+1);
-		zerDagoen(i,j-1);
+		//zerDagoen(i-1,j-1);
+		//zerDagoen(i-1,j);
+		//zerDagoen(i-1,j+1);
+		//zerDagoen(i,j-1);
 		zerDagoen(i,j);
-		zerDagoen(i,j+1);
-		zerDagoen(i+1,j-1);
-		zerDagoen(i+1,j);
-		zerDagoen(i+1,j-1);		
-		Leihoa.getLeihoa().refresh();
+		//zerDagoen(i,j+1);
+		//zerDagoen(i+1,j-1);
+		//zerDagoen(i+1,j);
+		//zerDagoen(i+1,j-1);		
+	//	Leihoa.getLeihoa().refresh();
 	}
 	
 	public void tirokatu(int i, int j){
@@ -126,9 +127,10 @@ private int i,j;
 			}
 			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
 				this.aldatuIrudiaGorria();
-				
+				Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutu(i,j);
 			}
-		};}
+		};
+		}
 	}
 }
 	

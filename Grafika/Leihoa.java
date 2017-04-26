@@ -42,7 +42,7 @@ public class Leihoa extends JFrame {
 	private Lauki2[][] matrix2;
 	private JTextField textField;
 	private JTextField textField_1;
-	private int zerEgin=0;
+	
 
 	public static Leihoa getLeihoa() {
 		if (nireLeihoa == null) {
@@ -166,7 +166,7 @@ public class Leihoa extends JFrame {
 		JButton btnTiroEgin = new JButton("Tiro egin");
 		btnTiroEgin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				zerEgin=0;
+				Jokoa.getJokoa().tiroEgiteko();
 			}
 		});
 		btnTiroEgin.setBounds(648, 11, 89, 23);
@@ -175,7 +175,7 @@ public class Leihoa extends JFrame {
 		JButton btnRadarra = new JButton("Radarra");
 		btnRadarra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				zerEgin=1;
+				Jokoa.getJokoa().radarraEgiteko();
 			}
 		});
 		btnRadarra.setBounds(648, 45, 89, 23);
@@ -215,7 +215,5 @@ public class Leihoa extends JFrame {
 		this.validate();
 		this.repaint();
 	}
-	public int getZerEgin(){
-		return zerEgin;
-	}
+
 }

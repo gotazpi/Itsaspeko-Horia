@@ -3,11 +3,10 @@ package ItsaspekoHoria;
 public class Taula {
 	//atributuak
 	private Laukia[][] taulaMatrizea; 
-	private int kont;
+	//private int kont;
 	
 	//eraikitzailea
 	public Taula(){
-		kont=0;
 		taulaMatrizea = new Laukia[10][10];
 		for (int i=0; i<10; i++){
 			for (int j=0; j<10; j++){

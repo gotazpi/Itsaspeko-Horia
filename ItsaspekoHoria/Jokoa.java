@@ -14,6 +14,7 @@ public class Jokoa{
 	private static Ordenagailua ordenagailua; //txanda 1
 	private static Erabiltzailea erabiltzailea; //txanda 0
 	private int txanda=0;
+	private int zerEgin=0;
 	
 	private Jokoa(){
 		super();
@@ -89,7 +90,14 @@ public class Jokoa{
 			//erakutsi ordenagailua grafikan
 		}
 	}
-	
-	
-
+	public void tiroEgiteko(){
+		zerEgin=0;
+	}
+	public void radarraEgiteko(){
+		zerEgin=1;
+	}
+	public int getZeregin(){
+		return zerEgin;
+	}
 }
+
