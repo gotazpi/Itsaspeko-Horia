@@ -1,6 +1,7 @@
 package ItsaspekoHoria;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Biltegia {
 	
@@ -11,6 +12,7 @@ public class Biltegia {
 	private int misilZuzenduKop;
 	private int radarKop;
 	private int ezkutuKop;
+	private static Biltegia nBiltegia;
 	
 	//eraikitzailea
 	public Biltegia(){
@@ -40,4 +42,100 @@ public class Biltegia {
 			armak.add(new Ezkutua());
 		}
 	}
+	
+	public static Biltegia getNireBiltegia(){
+		if (nBiltegia==null){
+			nBiltegia= new Biltegia();
+		}
+		return nBiltegia;
+	}
+	
+	public Iterator<Arma> getIterator(){
+		return armak.iterator();
+	}
+	
+	public Arma armaLortu(String arma){
+		Iterator<Arma> it = this.getIterator();
+		boolean topatua=false;
+		Arma egungoa = null;
+		if (this.armarikDago(arma)){
+			while (it.hasNext() && !topatua){
+				egungoa=it.next();
+				if (egungoa instanceof Bonba && arma=="Bonba"){
+						topatua=true;
+					}else{
+						if (egungoa instanceof Misil && arma=="Misil"){
+							topatua=true;
+							
+						}else{
+							if (egungoa instanceof Radar && arma=="Radar"){
+								topatua=true;
+							}else{
+								if (egungoa instanceof MisilZuzendua && arma=="Mizil Zuzendua"){
+									topatua=true;
+								}else{
+									if (egungoa instanceof Ezkutua && arma=="Ezkutua"){
+										topatua=true;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			return egungoa;
+		}
+			
+		
+
+	
+	
+	public void armaKendu(Arma arma){
+		if (arma instanceof Bonba){
+			bonbaKop--;
+		}else{
+			if (arma instanceof Misil){
+				misilKop--;
+			}else{
+				if (arma instanceof MisilZuzendua){
+					misilZuzenduKop--;
+				}else{
+					if (arma instanceof Radar){
+						radarKop--;
+					}else{
+						ezkutuKop--;
+					}
+				}
+			}
+		}
+		armak.remove(arma);
+	}
+	
+	public boolean armarikDago (String arma){
+		if (arma=="Bonba" && bonbaKop!=0){
+			return true;
+		}else{
+			if (arma=="Misil" && misilKop!=0 ){
+				return true;
+			}else{
+				if (arma=="MisilZuzendua" && misilZuzenduKop!=0){
+					return true;
+				}else{
+					if (arma=="Radar" && radarKop!=0){
+						return true;
+					}else{
+						if (arma=="Ezkutua" && ezkutuKop!=0){
+							return true;
+						}else{
+							return false;
+						}
+					}
+				}
+			}
+		}
+	}
+
+		
+
+
 }

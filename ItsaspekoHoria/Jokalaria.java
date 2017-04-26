@@ -20,20 +20,6 @@ public abstract class Jokalaria {
 	}
 	
 	//metodoak
-
-/*	public void flotaKokatu (){ // el metodo esta mal, no se usa iterador
-		for (int i=0; i<this.flota.getOntziKop();i++){
-			this.jokalariFlota.ontziOsoaKokatu( this.flota.getOntzia(i), pLerroa, pZutabea, pNorantza);
-		}
-		int luzera;
-		Laukia variableLaukia;
-		Scanner entrada=new Scanner(System.in);
-		System.out.println("HegazkinOntzia kokatu mesedez");
-		variableLaukia = entrada.getClass();
-		
-	}
-	*/
-	
 	public Taula getTaula(){
 		return this.jokalariarenTaula;
 	}
@@ -46,5 +32,41 @@ public abstract class Jokalaria {
 		etsaiarenTaula.radarKontsultatu(x, y);
 	}
 	 
+	public boolean ontziakDauzka(){
+		if (this.flota.getOntziKop()!=0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public void jokatu(){
+		int erantzuna=this.galdetuZerEgin();
+		if (erantzuna==1){
+			this.armaErosi(arma); //armen zerrenda bat egertuko zaizu hau klikatu ostean
+		}else{
+			if(erantzuna==2){
+				this.ontziaKonpondu();
+			}else{
+				this.tiroEgin();
+			}
+		}	
+	}
+	
+	
+	public void armaErosi(String arma){
+		Biltegia biltegia = Biltegia.getNireBiltegia();
+		Arma nahiDuguna=biltegia.armaLortu(arma);
+		if (nahiDuguna!=null && this.dirua>=nahiDuguna.kostua){
+			biltegia.armaKendu(nahiDuguna);
+			this.dirua=this.dirua-nahiDuguna.kostua;
+			this.armamentua.armaGehitu(nahiDuguna);
+		}
+	}
+	
+	public void galdetuZerEgin(){
+		//mirar en la grafika cual es la option que elije 
+	}
+
 	
 }

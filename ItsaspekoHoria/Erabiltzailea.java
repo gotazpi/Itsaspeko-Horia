@@ -41,5 +41,6 @@ public class Erabiltzailea extends Jokalaria{
 			return false;
 		}
 	}
+	
 
 }
