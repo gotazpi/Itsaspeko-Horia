@@ -22,7 +22,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-import Grafika.Lauki1;
 import ItsaspekoHoria.*;
 
 import javax.swing.JList;
@@ -30,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -40,11 +40,14 @@ public class Leihoa extends JFrame {
 
 	private static Leihoa nireLeihoa;
 	private JPanel contentPane;
-	private Lauki1[][] matrix1;
-	private Lauki2[][] matrix2;
+	private JButton[][] matrix1;
+	private JButton[][] matrix2;
 	private JTextField textField;
 	private JTextField textField_1;
-	
+	private ArrayList<JButton> textFields = new ArrayList<JButton>();
+	private ArrayList<JButton> textFields2 = new ArrayList<JButton>();
+	private Controller controller = new Controller();
+	private Controller2 controller2 = new Controller2();
 
 	public static Leihoa getLeihoa() {
 		if (nireLeihoa == null) {
@@ -53,7 +56,7 @@ public class Leihoa extends JFrame {
 		return nireLeihoa;
 	}
 
-	public Lauki2 getLaukia2(int i, int j) {
+	public JButton getLaukia2(int i, int j) {
 		return matrix2[i][j];
 	}
 
@@ -78,8 +81,8 @@ public class Leihoa extends JFrame {
 	 * Create the frame.
 	 */
 	private Leihoa() {
-		this.matrix1 = new Lauki1[10][10];
-		this.matrix2 = new Lauki2[10][10];
+		this.matrix1 = new JButton[10][10];
+		this.matrix2 = new JButton[10][10];
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 900);
@@ -183,21 +186,27 @@ public class Leihoa extends JFrame {
 		btnRadarra.setBounds(648, 45, 89, 23);
 		contentPane.add(btnRadarra);
 
-		Lauki1 pLauki1 = null;
+		//JButton pLauki1 = null;
 		for (int lerro = 0; lerro < 10; lerro++) {
 			for (int zutabe = 0; zutabe < 10; zutabe++) {
-				pLauki1 = new Lauki1(lerro, zutabe);
-				this.matrix1[lerro][zutabe] = pLauki1;
-				panel1.add(pLauki1);
+				JButton newJButton = new JButton();
+		         panel1.add(newJButton);
+		         textFields.add(newJButton);
+		         newJButton.addActionListener(controller);
+				this.matrix1[lerro][zutabe] = newJButton;
+				//panel1.add(pLauki1);
 			}
 		}
 
-		Lauki2 pLauki2 = null;
+		//JButton pLauki2 = null;
 		for (int lerro = 0; lerro < 10; lerro++) {
 			for (int zutabe = 0; zutabe < 10; zutabe++) {
-				pLauki2 = new Lauki2(lerro, zutabe);
-				this.matrix2[lerro][zutabe] = pLauki2;
-				panel2.add(pLauki2);
+				JButton newJButton = new JButton();
+				panel2.add(newJButton);
+				textFields2.add(newJButton);
+				newJButton.addActionListener(controller2);
+				this.matrix2[lerro][zutabe] = newJButton;
+				//panel2.add(pLauki2);
 			}
 		}
 
@@ -206,7 +215,51 @@ public class Leihoa extends JFrame {
 
 	}
 	
+	private class Controller implements ActionListener {
+		//al clicar en la matriz de arriba, se hace esto
+		public void actionPerformed(ActionEvent arg0) {
+			JButton textField = (JButton) arg0.getSource();
+			int val = getButton(textField);
+			int row = (val + 1) / 10;
+			int col = (val % 10);
+			matrix1[row][col].setBackground(java.awt.Color.yellow);
+		}
+
+	}
 	
+	private class Controller2 implements ActionListener {
+		//al clicar en la matriz de abajo, se hace esto
+		public void actionPerformed(ActionEvent arg0) {
+			JButton textField = (JButton) arg0.getSource();
+			int val = getButton2(textField);
+			int row = (val + 1) / 10;
+			int col = (val % 10);
+			matrix2[row][col].setBackground(java.awt.Color.yellow);
+		}
+
+	}
+	
+	private int getButton(JButton textField2) {
+		int pos = 0;
+		for (JButton b : textFields) {
+			if (b == textField2) {
+				return pos;
+			} else
+				pos++;
+		}
+		return -1;
+	}
+	
+	private int getButton2(JButton textField2) {
+		int pos = 0;
+		for (JButton b : textFields2) {
+			if (b == textField2) {
+				return pos;
+			} else
+				pos++;
+		}
+		return -1;
+	}
 	public int getNorabidea() {
 		return Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
 	}
