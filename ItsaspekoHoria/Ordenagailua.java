@@ -51,7 +51,18 @@ public class Ordenagailua extends Jokalaria{
 		Random random = new Random() ;
 		int balioa = random.nextInt(4);
 		return balioa;
-	}	
+	}
+	
+	
+	public void lortuOntzia(){
+		Ontzia ontziBat= this.flota.suntsitutakoOntziaLortu();
+		if (ontziBat!=null){
+			this.ontziaKonpondu(ontziBat);
+		}
+		//Bere flotan ez dago barku bat suntsituta dagoenik, beraz ez da ontziaKonponduMetodoa egikarituko
+	}
+	
+	
 	
 	public void radarra(){
 		if (this.armamentua.getRadarKop()!=0){

@@ -9,8 +9,7 @@ import Grafika.*;
 public class Jokoa{
 	
 	private static Jokoa nireJokoa;
-	private static Taula erabiltzailearenTaula;
-	private static Taula ordenagailuarenTaula;
+
 	private static Ordenagailua ordenagailua; //txanda 1
 	private static Erabiltzailea erabiltzailea; //txanda 0
 	private int txanda=0;
@@ -30,8 +29,6 @@ public class Jokoa{
 	public static void main (String[] args){
 		ordenagailua = Ordenagailua.getOrdenagailua();
 		erabiltzailea = Erabiltzailea.getErabiltzailea();
-		erabiltzailearenTaula = erabiltzailea.getTaula();
-		ordenagailuarenTaula = ordenagailua.getTaula();
 		jokoaHasieratu();
 		Leihoa.getLeihoa().hasiera();
 	}

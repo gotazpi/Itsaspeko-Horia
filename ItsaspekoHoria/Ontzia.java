@@ -4,13 +4,13 @@ public abstract class Ontzia {
 	
 	//atributuak
 	private int luzera;
-	private float konponketaKostua;
+	private int konponketaKostua;
 	private EgoeraOntzia egoeraOntzia;
 	private Koordenatuak[] koordenatuak;
 	private int jasandakoBonbaKop;
 	
 	//erabiltzailea
-	public Ontzia (int pLuzera, float pKonponketaKostua){
+	public Ontzia (int pLuzera, int pKonponketaKostua){
 		this.luzera=pLuzera;
 		this.konponketaKostua=pKonponketaKostua;
 		this.egoeraOntzia= new IkutuGabe();
@@ -58,6 +58,7 @@ public abstract class Ontzia {
 		return this.egoeraOntzia;
 	}
 	
+	
 	public boolean jasandakoBonbaKopGainditu(){
 		if (this.jasandakoBonbaKop==1){
 			return true;
@@ -74,5 +75,17 @@ public abstract class Ontzia {
 			koordenatuak = new Koordenatuak[luzera];
 		}
 		koordenatuak[i] = new Koordenatuak(pX, pY);
+	}
+	
+	public boolean erosDezake(int dirua){
+		if (dirua>=this.konponketaKostua){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public int getKonponketaKostua() {
+		return this.konponketaKostua;
 	}
 }

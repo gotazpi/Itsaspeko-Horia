@@ -50,4 +50,22 @@ public class Flota {
 	public void hurrengoa(){
 		zein++;
 	}
+	
+	
+	public Ontzia suntsitutakoOntziaLortu(){
+		int i=0;
+		boolean topatua=false;
+		while(i<=9 || !topatua){
+			if (ontziak[i].getEgoera() instanceof Suntsituta){
+				topatua=true;
+			}else{
+				i++;
+			}
+		}
+		if (i==10){
+			return null; //bere flotan ez badago barku bat ere ez suntsituta dagoena null itzuliko du
+		}else{
+			return ontziak[i]; //Suntsituta dagoen barkua
+		}
+	}
 }

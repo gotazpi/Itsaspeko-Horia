@@ -43,5 +43,6 @@ public class Erabiltzailea extends Jokalaria{
 		}
 	}
 	
+	
 
 }
