@@ -49,11 +49,9 @@ private int i,j;
 		int aux = Jokoa.getJokoa().getZeregin();
 		if (aux==0){//tiro
 			tirokatu(i,j);
-			System.out.println("Bang");
-			
+			System.out.println("Bang!");
 		}
-		
-		if (aux==1){//radar
+		else if (aux==1){//radar
 			zerDagoenRadar();
 			System.out.println("pirililiii");
 		}
@@ -113,18 +111,18 @@ private int i,j;
 	
 	public void tirokatu(int i, int j){
 		if(i>=0&&i<=9&&j>=0&&j<=9){
-		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+		if(!Jokoa.getJokoa().ontziaDago(i, j)){
 			this.aldatuIrudiaUrdina();
 		};
-		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
-			if((Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
+		if(Jokoa.getJokoa().ontziaDago(i, j)){
+			if((Jokoa.getJokoa().getOntziarenEgoera(i,j) instanceof Ezkutatuta)){
 				this.aldatuIrudiaHoria();
 				//txanda pasa
 			}
-			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
+			else if(!Jokoa.getJokoa().ontziaIkutua(i, j)){
 				System.out.println("Ikutua");
 				this.aldatuIrudiaGorria();
-				Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutu(i,j);
+				Jokoa.getJokoa().ontziaIkutu(i, j);
 			}
 		};
 		}

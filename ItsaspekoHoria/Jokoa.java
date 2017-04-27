@@ -129,6 +129,11 @@ public class Jokoa{
 	public boolean ontziaIkutua(int i, int j){
 		return Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i, j);
 	}
+	
+	public void ontziaIkutu(int i, int j){
+		Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutu(i,j);
+	}
+	
 }
 
 	
