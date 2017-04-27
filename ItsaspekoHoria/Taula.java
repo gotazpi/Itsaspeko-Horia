@@ -78,8 +78,6 @@ public class Taula {
    public void ipiniOntzia(int x, int y, Ontzia pOntzia){
 	   taulaMatrizea[x][y].setOntzia(pOntzia);
 	   taulaMatrizea[x][y].egoeraAldatu(new OntziaDago());
-	   System.out.print(x + " ");
-	   System.out.println(y);
    	}    	
    
    public void ontziaKokatu(Ontzia ontzia, int x, int y){

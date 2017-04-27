@@ -62,41 +62,37 @@ private int i,j;
 }
 	public void aldatuIrudiaGorria(){
 		this.setBackground(java.awt.Color.red);
-		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
 		this.validate();
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
 	public void aldatuIrudiaBerdea(){
 		this.setBackground(java.awt.Color.green);
-		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
 		this.validate();
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
 	public void aldatuIrudiaHoria(){
 		this.setBackground(java.awt.Color.yellow);
-		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
 		this.validate();
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
 	public void aldatuIrudiaUrdina(){
 		this.setBackground(java.awt.Color.blue);
-		//this.setIcon(new ImageIcon("Irudiak/descarga.jpg"));
 		this.validate();
 		this.repaint();
 		Leihoa.getLeihoa().refresh();}
 	
 	public void zerDagoen(int i, int j){
 		if(i>=0&&i<=9&&j>=0&&j<=9){
-		if(!Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+		if(!Jokoa.getJokoa().ontziaDago(i,j)){
 			this.aldatuIrudiaUrdina();
 		};
-		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
-			if((Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera() instanceof Ezkutatuta)){
+		if(Jokoa.getJokoa().ontziaDago(i,j)){
+			if((Jokoa.getJokoa().getOntziarenEgoera(i,j) instanceof Ezkutatuta)){
 				this.aldatuIrudiaHoria();}
-			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i, j)){
+			else if(!Jokoa.getJokoa().ontziaIkutua(i,j)){
 				this.aldatuIrudiaBerdea();}
 			else aldatuIrudiaGorria();
 		};}
@@ -126,6 +122,7 @@ private int i,j;
 				//txanda pasa
 			}
 			else if(!Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i,j)){
+				System.out.println("Ikutua");
 				this.aldatuIrudiaGorria();
 				Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutu(i,j);
 			}

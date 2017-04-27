@@ -99,5 +99,36 @@ public class Jokoa{
 	public int getZeregin(){
 		return zerEgin;
 	}
+	
+	public boolean kokatuGrafikatik(int i, int j){
+		int norabidea = Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
+		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
+		if (zein<=9){
+			Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
+			if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
+				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+				return true;
+			};
+		}
+		return false;
+	}
+	
+	public boolean ontziaDago(int i, int j){
+		if(Ordenagailua.getOrdenagailua().getTaula().ontziaDago(i,j)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public EgoeraOntzia getOntziarenEgoera(int i, int j){
+		return Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera();
+	}
+	
+	public boolean ontziaIkutua(int i, int j){
+		return Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i, j);
+	}
 }
 
+	

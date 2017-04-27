@@ -49,18 +49,10 @@ private int i,j;
 	
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		
-		int norabidea = Erabiltzailea.getErabiltzailea().getFlota().getNorabidea();
-		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
-		System.out.println(zein);
-		if (zein<=9){
-			Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);
-			if(Erabiltzailea.getErabiltzailea().getTaula().ontziOsoaKokatu(ontzia, i, j, norabidea)){
-				Erabiltzailea.getErabiltzailea().getFlota().hurrengoa();
+			boolean aux = Jokoa.getJokoa().kokatuGrafikatik(i,j);
+			if (aux){
 				this.aldatuIrudia();
-			};
-		}
-		
+			}
 		}
 		/*if (Jokalaria.getJokalaria().getTaula().lekuaDago(Jokalaria.getJokalaria().getFlota().getOntzia(Jokalaria.getJokalaria().getTaula().ontziKop()).getLuzera(), i, j, 1)){
 			this.aldatuIrudia();

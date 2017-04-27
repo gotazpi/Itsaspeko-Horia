@@ -32,7 +32,9 @@ import javax.swing.SwingConstants;
 
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JRadioButton;
+import javax.swing.JTextPane;
 
 public class Leihoa extends JFrame {
 
@@ -215,5 +217,4 @@ public class Leihoa extends JFrame {
 		this.validate();
 		this.repaint();
 	}
-
 }
