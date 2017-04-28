@@ -1,48 +1,46 @@
 package ItsaspekoHoria;
 
-public class Erabiltzailea extends Jokalaria{
-	//atributuak
+public class Erabiltzailea extends Jokalaria {
+	// atributuak
 	private static Erabiltzailea nireErabiltzailea;
-	//eraikitzailea
-	private Erabiltzailea(){
+
+	// eraikitzailea
+	private Erabiltzailea() {
 		super();
 	}
-	
-	//metodoak
 
-	public static Erabiltzailea getErabiltzailea(){
-		if (nireErabiltzailea==null){
+	// metodoak
+
+	public static Erabiltzailea getErabiltzailea() {
+		if (nireErabiltzailea == null) {
 			nireErabiltzailea = new Erabiltzailea();
 		}
 		return nireErabiltzailea;
 	}
-	
-	public void ontziaKokatu(int pLerroa, int pZutabea,int pNorantza, Ontzia pOntzia){
+
+	public void ontziaKokatu(int pLerroa, int pZutabea, int pNorantza, Ontzia pOntzia) {
 		jokalariarenTaula.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
 	}
-	
-	public void ontziaEzkutatu(int pLerroa, int pZutabea){
-		if (jokalariarenTaula.ontziaDago(pLerroa, pZutabea)){
+
+	public void ontziaEzkutatu(int pLerroa, int pZutabea) {
+		if (jokalariarenTaula.ontziaDago(pLerroa, pZutabea)) {
 			jokalariarenTaula.getOntzia(pLerroa, pZutabea).ezkutatu();
-		}
-		else System.out.println("Ez dago ontzirik");
+		} else
+			System.out.println("Ez dago ontzirik");
 	}
-	
-	public void radarra(Radar radar, int pX, int pY){
-		//etsaiarenTaula.radarKontsultatu(pX, pY);
+
+	public void radarra(Radar radar, int pX, int pY) {
+		// etsaiarenTaula.radarKontsultatu(pX, pY);
 		radar.erabili(this.etsaiarenTaula, pX, pY);
 	}
-	
-	public boolean tiroEgin(int pX, int pY){
-		if (etsaiarenTaula.ontziaDago(pX, pY)&&!(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))){
-			etsaiarenTaula.tiroEgin(pX,pY);
+
+	public boolean tiroEgin(int pX, int pY) {
+		if (etsaiarenTaula.ontziaDago(pX, pY) && !(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))) {
+			etsaiarenTaula.tiroEgin(pX, pY);
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
-	
-	
 
 }

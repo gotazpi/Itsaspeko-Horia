@@ -1,86 +1,88 @@
 package ItsaspekoHoria;
 
 public abstract class Ontzia {
-	
-	//atributuak
+
+	// atributuak
 	private int luzera;
 	private int konponketaKostua;
 	private EgoeraOntzia egoeraOntzia;
 	private Koordenatuak[] koordenatuak;
 	private int jasandakoBonbaKop;
-	
-	//erabiltzailea
-	public Ontzia (int pLuzera, int pKonponketaKostua){
-		this.luzera=pLuzera;
-		this.konponketaKostua=pKonponketaKostua;
-		this.egoeraOntzia= new IkutuGabe();
-		this.jasandakoBonbaKop=0;
+
+	// erabiltzailea
+	public Ontzia(int pLuzera, int pKonponketaKostua) {
+		this.luzera = pLuzera;
+		this.konponketaKostua = pKonponketaKostua;
+		this.egoeraOntzia = new IkutuGabe();
+		this.jasandakoBonbaKop = 0;
 	}
-	
-	public void ezkutatu(){
-		if (!(egoeraOntzia instanceof Ezkutatuta)){
+
+	public boolean ezkutatu() {
+		if (!(egoeraOntzia instanceof Ezkutatuta)) {
 			this.egoeraAldatu(new Ezkutatuta());
 			System.out.println("Ontzia ezkutatu da!");
+			return true;
+		} else {
+			System.out.println("Dagoeneko ezkutaturik zegoen");
+			return false;
 		}
-		else{
-			System.out.println("Dagoeneko ezkutaturik zegoen");}
-		}
-	
-	public int getLuzera(){
+	}
+
+	public int getLuzera() {
 		return luzera;
 	}
-	
-	public boolean ikutua(int pX, int pY){
+
+	public boolean ikutua(int pX, int pY) {
 		return bilatuKoordenatuak(pX, pY).ikutua();
 	}
-	
-	public void ikutu(int pX, int pY){
+
+	public void ikutu(int pX, int pY) {
 		bilatuKoordenatuak(pX, pY).ikutu();
 	}
-	
-	private Koordenatuak bilatuKoordenatuak(int pX, int pY){
-		Koordenatuak aux=null;
-		int i=0;
-		while (i!=koordenatuak.length){
-			if (koordenatuak[i].koordenatuaDa(pX,pY)){
-				aux=koordenatuak[i];
+
+	private Koordenatuak bilatuKoordenatuak(int pX, int pY) {
+		Koordenatuak aux = null;
+		int i = 0;
+		while (i != koordenatuak.length) {
+			if (koordenatuak[i].koordenatuaDa(pX, pY)) {
+				aux = koordenatuak[i];
 			}
 			i++;
 		}
 		return aux;
 	}
-	
-	public void egoeraAldatu(EgoeraOntzia egoeraBerria){
-		this.egoeraOntzia=egoeraBerria;
+
+	public void egoeraAldatu(EgoeraOntzia egoeraBerria) {
+		this.egoeraOntzia = egoeraBerria;
 	}
-	
-	public EgoeraOntzia getEgoera(){
+
+	public EgoeraOntzia getEgoera() {
 		return this.egoeraOntzia;
 	}
-	
-	
-	public boolean jasandakoBonbaKopGainditu(){
-		if (this.jasandakoBonbaKop==1){
+
+	public boolean jasandakoBonbaKopGainditu() {
+		if (this.jasandakoBonbaKop == 1) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	public void jasandakoBonbaKopAldatu(int pKop){
-		this.jasandakoBonbaKop=pKop;
+
+	public void jasandakoBonbaKopAldatu(int pKop) {
+		this.jasandakoBonbaKop = pKop;
 	}
-	
-	public void koordenatuakJarri (int pX, int pY, int i){
-		if (koordenatuak==null){
+
+	public void koordenatuakJarri(int pX, int pY, int i) {
+		if (koordenatuak == null) {
 			koordenatuak = new Koordenatuak[luzera];
 		}
 		koordenatuak[i] = new Koordenatuak(pX, pY);
 	}
-	
-	public boolean erosDezake(int dirua){
-		if (dirua>=this.konponketaKostua){
+
+	public boolean erosDezake(int dirua) {
+		if (dirua >= this.konponketaKostua) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}

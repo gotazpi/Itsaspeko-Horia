@@ -2,9 +2,9 @@ package ItsaspekoHoria;
 
 public class HegazkinOntzia extends Ontzia {
 
-	//eraikitzailea;
-	public HegazkinOntzia(){
-		super(4,45);
+	// eraikitzailea;
+	public HegazkinOntzia() {
+		super(4, 45);
 	}
-	
+
 }

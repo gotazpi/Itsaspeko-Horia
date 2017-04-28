@@ -1,5 +1,5 @@
 package ItsaspekoHoria;
 
-public class Ezkutatuta implements EgoeraOntzia{
+public class Ezkutatuta implements EgoeraOntzia {
 
 }

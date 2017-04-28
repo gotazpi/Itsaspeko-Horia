@@ -1,5 +1,5 @@
 package ItsaspekoHoria;
 
-public class IkutuGabe implements EgoeraOntzia{
+public class IkutuGabe implements EgoeraOntzia {
 
 }
