@@ -1,8 +1,5 @@
 package ItsaspekoHoria;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 public class Flota {
 	
 	//atributuak
@@ -55,7 +52,7 @@ public class Flota {
 	public Ontzia suntsitutakoOntziaLortu(){
 		int i=0;
 		boolean topatua=false;
-		while(i<=9 || !topatua){
+		while(i<=9 && !topatua){
 			if (ontziak[i].getEgoera() instanceof Suntsituta){
 				topatua=true;
 			}else{
@@ -67,5 +64,9 @@ public class Flota {
 		}else{
 			return ontziak[i]; //Suntsituta dagoen barkua
 		}
+	}
+	
+	public void ontziaSuntsitu(int i){				//TEST-A PROBATZEKO BAKARRIK!!!
+		ontziak[i].egoeraAldatu(new Suntsituta());
 	}
 }

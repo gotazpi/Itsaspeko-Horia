@@ -4,12 +4,13 @@ public class Koordenatuak {
 	//atributuak
 	private int errenkada;
 	private int zutabea;
-	private boolean ikutua=false;
+	private boolean ikutua;
 	
 	//eraikitzailea
 	public Koordenatuak(int pErrenkada, int pZutabea){
 		this.errenkada=pErrenkada;
 		this.zutabea=pZutabea;
+		this.ikutua=false;
 	}
 	
 	//metodoak
