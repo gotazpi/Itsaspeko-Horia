@@ -142,13 +142,26 @@ public class Jokoa {
 			return false;
 		}
 	}
+	public boolean ontziaDago2(int i, int j) {		
+		if (Erabiltzailea.getErabiltzailea().getTaula().ontziaDago(i, j)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public EgoeraOntzia getOntziarenEgoera(int i, int j) {
 		return Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).getEgoera();
 	}
+	public EgoeraOntzia getOntziarenEgoera2(int i, int j) {
+		return Erabiltzailea.getErabiltzailea().getTaula().getOntzia(i, j).getEgoera();
+	}
 
 	public boolean ontziaIkutua(int i, int j) {
 		return Ordenagailua.getOrdenagailua().getTaula().getOntzia(i, j).ikutua(i, j);
+	}
+	public boolean ontziaIkutua2(int i, int j) {
+		return Erabiltzailea.getErabiltzailea().getTaula().getOntzia(i, j).ikutua(i, j);
 	}
 
 	public void ontziaIkutu(int i, int j) {

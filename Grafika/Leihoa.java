@@ -87,6 +87,7 @@ public class Leihoa extends JFrame {
 	 * Create the frame.
 	 */
 	private Leihoa() {
+		setTitle("Itsaspeko Horia");
 		this.matrix1 = new JButton[10][10];
 		this.matrix2 = new JButton[10][10];
 
@@ -207,6 +208,7 @@ public class Leihoa extends JFrame {
 		for (int lerro = 0; lerro < 10; lerro++) {
 			for (int zutabe = 0; zutabe < 10; zutabe++) {
 				JButton newJButton = new JButton();
+				newJButton.setBackground(java.awt.Color.blue);
 				panel2.add(newJButton);
 				textFields2.add(newJButton);
 				newJButton.addActionListener(controller2);
@@ -252,7 +254,6 @@ public class Leihoa extends JFrame {
 				//hacer que se pinte en todos los que se pone el barco
 				lblAsd.setText(Jokoa.getJokoa().getOntziarenIzena());
 				lblAsd_1.setText(Jokoa.getJokoa().getOntziarenTamaina());
-				aldatuIrudiaBeltza2(row, col);
 				System.out.println(row+" "+col);
 			}
 			if (Jokoa.getJokoa().zeinOntziKokatu()>9){
@@ -265,6 +266,7 @@ public class Leihoa extends JFrame {
 				}
 				
 			}
+			tablero2Eguneratu();
 		}
 
 	}
@@ -292,7 +294,31 @@ public class Leihoa extends JFrame {
 	}
 
 	
-
+	public void tablero2Eguneratu(){
+		int y, x;
+		for(x=0; x<10; x++){
+			for(y=0; y<10; y++){
+				if(Jokoa.getJokoa().ontziaDago2(x, y)){
+					if(Jokoa.getJokoa().ontziaIkutua2(x, y)){
+						aldatuIrudiaGorria2(x,y);
+					}
+					if(!Jokoa.getJokoa().ontziaIkutua2(x, y)){
+						aldatuIrudiaBerdea2(x,y);
+					}
+					EgoeraOntzia aux=Jokoa.getJokoa().getOntziarenEgoera2(x,y);
+					if(aux instanceof Ezkutatuta){
+						aldatuIrudiaHoria2(x,y);
+					}
+					
+				}
+				else if(!Jokoa.getJokoa().ontziaDago2(x, y)){
+					aldatuIrudiaUrdina2(x, y);
+				}
+			}
+			y=0;
+		}
+	}
+	
 	public void refresh() {
 		contentPane.validate();
 		contentPane.repaint();
@@ -307,9 +333,18 @@ public class Leihoa extends JFrame {
 		matrix1[i][j].setBackground(java.awt.Color.red);
 		refresh();
 	}
+	public void aldatuIrudiaGorria2(int i, int j) {
+		matrix2[i][j].setBackground(java.awt.Color.red);
+		refresh();
+	}
 
 	public void aldatuIrudiaBerdea(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.green);
+		refresh();
+	}
+	
+	public void aldatuIrudiaBerdea2(int i, int j) {
+		matrix2[i][j].setBackground(java.awt.Color.green);
 		refresh();
 	}
 
@@ -325,6 +360,10 @@ public class Leihoa extends JFrame {
 
 	public void aldatuIrudiaUrdina(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.blue);
+		refresh();
+	}
+	public void aldatuIrudiaUrdina2(int i, int j) {
+		matrix2[i][j].setBackground(java.awt.Color.blue);
 		refresh();
 	}
 
