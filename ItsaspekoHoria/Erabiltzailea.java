@@ -34,13 +34,21 @@ public class Erabiltzailea extends Jokalaria {
 		radar.erabili(this.etsaiarenTaula, pX, pY);
 	}
 
-	public boolean tiroEgin(int pX, int pY) {
-		if (etsaiarenTaula.ontziaDago(pX, pY) && !(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))) {
+	public void /*boolean*/ tiroEgin(String arma, int pX, int pY) { //ESTA FATAL!!!!!
+		/*PRIMERO TIENES QUE ELEGIR EL ARMA CON LA QUE QUIERES TIRAR Y LUEGO ELIGES A QUE BARKO, POR LO TANTO, EL ARMA 
+		 * ES LA QUE DAÑA.*/
+		boolean badago = this.armamentua.armaDago(arma);
+		if (badago){
+			Arma nireArma = armamentua.hartuArma(arma);
+			armamentua.armaKendu(nireArma);
+			nireArma.erabili(this.etsaiarenTaula, pX, pY);
+		} //TODO EZ BADAGO NAHI DUZUN ARMA ZURE ARMAMENTUA, BESTE BAT AUKERATU.
+		/*if (etsaiarenTaula.ontziaDago(pX, pY) && !(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))) {
 			etsaiarenTaula.tiroEgin(pX, pY);
 			return true;
 		} else {
 			return false;
-		}
+		}*/
 	}
 
 }

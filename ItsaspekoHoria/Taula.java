@@ -159,13 +159,13 @@ public class Taula {
 
 	}
 
-	public void tiroEgin(int pX, int pY) {
+	/*public void tiroEgin(int pX, int pY) {
 		if (ontziaDago(pX, pY)) {
 			getOntzia(pX, pY).ikutu(pX, pY);
 			// beste txanda
 		} else {
 			// txanda pasa
 		}
-	}
+	}*/
 
 }

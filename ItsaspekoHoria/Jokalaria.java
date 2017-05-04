@@ -57,20 +57,21 @@ public abstract class Jokalaria {
 		}
 	}
 
-	public void galdetuZerEgin() {
+	/*public void galdetuZerEgin() {
 		// mirar en la grafika cual es la option que elije
-	}
+	}*/
 
 	public void ontziaKonpondu(Ontzia ontzia) {
 		if (ontzia.getEgoera() instanceof Suntsituta) {
-			if (ontzia.erosDezake(
-					this.dirua)) { /* Diru nahiko du barkua konpontzeko */
+			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
 				ontzia.egoeraAldatu(new IkutuGabe());
 				ontzia.jasandakoBonbaKopAldatu(0);
 				this.dirua = this.dirua - ontzia.getKonponketaKostua();
 				System.out.println("Barkua konpondu da.");
 			}
-		} /* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
+		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
+			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
+		}
 	}
 
 }

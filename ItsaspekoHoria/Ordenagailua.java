@@ -10,6 +10,19 @@ public class Ordenagailua extends Jokalaria {
 	private Ordenagailua() {
 		super();
 	}
+	
+	public void ordenagailuaZerEginNahiDu(){ 
+		Random random = new Random();
+		int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
+		if (aukera==0){
+			int pX=this.posizioaLortu();
+			int pY=this.posizioaLortu();
+			String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua", "Bonba", "Ezkutua"};
+			int aukeraArma = random.nextInt(4);
+			String nahiDuzunArma = armaAukerak[aukeraArma];
+			this.
+		}
+	}
 
 	public static Ordenagailua getOrdenagailua() {
 		if (nireOrdenagailua == null) {
