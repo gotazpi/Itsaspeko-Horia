@@ -113,7 +113,7 @@ public class Leihoa extends JFrame {
 				Jokoa.getJokoa().ezkutatzeko();
 			}
 		});
-		btnNewButton_1.setBounds(648, 79, 89, 23);
+		btnNewButton_1.setBounds(630, 86, 89, 23);
 		btnNewButton_1.setVisible(false);
 		contentPane.add(btnNewButton_1);
 
@@ -163,7 +163,7 @@ public class Leihoa extends JFrame {
 				Jokoa.getJokoa().tiroEgiteko();
 			}
 		});
-		btnTiroEgin.setBounds(648, 11, 89, 23);
+		btnTiroEgin.setBounds(630, 11, 89, 23);
 		contentPane.add(btnTiroEgin);
 		btnTiroEgin.setVisible(false);
 
@@ -173,7 +173,7 @@ public class Leihoa extends JFrame {
 				Jokoa.getJokoa().radarraEgiteko();
 			}
 		});
-		btnRadarra.setBounds(648, 45, 89, 23);
+		btnRadarra.setBounds(630, 51, 89, 23);
 		btnRadarra.setVisible(false);
 		contentPane.add(btnRadarra);
 		
