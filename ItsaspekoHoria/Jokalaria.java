@@ -8,7 +8,6 @@ public abstract class Jokalaria {
 	protected Armamentua armamentua;
 	protected Flota flota;
 	protected int dirua;
-	protected int zenbatgarrenMisilZuzendu;
 	
 	// eraikitzailea
 	public Jokalaria() {
@@ -17,7 +16,6 @@ public abstract class Jokalaria {
 		this.etsaiarenTaula = new Taula();
 		this.flota = new Flota();
 		dirua = 100;
-		this.zenbatgarrenMisilZuzendu=0;
 	}
 
 	// metodoak

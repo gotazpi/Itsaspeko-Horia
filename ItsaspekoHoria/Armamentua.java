@@ -42,9 +42,9 @@ public class Armamentua {
 				misilKop++;
 				nireArmak.add((Misil) arma);
 			} else {
-				if (arma instanceof MisilZuzendua) {
+				if (arma instanceof MisilZuzenduaGurutzea) {
 					misilZuzenduKop++;
-					nireArmak.add((MisilZuzendua) arma);
+					nireArmak.add((MisilZuzenduaGurutzea) arma);
 				} else {
 					if (arma instanceof Radar) {
 						radarKop++;
@@ -98,7 +98,7 @@ public class Armamentua {
 				if (arma=="Misil" && egungoa instanceof Misil){
 					topatua=true;
 				}else{
-					if (arma=="MisilZuzendua" && egungoa instanceof MisilZuzendua){
+					if (arma=="MisilZuzendua" && egungoa instanceof MisilZuzenduaGurutzea){
 						topatua=true;
 					}else{
 						if (arma=="Ezkutua" && egungoa instanceof Ezkutua){
@@ -124,7 +124,7 @@ public class Armamentua {
 				this.misilKop--;
 				nireArmak.remove(arma);
 			}else{
-				if (arma instanceof MisilZuzendua){
+				if (arma instanceof MisilZuzenduaGurutzea){
 					this.misilZuzenduKop--;
 					nireArmak.remove(arma);
 				}else{
