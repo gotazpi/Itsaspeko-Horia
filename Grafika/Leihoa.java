@@ -327,43 +327,52 @@ public class Leihoa extends JFrame {
 	}
 	public void aldatuIrudiaBeltza2(int i, int j) {
 		matrix2[i][j].setBackground(java.awt.Color.black);
+		matrix2[i][j].setOpaque(true);
 		refresh();
 	}
 	public void aldatuIrudiaGorria(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.red);
+		matrix1[i][j].setOpaque(true);
 		refresh();
 	}
 	public void aldatuIrudiaGorria2(int i, int j) {
 		matrix2[i][j].setBackground(java.awt.Color.red);
+		matrix2[i][j].setOpaque(true);
 		refresh();
 	}
 
 	public void aldatuIrudiaBerdea(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.green);
+		matrix1[i][j].setOpaque(true);
 		refresh();
 	}
 	
 	public void aldatuIrudiaBerdea2(int i, int j) {
 		matrix2[i][j].setBackground(java.awt.Color.green);
+		matrix2[i][j].setOpaque(true);
 		refresh();
 	}
 
 	public void aldatuIrudiaHoria(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.yellow);
+		matrix1[i][j].setOpaque(true);
 		refresh();
 	}
 	
 	public void aldatuIrudiaHoria2(int i, int j) {
 		matrix2[i][j].setBackground(java.awt.Color.yellow);
+		matrix2[i][j].setOpaque(true);
 		refresh();
 	}
 
 	public void aldatuIrudiaUrdina(int i, int j) {
 		matrix1[i][j].setBackground(java.awt.Color.blue);
+		matrix1[i][j].setOpaque(true);
 		refresh();
 	}
 	public void aldatuIrudiaUrdina2(int i, int j) {
 		matrix2[i][j].setBackground(java.awt.Color.blue);
+		matrix2[i][j].setOpaque(true);
 		refresh();
 	}
 
