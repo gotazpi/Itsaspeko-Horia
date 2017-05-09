@@ -9,7 +9,8 @@ public class Biltegia {
 	private ArrayList armak;
 	private int bonbaKop;
 	private int misilKop;
-	private int misilZuzenduKop;
+	private int misilZuzenduNormalaKop;
+	private int misilZuzenduGurutzeaKop;
 	private int radarKop;
 	private int ezkutuKop;
 	private static Biltegia nBiltegia;
@@ -20,9 +21,10 @@ public class Biltegia {
 		this.biltegiaSortu();
 		this.bonbaKop = 50; // TODO kopuruak aldatu
 		this.misilKop = 50;
-		this.misilZuzenduKop = 50;
+		this.misilZuzenduNormalaKop = 50;
 		this.radarKop = 50;
 		this.ezkutuKop = 50;
+		this.misilZuzenduGurutzeaKop=50;
 	}
 
 	// metodoak
@@ -85,6 +87,14 @@ public class Biltegia {
 			}
 		}
 		return egungoa;
+	}
+	public boolean armakDaude(){
+		if (this.bonbaKop==0 && this.misilKop==0 && this.ezkutuKop==0 && this.misilZuzenduGurutzeaKop==0 && this.misilZuzenduNormalaKop==0
+				&& this.radarKop==0){
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	public void armaKendu(Arma arma) {

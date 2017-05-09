@@ -11,16 +11,48 @@ public class Ordenagailua extends Jokalaria {
 		super();
 	}
 	
-	public void ordenagailuaZerEginNahiDu(){ 
+	public String armaAukeratu(){
 		Random random = new Random();
-		int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
-		if (aukera==0){
-			int pX=this.posizioaLortu();
-			int pY=this.posizioaLortu();
-			String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua", "Bonba", "Ezkutua"};
-			int aukeraArma = random.nextInt(4);
-			String nahiDuzunArma = armaAukerak[aukeraArma];
-			this.
+		String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua", "Bonba", "Ezkutua"};
+		int aukeraArma = random.nextInt(4);
+		return armaAukerak[aukeraArma];
+	}
+	
+	public void ordenagailuaZerEginNahiDu(){
+		Arma arma=null;
+		Random random = new Random();
+		boolean topatua=false, eginda=false;
+		while(!eginda){
+			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
+			if (aukera==0){
+				if (this.armamentua.armakDaude()){
+					eginda=true;
+					int pX=this.posizioaLortu();
+					int pY=this.posizioaLortu();
+					while(!topatua){
+						String nahiDuzunArma = this.armaAukeratu(); 
+						boolean badu = this.armamentua.armaDago(nahiDuzunArma);
+						if (badu){
+							topatua=true;
+							arma = this.armamentua.hartuArma(nahiDuzunArma);
+							this.armamentua.armaKendu(arma);
+							arma.erabili(this.etsaiarenTaula, pX, pY);
+						}
+					}
+				}
+			}else{
+				if (aukera==1){
+					Biltegia nBiltegia= Biltegia.getNireBiltegia();
+					while(!topatua){
+						if (nBiltegia.armakDaude() && this.dirua>0){
+							String nahiDugunArma=this.armaAukeratu();
+							if (nBiltegia.armarikDago(nahiDugunArma)){
+								arma=nBiltegia.armaLortu(arma);
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

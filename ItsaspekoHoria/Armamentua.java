@@ -10,16 +10,17 @@ public class Armamentua {
 	// atributuak
 	private int bonbaKop;
 	private int radarKop;
-	private int misilZuzenduKop;
+	private int misilZuzenduNorabideKop;
 	private int ezkutuaKop;
 	private int misilKop;
+	private int misilZuzenduGurutzeaKop;
 	private ArrayList<Arma> nireArmak;
 
 	// eraikitzailea
 	public Armamentua() {
 		this.bonbaKop = 3;
 		this.radarKop = 3;
-		this.misilZuzenduKop = 3;
+		this.misilZuzenduNorabideKop = 3;
 		this.ezkutuaKop = 1;
 		this.misilKop = 4;
 		this.nireArmak = new ArrayList<Arma>();
@@ -43,7 +44,7 @@ public class Armamentua {
 				nireArmak.add((Misil) arma);
 			} else {
 				if (arma instanceof MisilZuzendua) {
-					misilZuzenduKop++;
+					misilZuzenduNorabideKop++;
 					nireArmak.add((MisilZuzendua) arma);
 				} else {
 					if (arma instanceof Radar) {
@@ -113,6 +114,14 @@ public class Armamentua {
 			}
 		}
 		return egungoa;
+	}
+	
+	public boolean armakDaude(){
+		if (bonbaKop==0 && misilKop==0 && radarKop==0 && ezkutuaKop==0 && misilZuzenduGurutzeaKop==0 && misilZuzenduNorabideKop==0){
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 	public void armaKendu(Arma arma){
