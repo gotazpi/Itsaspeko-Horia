@@ -57,6 +57,9 @@ public class Leihoa extends JFrame {
 	JLabel lblAsd_1 = new JLabel(Jokoa.getJokoa().getOntziarenTamaina());
 	JLabel lblOntzia = new JLabel("Ontzia:");
 	JLabel lblTamaina = new JLabel("Tamaina:");
+	private ButtonGroup armak = new ButtonGroup();
+	private final JRadioButton rdbtnMisilZuzenduaGurutzatua = new JRadioButton("Misil Zuzendua Gurutzatua");
+	private final JRadioButton rdbtnRadarra = new JRadioButton("Radarra");
 	
 	public static Leihoa getLeihoa() {
 		if (nireLeihoa == null) {
@@ -92,7 +95,7 @@ public class Leihoa extends JFrame {
 		this.matrix2 = new JButton[10][10];
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 900);
+		setBounds(100, 100, 1100, 900);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -113,7 +116,7 @@ public class Leihoa extends JFrame {
 				Jokoa.getJokoa().ezkutatzeko();
 			}
 		});
-		btnNewButton_1.setBounds(630, 86, 89, 23);
+		btnNewButton_1.setBounds(630, 81, 89, 23);
 		btnNewButton_1.setVisible(false);
 		contentPane.add(btnNewButton_1);
 
@@ -173,7 +176,7 @@ public class Leihoa extends JFrame {
 				Jokoa.getJokoa().radarraEgiteko();
 			}
 		});
-		btnRadarra.setBounds(630, 51, 89, 23);
+		btnRadarra.setBounds(630, 46, 89, 23);
 		btnRadarra.setVisible(false);
 		contentPane.add(btnRadarra);
 		
@@ -191,6 +194,53 @@ public class Leihoa extends JFrame {
 		
 		lblAsd_1.setBounds(691, 542, 103, 14);
 		contentPane.add(lblAsd_1);
+		
+		JRadioButton rdbtnBonba = new JRadioButton("Bonba");
+		rdbtnBonba.setBounds(630, 235, 89, 23);
+		contentPane.add(rdbtnBonba);
+		
+		JRadioButton rdbtnEzkutua = new JRadioButton("Ezkutua");
+		rdbtnEzkutua.setBounds(630, 270, 89, 23);
+		contentPane.add(rdbtnEzkutua);
+		
+		JRadioButton rdbtnMisila = new JRadioButton("Misila");
+		rdbtnMisila.setBounds(630, 305, 82, 23);
+		contentPane.add(rdbtnMisila);
+		
+		JRadioButton rdbtnMisilZuzenduaNorabidea = new JRadioButton("Misil Zuzendua Norabidea");
+		rdbtnMisilZuzenduaNorabidea.setBounds(630, 340, 209, 23);
+		contentPane.add(rdbtnMisilZuzenduaNorabidea);
+		
+		
+		
+		JLabel lblArmak = new JLabel("ARMAK:");
+		lblArmak.setBounds(630, 172, 61, 16);
+		contentPane.add(lblArmak);
+		
+		rdbtnMisilZuzenduaGurutzatua.setBounds(630, 375, 209, 23);
+		contentPane.add(rdbtnMisilZuzenduaGurutzatua);
+		
+		rdbtnRadarra.setBounds(630, 200, 141, 23);
+		contentPane.add(rdbtnRadarra);
+		
+		armak.add(rdbtnMisilZuzenduaNorabidea);
+		armak.add(rdbtnMisila);
+		armak.add(rdbtnEzkutua);
+		armak.add(rdbtnBonba);
+		armak.add(rdbtnRadarra);
+		armak.add(rdbtnMisilZuzenduaGurutzatua);
+		
+		JButton btnNewButton = new JButton("Arma erosi");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(732, 9, 107, 26);
+		contentPane.add(btnNewButton);
+		
+		JButton btnOntziaKonpontu = new JButton("Ontzia konpondu");
+		btnOntziaKonpontu.setBounds(851, 8, 141, 26);
+		contentPane.add(btnOntziaKonpontu);
 		
 		
 		// Panel1

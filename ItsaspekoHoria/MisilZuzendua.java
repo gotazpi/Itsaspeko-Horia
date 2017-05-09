@@ -10,7 +10,7 @@ public abstract class MisilZuzendua extends Arma{
 		pY=0;
 		while(pY<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
 			}
 			pY++;
 		}
@@ -20,7 +20,7 @@ public abstract class MisilZuzendua extends Arma{
 		pX=0;
 		while(pX<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
 			}
 			pX++;
 		}

@@ -12,9 +12,10 @@ public class MisilZuzenduaNorabidea extends MisilZuzendua{
 		if (misilZuzenduNorabidea==0){								//0 en bertical y 1 en horizontal
 			this.bertikaleanSuntsitu(etsaiarenTaula, pX, pY);
 		}else{
-			this.horizontaleanSuntsitu(etsaiarenTaula, pX, pY);
+			if (misilZuzenduNorabidea==1){
+				this.horizontaleanSuntsitu(etsaiarenTaula, pX, pY);
+			}
 		}
-		
 	}
 	
 	

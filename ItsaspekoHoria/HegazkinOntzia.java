@@ -4,7 +4,7 @@ public class HegazkinOntzia extends Ontzia {
 
 	// eraikitzailea;
 	public HegazkinOntzia() {
-		super(4, 45);
+		super(4, 40);
 	}
 
 }

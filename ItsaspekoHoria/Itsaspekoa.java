@@ -4,7 +4,7 @@ public class Itsaspekoa extends Ontzia {
 
 	// eraikitzailea
 	public Itsaspekoa() {
-		super(3, 35);
+		super(3, 30);
 	}
 
 }

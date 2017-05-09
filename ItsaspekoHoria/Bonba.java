@@ -11,7 +11,7 @@ public class Bonba extends Arma {
 	// metodoak
 	public void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea) {
 		Ontzia ontziBat = etsaiarenTaula.getOntzia(pX, pY);
-		if (ontziBat != null) {
+		if (ontziBat != null) {  //ontzia badago
 			if (ontziBat.getEgoera() instanceof Ezkutatuta) {
 				if (ontziBat.jasandakoBonbaKopGainditu()) {
 					ontziBat.egoeraAldatu(new IkutuGabe());
