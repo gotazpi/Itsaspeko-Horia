@@ -42,7 +42,7 @@ public class Radar extends Arma {
 	 * OntziaDago)etsaiarenTaula[pX+1][pY+1].koloreAldatu();
 	 */
 	@Override
-	public void erabili(Taula etsailarenTaula, int pX, int pY) {
+	public void erabili(Taula etsailarenTaula, int pX, int pY, int misilZuzendua) {
 		// TODO Auto-generated method stub
 
 	}

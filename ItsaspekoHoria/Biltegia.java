@@ -36,7 +36,7 @@ public class Biltegia {
 			armak.add(new Misil());
 		}
 		for (int i = 1; i == 50; i++) {
-			armak.add(new MisilZuzendua());
+			armak.add(new MisilZuzenduaGurutzea());
 		}
 		for (int i = 1; i == 50; i++) {
 			armak.add(new Radar());
@@ -74,7 +74,7 @@ public class Biltegia {
 						if (egungoa instanceof Radar && arma == "Radar") {
 							topatua = true;
 						} else {
-							if (egungoa instanceof MisilZuzendua && arma == "Mizil Zuzendua") {
+							if (egungoa instanceof MisilZuzenduaGurutzea && arma == "Mizil Zuzendua") {
 								topatua = true;
 							} else {
 								if (egungoa instanceof Ezkutua && arma == "Ezkutua") {
@@ -104,7 +104,7 @@ public class Biltegia {
 			if (arma instanceof Misil) {
 				misilKop--;
 			} else {
-				if (arma instanceof MisilZuzendua) {
+				if (arma instanceof MisilZuzenduaGurutzea) {
 					misilZuzenduKop--;
 				} else {
 					if (arma instanceof Radar) {

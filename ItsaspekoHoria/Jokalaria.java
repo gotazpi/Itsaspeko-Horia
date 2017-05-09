@@ -8,7 +8,7 @@ public abstract class Jokalaria {
 	protected Armamentua armamentua;
 	protected Flota flota;
 	protected int dirua;
-
+	
 	// eraikitzailea
 	public Jokalaria() {
 		this.armamentua = new Armamentua();

@@ -1,48 +1,28 @@
 package ItsaspekoHoria;
 
-public class MisilZuzendua extends Arma {
-	// atributuak
+public abstract class MisilZuzendua extends Arma{
 
-	// eraikitzailea
 	public MisilZuzendua() {
-		super(45);
+		super(0);
 	}
 
-	// metodoak
-	@Override
-	public void erabili(Taula etsaiarenTaula, int pX, int pY) {
-		// TODO nola jakin zenbat aliz erabili den misilZuzendua?????
-		//1.aldia bada, horizontalean, 2.aldia bada bertikalean eta gainontzekoak horizontalean eta bertikalean
-
-	}
-	
 	public void horizontaleanSuntsitu(Taula etsaiarenTaula, int pX, int pY){
-		while(pX>=0){
-			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
-			}
-			pX--;
-		}
-		while(pX<=9){
-			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
-			}
-			pX++;
-		}
-	}
-	
-	public void bertikaleanSuntsitu(Taula etsaiarenTaula, int pX, int pY){
-		while(pY>=0){
-			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
-			}
-			pY--;
-		}
+		pY=0;
 		while(pY<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
 				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
 			}
 			pY++;
+		}
+	}
+	
+	public void bertikaleanSuntsitu(Taula etsaiarenTaula, int pX, int pY){
+		pX=0;
+		while(pX<=9){
+			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
+				etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+			}
+			pX++;
 		}
 	}
 }
