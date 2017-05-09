@@ -1,0 +1,8 @@
+diff a/ItsaspekoHoria/Arma.java b/ItsaspekoHoria/Arma.java	(rejected hunks)
+@@ -11,5 +11,6 @@
+ 	}
+ 
+ 	// metodoak
++	public abstract void erabili(Taula etsailarenTaula, int pX, int pY, int misilZuzenduNorabidea);
+ 
+ }

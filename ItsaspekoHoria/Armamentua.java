@@ -5,35 +5,44 @@ import java.util.Iterator;
 
 
 
-public class Armamentua {
+public class Armamentua extends ArmaKolekzioa{
 
 	// atributuak
-	private int bonbaKop;
-	private int radarKop;
-	private int misilZuzenduNorabideKop;
-	private int ezkutuaKop;
-	private int misilKop;
-	private int misilZuzenduGurutzeaKop;
-	private ArrayList<Arma> nireArmak;
+	
 
 	// eraikitzailea
 	public Armamentua() {
-		this.bonbaKop = 3;
-		this.radarKop = 3;
-		this.misilZuzenduNorabideKop = 3;
-		this.ezkutuaKop = 1;
-		this.misilKop = 4;
+		this.bonbaKop = 20;
+		this.radarKop = 5;
+		this.misilZuzenduNorabideKop = 5; //aldatzeko
+		this.misilZuzenduGurutzatuaKop=3;	//aldatzeko
+		this.ezkutuaKop = 3;
+		this.misilKop = 10;
 		this.nireArmak = new ArrayList<Arma>();
+		this.armamentuaBete();
 	}
-
-	public int getRadarKop() {
-		return this.radarKop;
+	
+	private void armamentuaBete(){  //balio hauek alda daitezke.
+		for (int i = 1; i == 20; i++) {
+			nireArmak.add(new Bonba());
+		}
+		for (int i = 1; i == 10; i++) {
+			nireArmak.add(new Misil());
+		}
+		for (int i = 1; i == 2; i++) {
+			nireArmak.add(new MisilZuzenduaGurutzatua());
+		}
+		for (int i = 1; i==5; i++){
+			nireArmak.add(new MisilZuzenduaNorabidea());
+		}
+		for (int i = 1; i == 5; i++) {
+			nireArmak.add(new Radar());
+		}
+		for (int i = 1; i == 3; i++) {
+			nireArmak.add(new Ezkutua());
+		}
 	}
-
-	public void radarKopKendu() {
-		this.radarKop--;
-	}
-
+	
 	public void armaGehitu(Arma arma) {
 		if (arma instanceof Bonba) {
 			bonbaKop++;
@@ -43,16 +52,16 @@ public class Armamentua {
 				misilKop++;
 				nireArmak.add((Misil) arma);
 			} else {
-<<<<<<< HEAD
 				if (arma instanceof MisilZuzendua) {
-					misilZuzenduNorabideKop++;
-					nireArmak.add((MisilZuzendua) arma);
-=======
-				if (arma instanceof MisilZuzenduaGurutzea) {
-					misilZuzenduKop++;
-					nireArmak.add((MisilZuzenduaGurutzea) arma);
->>>>>>> 2f5a6c142680bccdf0b69283c7b11f16d425833d
-				} else {
+					MisilZuzendua misilZuzendua = (MisilZuzendua) arma;
+					if (misilZuzendua instanceof MisilZuzenduaGurutzatua){
+						misilZuzenduGurutzatuaKop++;
+						nireArmak.add((MisilZuzenduaGurutzatua) arma);
+					}else{
+						misilZuzenduNorabideKop++;
+						nireArmak.add((MisilZuzenduaNorabidea) arma);
+					}
+				}else {
 					if (arma instanceof Radar) {
 						radarKop++;
 						nireArmak.add((Radar) arma);
@@ -64,95 +73,7 @@ public class Armamentua {
 			}
 		}
 	}
+
 	
-	public boolean armaDago(String arma){
-		if (arma=="Eskutua" && this.ezkutuaKop>0){
-			return true;
-		}else{
-			if (arma=="Bonba" && this.bonbaKop>0){
-				return true;
-			}else{
-				if (arma=="Misil Zuzendua" && this.misilZuzenduKop>0){
-					return true;
-				}else{
-					if(arma=="Misila" && this.misilKop>0){
-						return true;
-					}else{
-						if (arma=="radar" && this.radarKop>0){
-							return true;
-						}else{
-							return false;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	private Iterator<Arma> getIteragorea(){
-		return this.nireArmak.iterator();
-	}
-	
-	public Arma hartuArma(String arma){
-		Iterator<Arma> it =this.getIteragorea();
-		boolean topatua=false;
-		Arma egungoa=null;
-		while(it.hasNext() && !topatua){
-			egungoa=it.next();
-			if (arma=="Bonba" && egungoa instanceof Bonba){
-				topatua=true;
-			}else{
-				if (arma=="Misil" && egungoa instanceof Misil){
-					topatua=true;
-				}else{
-					if (arma=="MisilZuzendua" && egungoa instanceof MisilZuzenduaGurutzea){
-						topatua=true;
-					}else{
-						if (arma=="Ezkutua" && egungoa instanceof Ezkutua){
-							topatua=true;
-						}else{
-							if (arma=="Radar" && egungoa instanceof Radar){
-								topatua=true;
-							}
-						}
-					}
-				}
-			}
-		}
-		return egungoa;
-	}
-	
-	public boolean armakDaude(){
-		if (bonbaKop==0 && misilKop==0 && radarKop==0 && ezkutuaKop==0 && misilZuzenduGurutzeaKop==0 && misilZuzenduNorabideKop==0){
-			return false;
-		}else{
-			return true;
-		}
-	}
-	
-	public void armaKendu(Arma arma){
-		if (arma instanceof Bonba){
-			this.bonbaKop--;
-			nireArmak.remove(arma);
-		}else{
-			if (arma instanceof Misil){
-				this.misilKop--;
-				nireArmak.remove(arma);
-			}else{
-				if (arma instanceof MisilZuzenduaGurutzea){
-					this.misilZuzenduKop--;
-					nireArmak.remove(arma);
-				}else{
-					if (arma instanceof Ezkutua){
-						this.ezkutuaKop--;
-						nireArmak.remove(arma);
-					}else{
-						this.radarKop--;
-						nireArmak.remove(arma);
-					}
-				}
-			}
-		}
-	}
 
 }

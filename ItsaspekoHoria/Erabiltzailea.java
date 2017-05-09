@@ -31,7 +31,7 @@ public class Erabiltzailea extends Jokalaria {
 
 	public void radarra(Radar radar, int pX, int pY) {
 		// etsaiarenTaula.radarKontsultatu(pX, pY);
-		radar.erabili(this.etsaiarenTaula, pX, pY);
+		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
 	}
 
 	public void /*boolean*/ tiroEgin(String arma, int pX, int pY) { //ESTA FATAL!!!!!

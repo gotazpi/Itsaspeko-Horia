@@ -32,7 +32,7 @@ public abstract class Jokalaria {
 	 * etsaiarenTaula.radarKontsultatu(x, y); }
 	 */
 
-	public boolean ontziakDauzka() {
+	public boolean ontziakDauzka() { //para que se usa este metodo?
 		if (this.flota.getOntziKop() != 0) {
 			return true;
 		} else {
@@ -47,13 +47,20 @@ public abstract class Jokalaria {
 	 * this.tiroEgin(); } } }
 	 */
 
-	public void armaErosi(String arma) {
+	public boolean armaErosi(String arma) {
 		Biltegia biltegia = Biltegia.getNireBiltegia();
-		Arma nahiDuguna = biltegia.armaLortu(arma);
-		if (nahiDuguna != null && this.dirua >= nahiDuguna.kostua) {
-			biltegia.armaKendu(nahiDuguna);
-			this.dirua = this.dirua - nahiDuguna.kostua;
-			this.armamentua.armaGehitu(nahiDuguna);
+		if (biltegia.armaDago(arma)){
+			Arma nahiDuguna = biltegia.hartuArma(arma);
+			if (this.dirua >= nahiDuguna.kostua) {
+				biltegia.armaKendu(nahiDuguna);
+				this.dirua = this.dirua - nahiDuguna.kostua;
+				this.armamentua.armaGehitu(nahiDuguna);
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
 		}
 	}
 
@@ -61,17 +68,20 @@ public abstract class Jokalaria {
 		// mirar en la grafika cual es la option que elije
 	}*/
 
-	public void ontziaKonpondu(Ontzia ontzia) {
+	public boolean ontziaKonpondu(Ontzia ontzia) {
+		boolean emaitza=false;
 		if (ontzia.getEgoera() instanceof Suntsituta) {
 			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
 				ontzia.egoeraAldatu(new IkutuGabe());
 				ontzia.jasandakoBonbaKopAldatu(0);
 				this.dirua = this.dirua - ontzia.getKonponketaKostua();
 				System.out.println("Barkua konpondu da.");
+				emaitza=true;
 			}
 		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
 			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
 		}
+		return emaitza;
 	}
 
 }

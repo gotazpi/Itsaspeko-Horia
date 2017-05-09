@@ -11,6 +11,6 @@ public abstract class Arma {
 	}
 
 	// metodoak
-	public abstract void erabili(Taula etsailarenTaula, int pX, int pY, int misilZuzenduNorabidea);
+	public abstract void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea);
 
 }

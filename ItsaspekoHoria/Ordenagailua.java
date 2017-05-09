@@ -21,7 +21,9 @@ public class Ordenagailua extends Jokalaria {
 	public void ordenagailuaZerEginNahiDu(){
 		Arma arma=null;
 		Random random = new Random();
+		int norabidea=3; // misil zuzendu norabidea erabiltzen ez bada, 3 zenbakia joango da erabili() metodoan azken parametro bezala
 		boolean topatua=false, eginda=false;
+		boolean ondoErosiDa=false;
 		while(!eginda){
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
 			if (aukera==0){
@@ -36,19 +38,34 @@ public class Ordenagailua extends Jokalaria {
 							topatua=true;
 							arma = this.armamentua.hartuArma(nahiDuzunArma);
 							this.armamentua.armaKendu(arma);
-							arma.erabili(this.etsaiarenTaula, pX, pY);
+							if (arma instanceof MisilZuzenduaNorabidea){
+								norabidea=random.nextInt(1); //0=bertikal 1=horizontal
+							}
+							arma.erabili(this.etsaiarenTaula, pX, pY, norabidea);
 						}
 					}
 				}
 			}else{
 				if (aukera==1){
 					Biltegia nBiltegia= Biltegia.getNireBiltegia();
-					while(!topatua){
-						if (nBiltegia.armakDaude() && this.dirua>0){
+					if (nBiltegia.armakDaude() && this.dirua>0){
+						int i=1;
+						while(!topatua&& i<=5){//bost aldiz saiatuko da bestela aterako da eta beste gauza bat egiten saiatuko da
 							String nahiDugunArma=this.armaAukeratu();
-							if (nBiltegia.armarikDago(nahiDugunArma)){
-								arma=nBiltegia.armaLortu(arma);
+							ondoErosiDa=this.armaErosi(nahiDugunArma);
+							if (ondoErosiDa){
+								topatua=true;
+								i++;
+								eginda=true;
 							}
+						}
+					}
+				}else{ //aukera=2 bada
+					Ontzia ontziBat=this.flota.suntsitutakoOntziaLortu(); //ontzi bat aukeratzen du
+					if (ontziBat!=null){
+						ondoErosiDa=this.ontziaKonpondu(ontziBat);
+						if (ondoErosiDa){
+							eginda=true;
 						}
 					}
 				}

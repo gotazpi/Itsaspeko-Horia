@@ -1,10 +1,10 @@
 package ItsaspekoHoria;
 
-public class MisilZuzenduaGurutzea extends MisilZuzendua {
+public class MisilZuzenduaGurutzatua extends MisilZuzendua {
 	// atributuak
 
 	// eraikitzailea
-	public MisilZuzenduaGurutzea() {
+	public MisilZuzenduaGurutzatua() {
 		super();
 		this.kostua=45;
 	}
