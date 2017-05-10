@@ -43,6 +43,7 @@ public class Jokoa {
 
 	public static void jokoaHasieratu() {
 		// TODO armamentua hasieratu eta gauza gehiago
+		
 		ordenagailua.ontziaKokatu();
 	}
 

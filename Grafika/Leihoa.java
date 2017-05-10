@@ -39,7 +39,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 public class Leihoa extends JFrame {
-
+	
 	private static Leihoa nireLeihoa;
 	private JPanel contentPane;
 	private JButton[][] matrix1;
@@ -108,6 +108,7 @@ public class Leihoa extends JFrame {
 	 * Create the frame.
 	 */
 	private Leihoa() {
+		new warning().main(null);
 		setTitle("Itsaspeko Horia");
 		this.matrix1 = new JButton[10][10];
 		this.matrix2 = new JButton[10][10];
