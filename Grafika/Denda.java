@@ -157,7 +157,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
-			//eguneratu lehioa
+			// lehioa eguneratu
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
@@ -169,8 +169,8 @@ public class Denda{
 			Erabiltzailea.getErabiltzailea().armaErosi("Bonba");
 			label_5.setText("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
 			label_11.setText("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
+			// denda eguneratu
 			eguneratu();
-			Leihoa.getLeihoa().armakEguneratu();
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
@@ -180,6 +180,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Misil");
+			// denda eguneratu
 		}
 	}
 	private class SwingAction_3 extends AbstractAction {
@@ -189,6 +190,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Radar");
+			// denda eguneratu
 		}
 	}
 	private class SwingAction_4 extends AbstractAction {
@@ -198,6 +200,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Ezkutua");
+			// denda eguneratu
 		}
 	}
 	private class SwingAction_5 extends AbstractAction {
@@ -207,6 +210,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Misil Zuzendua Gurutzatua");
+			// denda eguneratu
 		}
 	}
 	private class SwingAction_6 extends AbstractAction {
@@ -216,11 +220,12 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Misil Zuzendua Norabidea");
+			// denda eguneratu
 		}
 	}
 	
 	private void eguneratu(){
 		frame.getContentPane().repaint();
-		frame.getContentPane().validate();
+		frame.getContentPane().revalidate();
 	}
 }

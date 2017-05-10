@@ -76,6 +76,7 @@ public class Leihoa extends JFrame {
 	private final JLabel label_2 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
 	private final JLabel label_3 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 	private final JLabel label_4 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
+	private final JLabel label_5 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
 	
 	
 	public static Leihoa getLeihoa() {
@@ -186,7 +187,7 @@ public class Leihoa extends JFrame {
 		contentPane.add(rdbtnBonba);
 		rdbtnBonba.setVisible(false) ;
 		
-		rdbtnEzkutua.setBounds(624, 435, 89, 23);
+		rdbtnEzkutua.setBounds(624, 435, 84, 23);
 		contentPane.add(rdbtnEzkutua);
 		rdbtnEzkutua.setVisible(false) ;
 		
@@ -261,11 +262,15 @@ public class Leihoa extends JFrame {
 		label_4.setBounds(817, 168, 46, 14);
 		
 		contentPane.add(label_4);
+		label_5.setBounds(719, 439, 46, 14);
+		
+		contentPane.add(label_5);
 		label.setVisible(false);
 		label_1.setVisible(false);
 		label_2.setVisible(false);
 		label_3.setVisible(false);
 		label_4.setVisible(false);
+		label_5.setVisible(false);
 		rdbtnOntziaKonpondu.setVisible(false);
 		
 		
@@ -349,6 +354,7 @@ public class Leihoa extends JFrame {
 					System.out.println("pirililiii");
 				}
 			}
+			Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
 			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			armakEguneratu();
 		}
@@ -361,6 +367,7 @@ public class Leihoa extends JFrame {
 		label_2.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
 		label_3.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 		label_4.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
+		label_5.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
 	}
 
 	private class Controller2 implements ActionListener {
@@ -541,6 +548,7 @@ public class Leihoa extends JFrame {
 		label_2.setVisible(true);
 		label_3.setVisible(true);
 		label_4.setVisible(true);
+		label_5.setVisible(true);
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);
