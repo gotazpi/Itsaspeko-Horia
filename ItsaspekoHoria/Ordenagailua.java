@@ -45,8 +45,14 @@ public class Ordenagailua extends Jokalaria {
 							}else if (arma instanceof Radar){
 								this.radarKoordenatua=koordenatuakGorde(pX, pY);
 							}
-							arma.erabili(this.etsaiarenTaula, pX, pY, norabidea);
+							if (this.radarKoordenatua!=null && !(arma instanceof Ezkutua)){
+								arma.erabili(this.etsaiarenTaula, this.radarKoordenatua.getErrenkada(), this.radarKoordenatua.getZutabea(), norabidea);
+								this.radarKoordenatua=null;
+							}else{
+								arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+							}
 						}
+							
 					}
 				}
 			}else{
@@ -83,21 +89,68 @@ public class Ordenagailua extends Jokalaria {
 		while(!topatua){
 			if (this.etsaiarenTaula.getOntzia(pX, pY)!=null){
 				if (this.etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof IkutuGabe){
-					topatua=true;
 					barkuKoordenatuak=new Koordenatuak(pX, pY);
+					topatua=true;
 				}
 			}else{
-				if (pX<9 && this.etsaiarenTaula.getOntzia(pX+1, pY)!=null){
-					if (this.etsaiarenTaula.getOntzia(pX+1, pY).getEgoera() instanceof IkutuGabe){
+				if (pX>0&&pY>0&&etsaiarenTaula.getOntzia(pX-1,pY-1)!=null){
+					if (this.etsaiarenTaula.getOntzia(pX-1, pY-1).getEgoera() instanceof IkutuGabe){
+						barkuKoordenatuak= new Koordenatuak(pX-1, pY-1);
 						topatua=true;
-						barkuKoordenatuak=new Koordenatuak(pX+1, pY);
 					}
 				}else{
-					if ()
+					if (pX>0&&etsaiarenTaula.getOntzia(pX-1,pY)!=null){
+						if (this.etsaiarenTaula.getOntzia(pX-1, pY).getEgoera() instanceof IkutuGabe){
+							barkuKoordenatuak=new Koordenatuak(pX-1, pY);
+							topatua=true;
+						}
+					}else{
+						if (pX>0&&pY<9&&etsaiarenTaula.getOntzia(pX-1,pY+1)!=null){
+							if (this.etsaiarenTaula.getOntzia(pX-1, pY+1).getEgoera() instanceof IkutuGabe){
+								barkuKoordenatuak=new Koordenatuak(pX-1, pY+1);
+								topatua=true;
+							}
+						}else{
+							if (pY>0&&etsaiarenTaula.getOntzia(pX,pY-1)!=null){
+								if (this.etsaiarenTaula.getOntzia(pX, pY-1).getEgoera() instanceof IkutuGabe){
+									barkuKoordenatuak=new Koordenatuak(pX, pY-1);
+									topatua=true;
+								}
+							}else{
+								if (pY<9&&etsaiarenTaula.getOntzia(pX,pY+1)!=null){
+									if (this.etsaiarenTaula.getOntzia(pX, pY+1).getEgoera() instanceof IkutuGabe){
+										barkuKoordenatuak=new Koordenatuak(pX, pY+1);
+										topatua=true;
+									}
+								}else{
+									if(pX<9&&pY>0&&etsaiarenTaula.getOntzia(pX+1,pY-1)!=null){
+										if (this.etsaiarenTaula.getOntzia(pX+1, pY-1).getEgoera() instanceof IkutuGabe){
+											barkuKoordenatuak=new Koordenatuak(pX+1, pY-1);
+											topatua=true;
+										}
+									}else{
+										if (pX<9&&etsaiarenTaula.getOntzia(pX+1,pY)!=null){
+											if (this.etsaiarenTaula.getOntzia(pX+1, pY).getEgoera() instanceof IkutuGabe){
+												barkuKoordenatuak=new Koordenatuak(pX+1, pY);
+												topatua=true;
+											}
+										}else{
+											if (pX<9&&pY<9&&etsaiarenTaula.getOntzia(pX+1,pY+1)!=null){
+												if (this.etsaiarenTaula.getOntzia(pX+1, pY+1).getEgoera() instanceof IkutuGabe){
+													barkuKoordenatuak=new Koordenatuak(pX+1, pY+1);
+													topatua=true;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
-			}
+			} 	 
 		}
-			 
+		return barkuKoordenatuak;
 	}
 
 	public static Ordenagailua getOrdenagailua() {
