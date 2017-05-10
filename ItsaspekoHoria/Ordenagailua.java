@@ -13,8 +13,8 @@ public class Ordenagailua extends Jokalaria {
 	
 	public String armaAukeratu(){
 		Random random = new Random();
-		String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua", "Bonba", "Ezkutua"};
-		int aukeraArma = random.nextInt(4);
+		String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua Gurutzatua", "Misil Zuzendua Norabidea",  "Bonba", "Ezkutua"};
+		int aukeraArma = random.nextInt(5);
 		return armaAukerak[aukeraArma];
 	}
 	
@@ -28,7 +28,6 @@ public class Ordenagailua extends Jokalaria {
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
 			if (aukera==0){
 				if (this.armamentua.armakDaude()){
-					eginda=true;
 					int pX=this.posizioaLortu();
 					int pY=this.posizioaLortu();
 					while(!topatua){
@@ -36,6 +35,7 @@ public class Ordenagailua extends Jokalaria {
 						boolean badu = this.armamentua.armaDago(nahiDuzunArma);
 						if (badu){
 							topatua=true;
+							eginda=true;
 							arma = this.armamentua.hartuArma(nahiDuzunArma);
 							this.armamentua.armaKendu(arma);
 							if (arma instanceof MisilZuzenduaNorabidea){
@@ -47,7 +47,7 @@ public class Ordenagailua extends Jokalaria {
 				}
 			}else{
 				if (aukera==1){
-					Biltegia nBiltegia= Biltegia.getNireBiltegia();
+					Biltegia nBiltegia= Biltegia.getNireBiltegia();  //arma erosi
 					if (nBiltegia.armakDaude() && this.dirua>0){
 						int i=1;
 						while(!topatua&& i<=5){//bost aldiz saiatuko da bestela aterako da eta beste gauza bat egiten saiatuko da
@@ -55,9 +55,9 @@ public class Ordenagailua extends Jokalaria {
 							ondoErosiDa=this.armaErosi(nahiDugunArma);
 							if (ondoErosiDa){
 								topatua=true;
-								i++;
 								eginda=true;
 							}
+							i++;
 						}
 					}
 				}else{ //aukera=2 bada
