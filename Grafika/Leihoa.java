@@ -71,6 +71,11 @@ public class Leihoa extends JFrame {
 	private final JRadioButton rdbtnOntziaKonpondu = new JRadioButton("Ontzia konpondu");
 	JButton btnNewButton = new JButton("Denda");
 	private final Action action = new SwingAction();
+	private final JLabel label = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()));
+	private final JLabel label_1 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().bonbaKop()));
+	private final JLabel label_2 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
+	private final JLabel label_3 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
+	private final JLabel label_4 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	
 	
 	public static Leihoa getLeihoa() {
@@ -177,7 +182,7 @@ public class Leihoa extends JFrame {
 		lblAsd_1.setBounds(691, 542, 103, 14);
 		contentPane.add(lblAsd_1);
 
-		rdbtnBonba.setBounds(624, 86, 89, 23);
+		rdbtnBonba.setBounds(624, 86, 73, 23);
 		contentPane.add(rdbtnBonba);
 		rdbtnBonba.setVisible(false) ;
 		
@@ -186,7 +191,7 @@ public class Leihoa extends JFrame {
 		rdbtnEzkutua.setVisible(false) ;
 		
 		
-		rdbtnMisila.setBounds(624, 112, 82, 23);
+		rdbtnMisila.setBounds(624, 112, 73, 23);
 		contentPane.add(rdbtnMisila);
 		rdbtnMisila.setVisible(false) ;
 		
@@ -199,11 +204,11 @@ public class Leihoa extends JFrame {
 		contentPane.add(lblArmak);
 		lblArmak.setVisible(false) ;
 		
-		rdbtnMisilZuzenduaGurutzatua.setBounds(624, 164, 193, 23);
+		rdbtnMisilZuzenduaGurutzatua.setBounds(624, 164, 180, 23);
 		contentPane.add(rdbtnMisilZuzenduaGurutzatua);
 		rdbtnMisilZuzenduaGurutzatua.setVisible(false) ;
 		
-		rdbtnRadarra.setBounds(624, 60, 141, 23);
+		rdbtnRadarra.setBounds(624, 60, 73, 23);
 		contentPane.add(rdbtnRadarra);
 		rdbtnRadarra.setVisible(false) ;
 		
@@ -233,13 +238,37 @@ public class Leihoa extends JFrame {
 		contentPane.add(rdbtnHorizontal);
 		rdbtnHorizontal.setVisible(false);
 		
-		rdbtnBertikal.setBounds(930, 138, 109, 23);
+		rdbtnBertikal.setBounds(930, 138, 79, 23);
 		contentPane.add(rdbtnBertikal);
 		rdbtnBertikal.setVisible(false);
 		
 		rdbtnOntziaKonpondu.setBounds(624, 409, 141, 23);	
 		contentPane.add(rdbtnOntziaKonpondu);
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setBounds(701, 64, 46, 14);
+		
+		contentPane.add(label);
+		label_1.setHorizontalAlignment(SwingConstants.LEFT);
+		label_1.setBounds(701, 90, 46, 14);
+		
+		contentPane.add(label_1);
+		label_2.setBounds(701, 116, 46, 14);
+		
+		contentPane.add(label_2);
+		label_3.setBounds(1012, 142, 46, 14);
+		
+		contentPane.add(label_3);
+		label_4.setBounds(817, 168, 46, 14);
+		
+		contentPane.add(label_4);
+		label.setVisible(false);
+		label_1.setVisible(false);
+		label_2.setVisible(false);
+		label_3.setVisible(false);
+		label_4.setVisible(false);
 		rdbtnOntziaKonpondu.setVisible(false);
+		
+		
 		
 		// Panel1
 		for (int lerro = 0; lerro < 10; lerro++) {
@@ -314,12 +343,24 @@ public class Leihoa extends JFrame {
 			
 			
 			else if (rdbtnRadarra.isSelected()) {// radar
-				zerDagoenRadar(row, col);
-				System.out.println("pirililiii");
+				if (Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()>0){
+					Erabiltzailea.getErabiltzailea().radarraErabili();
+					zerDagoenRadar(row, col);
+					System.out.println("pirililiii");
+				}
 			}
 			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
+			armakEguneratu();
 		}
 
+	}
+	
+	public void armakEguneratu(){
+		label.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()));
+		label_1.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().bonbaKop()));
+		label_2.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
+		label_3.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
+		label_4.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	}
 
 	private class Controller2 implements ActionListener {
@@ -495,6 +536,11 @@ public class Leihoa extends JFrame {
 		lblAsd_1.setVisible(false);
 		lblOntzia.setVisible(false);
 		lblTamaina.setVisible(false);
+		label.setVisible(true);
+		label_1.setVisible(true);
+		label_2.setVisible(true);
+		label_3.setVisible(true);
+		label_4.setVisible(true);
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);

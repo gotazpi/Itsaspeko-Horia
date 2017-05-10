@@ -25,7 +25,7 @@ public class Denda{
 	private final Action action_6 = new SwingAction_6();
 	private JLabel label_5 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
 	private JLabel label_6 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilKop());
-	private JLabel label_7 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().radarKop());
+	private JLabel label_7 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().getRadarKop());
 	private JLabel label_8 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().ezkutuaKop());
 	private JLabel label_9 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduGurutzatuaKop());
 	private JLabel label_10 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduNorabideKop());
@@ -60,7 +60,7 @@ public class Denda{
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnBonba = new JButton("Bonba");
@@ -125,7 +125,7 @@ public class Denda{
 		label_6.setBounds(285, 49, 75, 14);
 		frame.getContentPane().add(label_6);
 		
-		JLabel label_7 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().radarKop());
+		JLabel label_7 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().getRadarKop());
 		label_7.setBounds(285, 83, 75, 14);
 		frame.getContentPane().add(label_7);
 		
@@ -157,6 +157,7 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			frame.dispose();
+			//eguneratu lehioa
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
@@ -169,6 +170,7 @@ public class Denda{
 			label_5.setText("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
 			label_11.setText("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
 			eguneratu();
+			Leihoa.getLeihoa().armakEguneratu();
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {

@@ -33,6 +33,10 @@ public class Erabiltzailea extends Jokalaria {
 		// etsaiarenTaula.radarKontsultatu(pX, pY);
 		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
 	}
+	
+	public void radarraErabili(){
+		armamentua.armaKendu(new Radar());
+	}
 
 	public boolean tiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea, Taula besteTaula) { 
 		boolean emaitza=false;	

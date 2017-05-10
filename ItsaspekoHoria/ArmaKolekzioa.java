@@ -20,8 +20,28 @@ public abstract class ArmaKolekzioa {
 	}
 	
 	
-	public int getRadarKop() {
-		return this.radarKop;
+	public int getRadarKop(){
+		return radarKop;
+	}
+	
+	public int bonbaKop(){
+		return bonbaKop;
+	}
+	
+	public int misilKop(){
+		return misilKop;
+	}
+	
+	public int ezkutuaKop(){
+		return ezkutuaKop;
+	}
+	
+	public int misilZuzenduNorabideKop(){
+		return misilZuzenduNorabideKop;
+	}
+	
+	public int misilZuzenduGurutzatuaKop(){
+		return misilZuzenduGurutzatuaKop;
 	}
 	public void radarKopKendu(){
 		this.radarKop=this.radarKop--;

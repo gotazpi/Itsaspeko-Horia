@@ -36,29 +36,5 @@ public class Biltegia extends ArmaKolekzioa{
 		}
 		return nBiltegia;
 	}
-	
-	public int bonbaKop(){
-		return bonbaKop;
-	}
-	
-	public int misilKop(){
-		return misilKop;
-	}
-	
-	public int radarKop(){
-		return radarKop;
-	}
-	
-	public int ezkutuaKop(){
-		return ezkutuaKop;
-	}
-	
-	public int misilZuzenduNorabideKop(){
-		return misilZuzenduNorabideKop;
-	}
-	
-	public int misilZuzenduGurutzatuaKop(){
-		return misilZuzenduGurutzatuaKop;
-	}
 
 }
