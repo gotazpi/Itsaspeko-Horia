@@ -24,6 +24,10 @@ public class Bonba extends Arma {
 			else {
 				if (ontziBat.getEgoera() instanceof IkutuGabe && !ontziBat.ikutua(pX, pY)) {
 					ontziBat.ikutu(pX, pY);
+					if (ontziBat.koodenadaGuztiakIkututa()){
+						ontziBat.egoeraAldatu(new Suntsituta());
+					}
+					
 					
 				}
 			}

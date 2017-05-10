@@ -11,6 +11,9 @@ public abstract class MisilZuzendua extends Arma{
 		while(pY<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
 				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
+				if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
+					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				}
 			}
 			pY++;
 		}
@@ -21,6 +24,10 @@ public abstract class MisilZuzendua extends Arma{
 		while(pX<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
 				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
+				if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
+					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				}
+				
 			}
 			pX++;
 		}

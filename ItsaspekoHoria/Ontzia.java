@@ -90,4 +90,15 @@ public abstract class Ontzia {
 	public int getKonponketaKostua() {
 		return this.konponketaKostua;
 	}
+	
+	public boolean koodenadaGuztiakIkututa(){
+		boolean emaitza=true;
+		int i=0;
+		while(emaitza && i<=this.koordenatuak.length){
+			if (!this.koordenatuak[i].ikutua()){
+				emaitza=false;
+			}
+		}
+		return emaitza;
+	}
 }

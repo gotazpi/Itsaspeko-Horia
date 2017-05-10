@@ -51,9 +51,9 @@ public abstract class Jokalaria {
 		Biltegia biltegia = Biltegia.getNireBiltegia();
 		if (biltegia.armaDago(arma)){
 			Arma nahiDuguna = biltegia.hartuArma(arma);
-			if (this.dirua >= nahiDuguna.kostua) {
+			if (this.dirua >= nahiDuguna.getKostua()) {
 				biltegia.armaKendu(nahiDuguna);
-				this.dirua = this.dirua - nahiDuguna.kostua;
+				this.dirua = this.dirua - nahiDuguna.getKostua();
 				this.armamentua.armaGehitu(nahiDuguna);
 				return true;
 			}else{
@@ -68,15 +68,16 @@ public abstract class Jokalaria {
 		// mirar en la grafika cual es la option que elije
 	}*/
 
-	public boolean ontziaKonpondu(Ontzia ontzia) {
+	public boolean ontziaKonpondu(int pX, int pY) {
 		boolean emaitza=false;
+		Ontzia ontzia = this.jokalariarenTaula.getOntzia(pX, pY);
 		if (ontzia.getEgoera() instanceof Suntsituta) {
 			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
 				ontzia.egoeraAldatu(new IkutuGabe());
 				ontzia.jasandakoBonbaKopAldatu(0);
 				this.dirua = this.dirua - ontzia.getKonponketaKostua();
 				System.out.println("Barkua konpondu da.");
-				emaitza=true;
+				emaitza=true; 
 			}
 		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
 			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");

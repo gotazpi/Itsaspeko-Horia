@@ -14,4 +14,7 @@ public abstract class Arma {
 	
 	public abstract void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea);
 
+	public int getKostua(){
+		return this.kostua;
+	}
 }
