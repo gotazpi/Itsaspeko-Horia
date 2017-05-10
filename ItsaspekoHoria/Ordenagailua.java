@@ -20,67 +20,88 @@ public class Ordenagailua extends Jokalaria {
 		return armaAukerak[aukeraArma];
 	}
 	
+	public boolean ordenagailuaTiroEgin(){
+		int norabidea=3;
+		boolean eginda=false, badu=false, emaitza=false;
+		int pX=this.posizioaLortu();
+		int pY=this.posizioaLortu();
+		Random random=new Random();
+		while(!eginda){
+			String nahiDuzunArma=this.armaAukeratu();
+			badu=this.armamentua.armaDago(nahiDuzunArma);
+			if (badu){
+				Arma arma=this.armamentua.hartuArma(nahiDuzunArma);
+				this.armamentua.armaKendu(arma);
+				if (arma instanceof MisilZuzenduaNorabidea){
+					norabidea=random.nextInt(1); //0=bertikal 1=horizontal
+				}else{
+					if (arma instanceof Radar){
+						this.radarKoordenatua=koordenatuakGorde(pX, pY);
+					}else{
+						if (this.radarKoordenatua!=null && arma instanceof Ezkutua && arma instanceof Radar){
+							pX=this.radarKoordenatua.getErrenkada();
+							pY=this.radarKoordenatua.getZutabea();
+						}
+					}
+					arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+					eginda=true;
+				}
+			}
+		}
+		return eginda;
+	}
+	
 	public void ordenagailuaZerEginNahiDu(){
-		Arma arma=null;
 		Random random = new Random();
-		int norabidea=3; // misil zuzendu norabidea erabiltzen ez bada, 3 zenbakia joango da erabili() metodoan azken parametro bezala
-		boolean topatua=false, eginda=false;
-		boolean ondoErosiDa=false;
+		boolean  eginda=false;
+		int i=1;
 		while(!eginda){
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
 			if (aukera==0){
 				if (this.armamentua.armakDaude()){
-					int pX=this.posizioaLortu();
-					int pY=this.posizioaLortu();
-					while(!topatua){
-						String nahiDuzunArma = this.armaAukeratu(); 
-						boolean badu = this.armamentua.armaDago(nahiDuzunArma);
-						if (badu){
-							topatua=true;
-							eginda=true;
-							arma = this.armamentua.hartuArma(nahiDuzunArma);
-							this.armamentua.armaKendu(arma);
-							if (arma instanceof MisilZuzenduaNorabidea){
-								norabidea=random.nextInt(1); //0=bertikal 1=horizontal
-							}else if (arma instanceof Radar){
-								this.radarKoordenatua=koordenatuakGorde(pX, pY);
-							}
-							if (this.radarKoordenatua!=null && !(arma instanceof Ezkutua)){
-								arma.erabili(this.etsaiarenTaula, this.radarKoordenatua.getErrenkada(), this.radarKoordenatua.getZutabea(), norabidea);
-								this.radarKoordenatua=null;
-							}else{
-								arma.erabili(etsaiarenTaula, pX, pY, norabidea);
-							}
-						}
-							
-					}
+					eginda=this.ordenagailuaTiroEgin();
 				}
 			}else{
-				if (aukera==1){
-					Biltegia nBiltegia= Biltegia.getNireBiltegia();  //arma erosi
-					if (nBiltegia.armakDaude() && this.dirua>0){
-						int i=1;
-						while(!topatua&& i<=5){//bost aldiz saiatuko da bestela aterako da eta beste gauza bat egiten saiatuko da
-							String nahiDugunArma=this.armaAukeratu();
-							ondoErosiDa=this.armaErosi(nahiDugunArma);
-							if (ondoErosiDa){
-								topatua=true;
-								eginda=true;
-							}
-							i++;
-						}
+				if (aukera==1){   //arma erosi
+					while(!eginda && i<=5){ //5 aldiz saiatuko da arma erosten, bestela beste gauza bat egiten saiatuko da
+						String aukeratutakoArma=this.armaAukeratu();
+						eginda=this.armaErosi(aukeratutakoArma);
+						i++;
 					}
 				}else{ //aukera=2 bada
-					Ontzia ontziBat=this.flota.suntsitutakoOntziaLortu(); //ontzi bat aukeratzen du
-					if (ontziBat!=null){
-						ondoErosiDa=this.ontziaKonpondu(ontziBat);
-						if (ondoErosiDa){
-							eginda=true;
-						}
-					}
+					eginda=this.ordenagailuaOntziaKonpondu();
 				}
 			}
 		}
+	}
+	
+	
+	public boolean ordenagailuaOntziaKonpondu(){
+		boolean ondoKonponduDa=false, emaitza=false;
+		Ontzia ontziBat= this.flota.suntsitutakoOntziaLortu(); //bere flotako suntsitutako ontzi bat lortu
+		if (ontziBat!=null){
+			ondoKonponduDa=this.konpondu(ontziBat);
+			if (ondoKonponduDa){
+				emaitza=true;
+			}
+		}
+		return emaitza;
+	}
+	
+	public boolean konpondu(Ontzia ontzia) {  //
+		boolean emaitza=false;
+		if (ontzia.getEgoera() instanceof Suntsituta) {
+			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
+				ontzia.egoeraAldatu(new IkutuGabe());
+				ontzia.jasandakoBonbaKopAldatu(0);
+				this.dirua = this.dirua - ontzia.getKonponketaKostua();
+				System.out.println("Barkua konpondu da.");
+				emaitza=true;
+			}
+		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
+			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
+		}
+		return emaitza;
 	}
 	
 	public Koordenatuak koordenatuakGorde(int pX, int pY){
