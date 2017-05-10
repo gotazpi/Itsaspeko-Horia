@@ -34,21 +34,19 @@ public class Erabiltzailea extends Jokalaria {
 		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
 	}
 
-	public void /*boolean*/ tiroEgin(String arma, int pX, int pY) { //ESTA FATAL!!!!!
-		/*PRIMERO TIENES QUE ELEGIR EL ARMA CON LA QUE QUIERES TIRAR Y LUEGO ELIGES A QUE BARKO, POR LO TANTO, EL ARMA 
-		 * ES LA QUE DAÑA.*/
-		boolean badago = this.armamentua.armaDago(arma);
-		if (badago){
-			Arma nireArma = armamentua.hartuArma(arma);
-			armamentua.armaKendu(nireArma);
-			nireArma.erabili(this.etsaiarenTaula, pX, pY);
-		} //TODO EZ BADAGO NAHI DUZUN ARMA ZURE ARMAMENTUA, BESTE BAT AUKERATU.
-		/*if (etsaiarenTaula.ontziaDago(pX, pY) && !(etsaiarenTaula.getOntzia(pX, pY).ikutua(pX, pY))) {
-			etsaiarenTaula.tiroEgin(pX, pY);
-			return true;
-		} else {
-			return false;
-		}*/
+	public boolean tiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea) { 
+		boolean emaitza=false;
+		if (this.armamentua.armaDago(arma)){
+			Arma nireArma = this.armamentua.hartuArma(arma);
+			this.armamentua.armaKendu(nireArma);
+			if (nireArma instanceof Ezkutua){
+				nireArma.erabili(this.jokalariarenTaula, pX, pY, misilZuzenduNorabidea);
+			}else{
+				nireArma.erabili(this.etsaiarenTaula, pX, pY, misilZuzenduNorabidea);
+			}
+			emaitza=true;
+		}
+		return emaitza;
 	}
 
 }
