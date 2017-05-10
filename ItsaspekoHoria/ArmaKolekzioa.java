@@ -24,11 +24,6 @@ public abstract class ArmaKolekzioa {
 		return this.radarKop;
 	}
 
-	/*public void radarKopKendu() {
-		this.radarKop--;
-	}*/
-
-	
 	
 	public boolean armaDago(String arma){
 		if (arma.equals("Ezkutua") && this.ezkutuaKop>0){
@@ -77,7 +72,7 @@ public abstract class ArmaKolekzioa {
 					if (arma.equals("Misil Zuzendua Gurutzatua") &&  egungoa instanceof MisilZuzenduaGurutzatua ){
 						topatua=true;
 					}else{
-						if (arma.equals("Eztukua") && egungoa instanceof Ezkutua){
+						if (arma.equals("Ezkutua") && egungoa instanceof Ezkutua){
 							topatua=true;
 						}else{
 							if (arma.equals("Radar") && egungoa instanceof Radar){
@@ -105,32 +100,21 @@ public abstract class ArmaKolekzioa {
 	
 	public void armaKendu(Arma arma){
 		if (arma instanceof Bonba){
-			this.nireArmak.remove(arma);
 			this.bonbaKop--;
-		}else{
-			if (arma instanceof Misil){
-				this.nireArmak.remove(arma);
-				this.misilKop--;
-			}else{
-				if (arma instanceof MisilZuzenduaNorabidea){
-					this.nireArmak.remove(arma);
-					this.misilZuzenduNorabideKop--;
-				}else{
-					if (arma instanceof Ezkutua){
-						this.nireArmak.remove(arma);
-						this.ezkutuaKop--;
-					}else{
-						if (arma instanceof Radar){
-						this.nireArmak.remove(arma);
-						this.radarKop--;
-						}else{
-							this.misilZuzenduGurutzatuaKop--;
-						}
-					}
-				}
-			}
 		}
-		nireArmak.remove(arma);
+		else if (arma instanceof Misil){
+			this.misilKop--;
+		}
+		else if (arma instanceof MisilZuzenduaNorabidea){
+			this.misilZuzenduNorabideKop--;
+		}
+		else if (arma instanceof Ezkutua){				
+			this.ezkutuaKop--;
+		}
+		else if (arma instanceof Radar){
+			this.radarKop--;
+		}
+		else{this.misilZuzenduGurutzatuaKop--;}				
 	}
 	
 

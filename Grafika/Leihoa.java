@@ -309,7 +309,7 @@ public class Leihoa extends JFrame {
 			}
 			}
 			if(rdbtnEzkutua.isSelected()==true){
-				if(Jokoa.getJokoa().ezkutatu(row, col)){
+				if(Jokoa.getJokoa().jokalariakTiroEgin("Ezkutua", row, col, 2)){
 					aldatuIrudiaHoria2(row, col);
 				}
 				

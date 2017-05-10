@@ -173,5 +173,8 @@ public class Jokoa {
 	public void norabideaEzarri(int i){
 		Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(i);
 	}
+	public boolean jokalariakTiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea){
+		return Erabiltzailea.getErabiltzailea().tiroEgin(arma, pX, pY,misilZuzenduNorabidea);
+	}
 
 }

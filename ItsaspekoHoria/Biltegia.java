@@ -22,24 +22,12 @@ public class Biltegia extends ArmaKolekzioa{
 
 	// metodoak
 	private void biltegiaSortu() {
-		for (int i = 1; i == 50; i++) {
 			nireArmak.add(new Bonba());
-		}
-		for (int i = 1; i == 50; i++) {
-			nireArmak.add(new Misil());
-		}
-		for (int i = 1; i == 50; i++) {
-			nireArmak.add(new MisilZuzenduaGurutzatua());
-		}
-		for (int i = 1; i==50; i++){
+    		nireArmak.add(new Misil());
+			nireArmak.add(new MisilZuzenduaGurutzatua());		
 			nireArmak.add(new MisilZuzenduaNorabidea());
-		}
-		for (int i = 1; i == 50; i++) {
-			nireArmak.add(new Radar());
-		}
-		for (int i = 1; i == 50; i++) {
-			nireArmak.add(new Ezkutua());
-		}
+			nireArmak.add(new Radar());	
+			nireArmak.add(new Ezkutua());		
 	}
 
 	public static Biltegia getNireBiltegia() {
