@@ -5,6 +5,8 @@ import java.util.Random;
 public class Ordenagailua extends Jokalaria {
 	// atributuak
 	private static Ordenagailua nireOrdenagailua = null;
+	private Koordenatuak radarKoordenatua=null;
+	
 
 	// eraikitzailea
 	private Ordenagailua() {
@@ -40,6 +42,8 @@ public class Ordenagailua extends Jokalaria {
 							this.armamentua.armaKendu(arma);
 							if (arma instanceof MisilZuzenduaNorabidea){
 								norabidea=random.nextInt(1); //0=bertikal 1=horizontal
+							}else if (arma instanceof Radar){
+								this.radarKoordenatua=koordenatuakGorde(pX, pY);
 							}
 							arma.erabili(this.etsaiarenTaula, pX, pY, norabidea);
 						}
@@ -71,6 +75,29 @@ public class Ordenagailua extends Jokalaria {
 				}
 			}
 		}
+	}
+	
+	public Koordenatuak koordenatuakGorde(int pX, int pY){
+		Koordenatuak barkuKoordenatuak=null;
+		boolean topatua=false;
+		while(!topatua){
+			if (this.etsaiarenTaula.getOntzia(pX, pY)!=null){
+				if (this.etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof IkutuGabe){
+					topatua=true;
+					barkuKoordenatuak=new Koordenatuak(pX, pY);
+				}
+			}else{
+				if (pX<9 && this.etsaiarenTaula.getOntzia(pX+1, pY)!=null){
+					if (this.etsaiarenTaula.getOntzia(pX+1, pY).getEgoera() instanceof IkutuGabe){
+						topatua=true;
+						barkuKoordenatuak=new Koordenatuak(pX+1, pY);
+					}
+				}else{
+					if ()
+				}
+			}
+		}
+			 
 	}
 
 	public static Ordenagailua getOrdenagailua() {

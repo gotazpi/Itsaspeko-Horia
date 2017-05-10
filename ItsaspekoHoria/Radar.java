@@ -13,12 +13,9 @@ public class Radar extends Arma {
 	 * <<<<<<< HEAD
 	 * 
 	 * @Override public void erabili(Taula etsaiarenTaula, int pX, int pY){ if
-	 * (etsaiarenTaula.getOntzia(pX-1,pY-1).getEgoera() instanceof
-	 * OntziaDago)etsaiarenTaula[pX][pY].koloreAldatu(); if
-	 * (pX>0&&pY>0&&etsaiarenTaula.getOntzia(pX-1,pY-1).getEgoera() instanceof
-	 * OntziaDago)etsaiarenTaula[pX-1][pY-1].koloreAldatu(); if
-	 * (pX>0&&etsaiarenTaula[pX-1][pY].getEgoera() instanceof
-	 * OntziaDago)etsaiarenTaula[pX-1][pY].koloreAldatu(); =======
+	 * (etsaiarenTaula.getOntzia(pX-1,pY-1).getEgoera() instanceof OntziaDago)etsaiarenTaula[pX][pY].koloreAldatu(); 
+	 * if (pX>0&&pY>0&&etsaiarenTaula.getOntzia(pX-1,pY-1).getEgoera() instanceof OntziaDago)etsaiarenTaula[pX-1][pY-1].koloreAldatu(); 
+	 * if (pX>0&&etsaiarenTaula[pX-1][pY].getEgoera() instanceof OntziaDago)etsaiarenTaula[pX-1][pY].koloreAldatu();
 	 * 
 	 * //metodoak public void erabili(Taula etsaiarenTaula, int pX, int pY){ if
 	 * (etsaiarenTaula.getOntzia(pX-1,pY-1).getEgoera() instanceof
@@ -44,6 +41,5 @@ public class Radar extends Arma {
 	@Override
 	public void erabili(Taula etsailarenTaula, int pX, int pY, int misilZuzendua) {
 		// TODO Auto-generated method stub
-
 	}
 }
