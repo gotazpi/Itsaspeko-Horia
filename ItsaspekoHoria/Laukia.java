@@ -35,11 +35,9 @@ public class Laukia {
 	public Ontzia getOntzia() {
 		return ontzia;
 	}
-
+ 
 	public EgoeraLaukia getEgoera() {
 		return this.egoera;
 	}
 
-	public void koloreAldatu() {
-	}
 }

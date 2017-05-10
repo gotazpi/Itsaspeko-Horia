@@ -24,9 +24,9 @@ public abstract class ArmaKolekzioa {
 		return this.radarKop;
 	}
 
-	public void radarKopKendu() {
+	/*public void radarKopKendu() {
 		this.radarKop--;
-	}
+	}*/
 
 	
 	
@@ -43,7 +43,7 @@ public abstract class ArmaKolekzioa {
 					if(arma.equals("Misila") && this.misilKop>0){
 						return true;
 					}else{
-						if (arma.equals("radar") && this.radarKop>0){
+						if (arma.equals("Radar") && this.radarKop>0){
 							return true;
 						}else{
 							if (arma.equals("Misil Zuzendua Norabidea") && this.misilZuzenduNorabideKop>0){
@@ -105,18 +105,23 @@ public abstract class ArmaKolekzioa {
 	
 	public void armaKendu(Arma arma){
 		if (arma instanceof Bonba){
+			this.nireArmak.remove(arma);
 			this.bonbaKop--;
 		}else{
 			if (arma instanceof Misil){
+				this.nireArmak.remove(arma);
 				this.misilKop--;
 			}else{
 				if (arma instanceof MisilZuzenduaNorabidea){
+					this.nireArmak.remove(arma);
 					this.misilZuzenduNorabideKop--;
 				}else{
 					if (arma instanceof Ezkutua){
+						this.nireArmak.remove(arma);
 						this.ezkutuaKop--;
 					}else{
 						if (arma instanceof Radar){
+						this.nireArmak.remove(arma);
 						this.radarKop--;
 						}else{
 							this.misilZuzenduGurutzatuaKop--;
