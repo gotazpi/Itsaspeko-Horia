@@ -60,7 +60,6 @@ public class Leihoa extends JFrame {
 	private final JRadioButton rdbtnMisilZuzenduaGurutzatua = new JRadioButton("Misil Zuzendua Gurutzatua");
 	private final JRadioButton rdbtnRadarra = new JRadioButton("Radarra");
 	JRadioButton rdbtnEzkutua = new JRadioButton("Ezkutua");
-	JRadioButton rdbtnTiro = new JRadioButton("Tiro");
 	JRadioButton rdbtnBonba = new JRadioButton("Bonba");
 	JRadioButton rdbtnMisila = new JRadioButton("Misila");
 	JRadioButton rdbtnMisilZuzenduaNorabidea = new JRadioButton("Misil Zuzendua Norabidea");
@@ -179,10 +178,6 @@ public class Leihoa extends JFrame {
 		contentPane.add(rdbtnBonba);
 		rdbtnBonba.setVisible(false) ;
 		
-		rdbtnTiro.setBounds(624, 34, 89, 23);
-		contentPane.add(rdbtnTiro);
-		rdbtnTiro.setVisible(false) ;
-		
 		rdbtnEzkutua.setBounds(624, 435, 89, 23);
 		contentPane.add(rdbtnEzkutua);
 		rdbtnEzkutua.setVisible(false) ;
@@ -211,8 +206,6 @@ public class Leihoa extends JFrame {
 		
 		armak.add(rdbtnMisilZuzenduaNorabidea);
 		armak.add(rdbtnMisila);
-		//armak.add(rdbtnEzkutua);
-		armak.add(rdbtnTiro);
 		armak.add(rdbtnBonba);
 		armak.add(rdbtnRadarra);
 		armak.add(rdbtnMisilZuzenduaGurutzatua);
@@ -277,10 +270,45 @@ public class Leihoa extends JFrame {
 			int row = (val ) / 10;
 			int col = (val % 10);
 			//int aux = Jokoa.getJokoa().getZeregin();
-			if (rdbtnTiro.isSelected()) {// tiro normal
-				tirokatu(row, col);
-				System.out.println("Bang!");
+			if (rdbtnBonba.isSelected()) {
+				if(Jokoa.getJokoa().jokalariakTiroEgin("Bonba", row, col, 2)){
+				zerDagoen(row,col);
+				System.out.println("Bang!");}
 			} 
+			if (rdbtnMisila.isSelected()) {
+				if(Jokoa.getJokoa().jokalariakTiroEgin("Misila", row, col, 2)){
+				zerDagoen(row,col);
+				System.out.println("Bang!");}
+			} 
+			
+			if (rdbtnMisilZuzenduaNorabidea.isSelected()) {
+				if(rdbtnBertikal.isSelected()){
+					if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Norabidea", row, col, 0)){//bertikal
+					for(int i = 0; i<10; i++){
+						zerDagoen(i, col);
+					}
+					}
+				}
+				if(rdbtnHorizontal.isSelected()){
+					if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Norabidea", row, col, 1)){//Horizontal
+						for(int i = 0; i<10; i++){
+							zerDagoen(row, i);
+						}
+					}
+				}
+				
+			} 
+					
+			if (rdbtnMisilZuzenduaGurutzatua.isSelected()) {// tiro normal
+				if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Gurutzatua", row, col, 2)){
+					for(int i = 0; i<10; i++){
+						zerDagoen(row, i);
+						zerDagoen(i, col);
+					}
+				}
+			} 
+			
+			
 			else if (rdbtnRadarra.isSelected()) {// radar
 				zerDagoenRadar(row, col);
 				System.out.println("pirililiii");
@@ -443,7 +471,6 @@ public class Leihoa extends JFrame {
 		}
 	}
 	public void botoiakIpini(){
-		rdbtnTiro.setVisible(true) ;
 		rdbtnEzkutua.setVisible(true) ;
 		rdbtnBonba.setVisible(true) ;
 		rdbtnMisila.setVisible(true);
@@ -479,7 +506,7 @@ public class Leihoa extends JFrame {
 		//eliminar un radar del que lo use y pasar turno
 	}
 
-	public void tirokatu(int i, int j) {
+	/*public void tirokatu(int i, int j) {
 		if (i >= 0 && i <= 9 && j >= 0 && j <= 9) {
 			if (!Jokoa.getJokoa().ontziaDago(i, j)) {
 				aldatuIrudiaUrdina(i,j);
@@ -489,13 +516,17 @@ public class Leihoa extends JFrame {
 				if ((Jokoa.getJokoa().getOntziarenEgoera(i, j) instanceof Ezkutatuta)) {
 					aldatuIrudiaHoria(i,j);
 					// txanda pasa
-				} else if (!Jokoa.getJokoa().ontziaIkutua(i, j)) {
+				} 
+				else if (!Jokoa.getJokoa().ontziaIkutua(i, j)) {
 					System.out.println("Ikutua");
 					aldatuIrudiaGorria(i, j);
-					Jokoa.getJokoa().ontziaIkutu(i, j);
+				}
+				else if(Jokoa.getJokoa().ontziaIkutua(i, j)){
+					aldatuIrudiaBerdea(i,j);
 				}
 			}
 			;
 		}
 	}
+	*/
 }

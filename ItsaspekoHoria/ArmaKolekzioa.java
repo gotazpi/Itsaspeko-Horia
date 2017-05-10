@@ -23,7 +23,9 @@ public abstract class ArmaKolekzioa {
 	public int getRadarKop() {
 		return this.radarKop;
 	}
-
+	public void radarKopKendu(){
+		this.radarKop=this.radarKop--;
+	}
 	
 	public boolean armaDago(String arma){
 		if (arma.equals("Ezkutua") && this.ezkutuaKop>0){
@@ -32,7 +34,7 @@ public abstract class ArmaKolekzioa {
 			if (arma.equals("Bonba") && this.bonbaKop>0){
 				return true;
 			}else{
-				if (arma.equals("Misil Zuzendua Gurutzea") && this.misilZuzenduGurutzatuaKop>0){
+				if (arma.equals("Misil Zuzendua Gurutzatua") && this.misilZuzenduGurutzatuaKop>0){
 					return true;
 				}else{
 					if(arma.equals("Misila") && this.misilKop>0){

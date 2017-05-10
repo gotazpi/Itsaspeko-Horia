@@ -1,9 +1,0 @@
-diff a/ItsaspekoHoria/Armamentua.java b/ItsaspekoHoria/Armamentua.java	(rejected hunks)
-@@ -124,6 +124,7 @@
- 				this.misilKop--;
- 				nireArmak.remove(arma);
- 			}else{
-+				if (arma instanceof MisilZuzenduaGurutzea){
- 					this.misilZuzenduKop--;
- 					nireArmak.remove(arma);
- 				}else{

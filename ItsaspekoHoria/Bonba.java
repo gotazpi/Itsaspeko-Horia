@@ -16,15 +16,20 @@ public class Bonba extends Arma {
 				if (ontziBat.jasandakoBonbaKopGainditu()) {
 					ontziBat.egoeraAldatu(new IkutuGabe());
 					ontziBat.jasandakoBonbaKopAldatu(0);
-				} else {
+				} 
+				else {
 					ontziBat.jasandakoBonbaKopAldatu(1);
 				}
-			} else {
+			} 
+			else {
 				if (ontziBat.getEgoera() instanceof IkutuGabe && !ontziBat.ikutua(pX, pY)) {
 					ontziBat.ikutu(pX, pY);
+					
 				}
 			}
 		}
 	}
+	
+	
 
 }

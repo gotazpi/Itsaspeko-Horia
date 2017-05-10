@@ -34,15 +34,16 @@ public class Erabiltzailea extends Jokalaria {
 		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
 	}
 
-	public boolean tiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea) { 
-		boolean emaitza=false;
+	public boolean tiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea, Taula besteTaula) { 
+		boolean emaitza=false;	
 		if (this.armamentua.armaDago(arma)){
 			Arma nireArma = this.armamentua.hartuArma(arma);
 			this.armamentua.armaKendu(nireArma);
 			if (nireArma instanceof Ezkutua){
 				nireArma.erabili(this.jokalariarenTaula, pX, pY, misilZuzenduNorabidea);
 			}else{
-				nireArma.erabili(this.etsaiarenTaula, pX, pY, misilZuzenduNorabidea);
+				System.out.println(pX+""+pY);
+				nireArma.erabili(besteTaula, pX, pY, misilZuzenduNorabidea);
 			}
 			emaitza=true;
 		}

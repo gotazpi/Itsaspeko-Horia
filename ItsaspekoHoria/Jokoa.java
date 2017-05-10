@@ -174,7 +174,10 @@ public class Jokoa {
 		Erabiltzailea.getErabiltzailea().getFlota().setNorabidea(i);
 	}
 	public boolean jokalariakTiroEgin(String arma, int pX, int pY, int misilZuzenduNorabidea){
-		return Erabiltzailea.getErabiltzailea().tiroEgin(arma, pX, pY,misilZuzenduNorabidea);
+		Taula besteTaula=null;
+		if (txanda==0){besteTaula=Ordenagailua.getOrdenagailua().getTaula();}
+		if (txanda==1){besteTaula=Erabiltzailea.getErabiltzailea().getTaula();}
+		return Erabiltzailea.getErabiltzailea().tiroEgin(arma, pX, pY,misilZuzenduNorabidea, besteTaula);
 	}
 
 }
