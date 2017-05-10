@@ -37,7 +37,7 @@ public abstract class ArmaKolekzioa {
 				if (arma.equals("Misil Zuzendua Gurutzatua") && this.misilZuzenduGurutzatuaKop>0){
 					return true;
 				}else{
-					if(arma.equals("Misila") && this.misilKop>0){
+					if(arma.equals("Misil") && this.misilKop>0){
 						return true;
 					}else{
 						if (arma.equals("Radar") && this.radarKop>0){

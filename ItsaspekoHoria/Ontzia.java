@@ -98,6 +98,7 @@ public abstract class Ontzia {
 			if (!this.koordenatuak[i].ikutua()){
 				emaitza=false;
 			}
+			i++;
 		}
 		return emaitza;
 	}

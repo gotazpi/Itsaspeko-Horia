@@ -26,6 +26,18 @@ public abstract class Jokalaria {
 	public Flota getFlota() {
 		return this.flota;
 	}
+	
+	public int getDirua(){
+		return dirua;
+	}
+	
+	public Armamentua getArmamentua(){
+		return armamentua;
+	}
+	
+	public void diruaKendu(int kant){
+		dirua=dirua-kant;
+	}
 
 	/*
 	 * public void radarraJarri(int x, int y){
@@ -68,9 +80,8 @@ public abstract class Jokalaria {
 		// mirar en la grafika cual es la option que elije
 	}*/
 
-	public boolean ontziaKonpondu(int pX, int pY) {
+	public boolean ontziaKonpondu(Ontzia ontzia) {
 		boolean emaitza=false;
-		Ontzia ontzia = this.jokalariarenTaula.getOntzia(pX, pY);
 		if (ontzia.getEgoera() instanceof Suntsituta) {
 			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
 				ontzia.egoeraAldatu(new IkutuGabe());

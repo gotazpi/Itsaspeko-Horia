@@ -35,6 +35,8 @@ import java.util.Observer;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextPane;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class Leihoa extends JFrame {
 
@@ -68,6 +70,7 @@ public class Leihoa extends JFrame {
 	JRadioButton rdbtnHorizontal = new JRadioButton("Horizontal");
 	private final JRadioButton rdbtnOntziaKonpondu = new JRadioButton("Ontzia konpondu");
 	JButton btnNewButton = new JButton("Denda");
+	private final Action action = new SwingAction();
 	
 	
 	public static Leihoa getLeihoa() {
@@ -215,6 +218,7 @@ public class Leihoa extends JFrame {
 		
 		armakonponketak.add(rdbtnOntziaKonpondu);
 		armakonponketak.add(rdbtnEzkutua);
+		btnNewButton.setAction(action);
 		
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -276,7 +280,7 @@ public class Leihoa extends JFrame {
 				System.out.println("Bang!");}
 			} 
 			if (rdbtnMisila.isSelected()) {
-				if(Jokoa.getJokoa().jokalariakTiroEgin("Misila", row, col, 2)){
+				if(Jokoa.getJokoa().jokalariakTiroEgin("Misil", row, col, 2)){
 				zerDagoen(row,col);
 				System.out.println("Bang!");}
 			} 
@@ -529,4 +533,13 @@ public class Leihoa extends JFrame {
 		}
 	}
 	*/
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Denda");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			new Denda().main(null);
+		}
+	}
 }
