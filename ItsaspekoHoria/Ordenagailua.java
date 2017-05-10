@@ -125,12 +125,14 @@ public class Ordenagailua extends Jokalaria {
 		// ontziaKonponduMetodoa egikarituko
 	}
 
-	public void radarra() {
+	public boolean radarra() {
 		if (this.armamentua.getRadarKop() != 0) {
-			int x = this.posizioaLortu();
-			int y = this.posizioaLortu();
-			etsaiarenTaula.radarKontsultatu(x, y);
+			//int x = this.posizioaLortu();
+			//int y = this.posizioaLortu();
+			//etsaiarenTaula.radarKontsultatu(x, y);
+			this.armamentua.radarKopKendu();
+			return true;
 		}
-		this.armamentua.radarKopKendu();
+		return false;
 	}
 }

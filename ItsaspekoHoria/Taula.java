@@ -137,7 +137,7 @@ public class Taula {
 		return kokatua;
 	}
 
-	public void radarKontsultatu(int x, int y) {
+	/*public void radarKontsultatu(int x, int y) {
 		if (taulaMatrizea[x - 1][y - 1].getEgoera() instanceof OntziaDago)
 			taulaMatrizea[x][y].koloreAldatu();
 		if (x > 0 && y > 0 && taulaMatrizea[x - 1][y - 1].getEgoera() instanceof OntziaDago)
@@ -158,7 +158,9 @@ public class Taula {
 			taulaMatrizea[x + 1][y + 1].koloreAldatu();
 
 	}
-
+	*/
+	
+	
 	/*public void tiroEgin(int pX, int pY) {
 		if (ontziaDago(pX, pY)) {
 			getOntzia(pX, pY).ikutu(pX, pY);

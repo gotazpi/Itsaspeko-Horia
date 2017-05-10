@@ -46,9 +46,6 @@ public class Leihoa extends JFrame {
 	private ArrayList<JButton> textFields2 = new ArrayList<JButton>();
 	private Controller controller = new Controller();
 	private Controller2 controller2 = new Controller2();
-	private JButton btnTiroEgin = new JButton("Tiro egin");
-	private JButton btnRadarra = new JButton("Radarra");
-	private JButton btnNewButton_1 = new JButton("Ezkutatu");	
 	JButton button = new JButton("Gorantz");
 	JButton button_1 = new JButton("Beherantz");
 	JButton button_2 = new JButton("Eskumarantz");
@@ -58,8 +55,21 @@ public class Leihoa extends JFrame {
 	JLabel lblOntzia = new JLabel("Ontzia:");
 	JLabel lblTamaina = new JLabel("Tamaina:");
 	private ButtonGroup armak = new ButtonGroup();
+	private ButtonGroup armaNorabidea = new ButtonGroup();
+	private ButtonGroup armakonponketak = new ButtonGroup();
 	private final JRadioButton rdbtnMisilZuzenduaGurutzatua = new JRadioButton("Misil Zuzendua Gurutzatua");
 	private final JRadioButton rdbtnRadarra = new JRadioButton("Radarra");
+	JRadioButton rdbtnEzkutua = new JRadioButton("Ezkutua");
+	JRadioButton rdbtnTiro = new JRadioButton("Tiro");
+	JRadioButton rdbtnBonba = new JRadioButton("Bonba");
+	JRadioButton rdbtnMisila = new JRadioButton("Misila");
+	JRadioButton rdbtnMisilZuzenduaNorabidea = new JRadioButton("Misil Zuzendua Norabidea");
+	JLabel lblArmak = new JLabel("ARMAK:");
+	JRadioButton rdbtnBertikal = new JRadioButton("Bertikal");
+	JRadioButton rdbtnHorizontal = new JRadioButton("Horizontal");
+	private final JRadioButton rdbtnOntziaKonpondu = new JRadioButton("Ontzia konpondu");
+	JButton btnNewButton = new JButton("Denda");
+	
 	
 	public static Leihoa getLeihoa() {
 		if (nireLeihoa == null) {
@@ -111,16 +121,6 @@ public class Leihoa extends JFrame {
 		panel2.setLayout(new GridLayout(10, 10, 0, 0));
 
 		
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Jokoa.getJokoa().ezkutatzeko();
-			}
-		});
-		btnNewButton_1.setBounds(630, 81, 89, 23);
-		btnNewButton_1.setVisible(false);
-		contentPane.add(btnNewButton_1);
-
-		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//pasar a jokoa
@@ -159,26 +159,6 @@ public class Leihoa extends JFrame {
 		});
 		button_3.setBounds(628, 565, 119, 38);
 		contentPane.add(button_3);
-
-		
-		btnTiroEgin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Jokoa.getJokoa().tiroEgiteko();
-			}
-		});
-		btnTiroEgin.setBounds(630, 11, 89, 23);
-		contentPane.add(btnTiroEgin);
-		btnTiroEgin.setVisible(false);
-
-		
-		btnRadarra.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Jokoa.getJokoa().radarraEgiteko();
-			}
-		});
-		btnRadarra.setBounds(630, 46, 89, 23);
-		btnRadarra.setVisible(false);
-		contentPane.add(btnRadarra);
 		
 
 		lblOntzia.setBounds(628, 517, 46, 14);
@@ -194,54 +174,75 @@ public class Leihoa extends JFrame {
 		
 		lblAsd_1.setBounds(691, 542, 103, 14);
 		contentPane.add(lblAsd_1);
-		
-		JRadioButton rdbtnBonba = new JRadioButton("Bonba");
-		rdbtnBonba.setBounds(630, 235, 89, 23);
+
+		rdbtnBonba.setBounds(624, 86, 89, 23);
 		contentPane.add(rdbtnBonba);
+		rdbtnBonba.setVisible(false) ;
 		
-		JRadioButton rdbtnEzkutua = new JRadioButton("Ezkutua");
-		rdbtnEzkutua.setBounds(630, 270, 89, 23);
+		rdbtnTiro.setBounds(624, 34, 89, 23);
+		contentPane.add(rdbtnTiro);
+		rdbtnTiro.setVisible(false) ;
+		
+		rdbtnEzkutua.setBounds(624, 435, 89, 23);
 		contentPane.add(rdbtnEzkutua);
+		rdbtnEzkutua.setVisible(false) ;
 		
-		JRadioButton rdbtnMisila = new JRadioButton("Misila");
-		rdbtnMisila.setBounds(630, 305, 82, 23);
+		
+		rdbtnMisila.setBounds(624, 112, 82, 23);
 		contentPane.add(rdbtnMisila);
+		rdbtnMisila.setVisible(false) ;
 		
-		JRadioButton rdbtnMisilZuzenduaNorabidea = new JRadioButton("Misil Zuzendua Norabidea");
-		rdbtnMisilZuzenduaNorabidea.setBounds(630, 340, 209, 23);
+		
+		rdbtnMisilZuzenduaNorabidea.setBounds(624, 138, 193, 23);
 		contentPane.add(rdbtnMisilZuzenduaNorabidea);
+		rdbtnMisilZuzenduaNorabidea.setVisible(false) ;
 		
-		
-		
-		JLabel lblArmak = new JLabel("ARMAK:");
-		lblArmak.setBounds(630, 172, 61, 16);
+		lblArmak.setBounds(628, 11, 61, 16);
 		contentPane.add(lblArmak);
+		lblArmak.setVisible(false) ;
 		
-		rdbtnMisilZuzenduaGurutzatua.setBounds(630, 375, 209, 23);
+		rdbtnMisilZuzenduaGurutzatua.setBounds(624, 164, 193, 23);
 		contentPane.add(rdbtnMisilZuzenduaGurutzatua);
+		rdbtnMisilZuzenduaGurutzatua.setVisible(false) ;
 		
-		rdbtnRadarra.setBounds(630, 200, 141, 23);
+		rdbtnRadarra.setBounds(624, 60, 141, 23);
 		contentPane.add(rdbtnRadarra);
+		rdbtnRadarra.setVisible(false) ;
 		
 		armak.add(rdbtnMisilZuzenduaNorabidea);
 		armak.add(rdbtnMisila);
-		armak.add(rdbtnEzkutua);
+		//armak.add(rdbtnEzkutua);
+		armak.add(rdbtnTiro);
 		armak.add(rdbtnBonba);
 		armak.add(rdbtnRadarra);
 		armak.add(rdbtnMisilZuzenduaGurutzatua);
 		
-		JButton btnNewButton = new JButton("Arma erosi");
+		armaNorabidea.add(rdbtnBertikal);
+		armaNorabidea.add(rdbtnHorizontal);
+		
+		armakonponketak.add(rdbtnOntziaKonpondu);
+		armakonponketak.add(rdbtnEzkutua);
+		
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(732, 9, 107, 26);
+		btnNewButton.setBounds(628, 194, 107, 26);
 		contentPane.add(btnNewButton);
+		btnNewButton.setVisible(false);
 		
-		JButton btnOntziaKonpontu = new JButton("Ontzia konpondu");
-		btnOntziaKonpontu.setBounds(851, 8, 141, 26);
-		contentPane.add(btnOntziaKonpontu);
+		rdbtnHorizontal.setBounds(819, 138, 109, 23);
+		contentPane.add(rdbtnHorizontal);
+		rdbtnHorizontal.setVisible(false);
 		
+		rdbtnBertikal.setBounds(930, 138, 109, 23);
+		contentPane.add(rdbtnBertikal);
+		rdbtnBertikal.setVisible(false);
+		
+		rdbtnOntziaKonpondu.setBounds(624, 409, 141, 23);	
+		contentPane.add(rdbtnOntziaKonpondu);
+		rdbtnOntziaKonpondu.setVisible(false);
 		
 		// Panel1
 		for (int lerro = 0; lerro < 10; lerro++) {
@@ -266,9 +267,6 @@ public class Leihoa extends JFrame {
 			}
 		}
 
-		// Group the buttons.
-		//ButtonGroup group = new ButtonGroup();
-
 	}
 
 	private class Controller implements ActionListener {
@@ -278,14 +276,16 @@ public class Leihoa extends JFrame {
 			int val = getButton(textField);
 			int row = (val ) / 10;
 			int col = (val % 10);
-			int aux = Jokoa.getJokoa().getZeregin();
-			if (aux == 0) {// tiro
+			//int aux = Jokoa.getJokoa().getZeregin();
+			if (rdbtnTiro.isSelected()) {// tiro normal
 				tirokatu(row, col);
 				System.out.println("Bang!");
-			} else if (aux == 1) {// radar
+			} 
+			else if (rdbtnRadarra.isSelected()) {// radar
 				zerDagoenRadar(row, col);
 				System.out.println("pirililiii");
 			}
+			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 		}
 
 	}
@@ -300,22 +300,21 @@ public class Leihoa extends JFrame {
 			int aux = Jokoa.getJokoa().getZeregin();
 			if (aux==2){
 			boolean aux2 = Jokoa.getJokoa().kokatuGrafikatik(row, col);
-			if (aux2) {
-				//hacer que se pinte en todos los que se pone el barco
+			if (aux2) {		
 				lblAsd.setText(Jokoa.getJokoa().getOntziarenIzena());
 				lblAsd_1.setText(Jokoa.getJokoa().getOntziarenTamaina());
-				System.out.println(row+" "+col);
 			}
 			if (Jokoa.getJokoa().zeinOntziKokatu()>9){
 				botoiakIpini();
 			}
 			}
-			if(aux==3){
+			if(rdbtnEzkutua.isSelected()==true){
 				if(Jokoa.getJokoa().ezkutatu(row, col)){
 					aldatuIrudiaHoria2(row, col);
 				}
 				
 			}
+			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			tablero2Eguneratu();
 		}
 
@@ -444,9 +443,19 @@ public class Leihoa extends JFrame {
 		}
 	}
 	public void botoiakIpini(){
-		btnRadarra.setVisible(true);
-		btnTiroEgin.setVisible(true);
-		btnNewButton_1.setVisible(true);
+		rdbtnTiro.setVisible(true) ;
+		rdbtnEzkutua.setVisible(true) ;
+		rdbtnBonba.setVisible(true) ;
+		rdbtnMisila.setVisible(true);
+		lblArmak.setVisible(true);
+		rdbtnRadarra.setVisible(true);
+		rdbtnMisilZuzenduaNorabidea.setVisible(true) ;
+		rdbtnMisilZuzenduaGurutzatua.setVisible(true) ;
+		rdbtnBertikal.setVisible(true);
+		rdbtnHorizontal.setVisible(true);
+		rdbtnOntziaKonpondu.setVisible(true);
+		btnNewButton.setVisible(true);
+		
 		button.setVisible(false);
 		button_2.setVisible(false);
 		button_1.setVisible(false);
