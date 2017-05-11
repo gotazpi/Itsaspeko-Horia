@@ -51,6 +51,14 @@ public abstract class Ontzia {
 		}
 		return aux;
 	}
+	
+	public void ontziaIkutu(){
+		int i =0;
+		while (i<this.koordenatuak.length){
+			this.koordenatuak[i].ikutu();
+			i++;
+		}
+	}
 
 	public void egoeraAldatu(EgoeraOntzia egoeraBerria) {
 		this.egoeraOntzia = egoeraBerria;
