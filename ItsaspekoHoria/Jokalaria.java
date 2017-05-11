@@ -35,9 +35,6 @@ public abstract class Jokalaria {
 		return armamentua;
 	}
 	
-	public void diruaKendu(int kant){
-		dirua=dirua-kant;
-	}
 
 	/*
 	 * public void radarraJarri(int x, int y){
@@ -76,20 +73,14 @@ public abstract class Jokalaria {
 		}
 	}
 
-	public boolean ontziaKonpondu(Ontzia ontzia) {
-		boolean emaitza=false;
-		if (ontzia.getEgoera() instanceof Suntsituta) {
-			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
-				ontzia.egoeraAldatu(new IkutuGabe());
-				ontzia.jasandakoBonbaKopAldatu(0);
-				this.dirua = this.dirua - ontzia.getKonponketaKostua();
-				System.out.println("Barkua konpondu da.");
-				emaitza=true; 
-			}
-		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
-			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
+	public boolean ontziaKonpondu(int pX, int pY) {
+		Ontzia ontzia = this.jokalariarenTaula.getOntzia(pX, pY);
+		if (ontzia.konpondu(this.dirua)){
+			this.dirua=this.dirua - ontzia.getKonponketaKostua();
+			return true;
+		}else{
+			return false;
 		}
-		return emaitza;
 	}
 
 }

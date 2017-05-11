@@ -110,4 +110,25 @@ public abstract class Ontzia {
 		}
 		return emaitza;
 	}
+	
+	public boolean konpondu(int dirua){
+		boolean emaitza=false;
+		if (this.egoeraOntzia instanceof Suntsituta){
+			if (this.erosDezake(dirua)){
+				this.egoeraAldatu(new IkutuGabe());
+				this.jasandakoBonbaKop=0;
+				emaitza=true;
+			}
+		}else{
+			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
+		}
+		return emaitza;
+	}
+	
+	public Koordenatuak getKoordenatuak(){
+		return this.koordenatuak[0];
+	}
+	
+	
+	
 }

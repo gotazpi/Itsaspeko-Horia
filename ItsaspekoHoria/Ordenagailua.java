@@ -225,7 +225,8 @@ public class Ordenagailua extends Jokalaria {
 	public void lortuOntzia() {
 		Ontzia ontziBat = this.flota.suntsitutakoOntziaLortu();
 		if (ontziBat != null) {
-			this.ontziaKonpondu(ontziBat);
+			Koordenatuak koordenatuak = ontziBat.getKoordenatuak();
+			this.ontziaKonpondu(koordenatuak.getErrenkada(), koordenatuak.getZutabea());
 		}
 		// Bere flotan ez dago barku bat suntsituta dagoenik, beraz ez da
 		// ontziaKonponduMetodoa egikarituko
