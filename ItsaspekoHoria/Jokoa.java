@@ -180,5 +180,9 @@ public class Jokoa {
 		if (txanda==1){besteTaula=Erabiltzailea.getErabiltzailea().getTaula();}
 		return Erabiltzailea.getErabiltzailea().tiroEgin(arma, pX, pY,misilZuzenduNorabidea, besteTaula);
 	}
+	
+	public Erabiltzailea getErabiltzailea(){
+		return Erabiltzailea.getErabiltzailea();
+	}
 
 }

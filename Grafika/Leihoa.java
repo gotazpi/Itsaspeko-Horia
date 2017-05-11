@@ -77,6 +77,7 @@ public class Leihoa extends JFrame {
 	private final JLabel label_3 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 	private final JLabel label_4 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	private final JLabel label_5 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
+	private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	
 	
 	public static Leihoa getLeihoa() {
@@ -266,12 +267,16 @@ public class Leihoa extends JFrame {
 		label_5.setBounds(719, 439, 46, 14);
 		
 		contentPane.add(label_5);
+	
+		label_6.setBounds(628, 230, 80, 14);
+		contentPane.add(label_6);
 		label.setVisible(false);
 		label_1.setVisible(false);
 		label_2.setVisible(false);
 		label_3.setVisible(false);
 		label_4.setVisible(false);
 		label_5.setVisible(false);
+		label_6.setVisible(false);
 		rdbtnOntziaKonpondu.setVisible(false);
 		
 		
@@ -355,7 +360,7 @@ public class Leihoa extends JFrame {
 					System.out.println("pirililiii");
 				}
 			}
-			Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
+			//Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
 			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			armakEguneratu();
 		}
@@ -369,6 +374,7 @@ public class Leihoa extends JFrame {
 		label_3.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 		label_4.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 		label_5.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
+		label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	}
 
 	private class Controller2 implements ActionListener {
@@ -397,6 +403,7 @@ public class Leihoa extends JFrame {
 			}
 			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			tablero2Eguneratu();
+			armakEguneratu();
 		}
 
 	}
@@ -550,6 +557,7 @@ public class Leihoa extends JFrame {
 		label_3.setVisible(true);
 		label_4.setVisible(true);
 		label_5.setVisible(true);
+		label_6.setVisible(true);
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);
