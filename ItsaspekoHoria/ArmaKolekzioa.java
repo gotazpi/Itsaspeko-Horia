@@ -43,9 +43,9 @@ public abstract class ArmaKolekzioa {
 	public int misilZuzenduGurutzatuaKop(){
 		return misilZuzenduGurutzatuaKop;
 	}
-	public void radarKopKendu(){
+	/*public void radarKopKendu(){
 		this.radarKop=this.radarKop--;
-	}
+	}*/
 	
 	public boolean armaDago(String arma){
 		if (arma.equals("Ezkutua") && this.ezkutuaKop>0){
