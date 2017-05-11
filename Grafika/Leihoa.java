@@ -98,6 +98,7 @@ public class Leihoa extends JFrame {
 					//Erabiltzailea j = Erabiltzailea.getErabiltzailea();
 					Leihoa frame = new Leihoa();
 					frame.setVisible(true);
+					new warning().main(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -109,7 +110,6 @@ public class Leihoa extends JFrame {
 	 * Create the frame.
 	 */
 	private Leihoa() {
-		new warning().main(null);
 		setTitle("Itsaspeko Horia");
 		this.matrix1 = new JButton[10][10];
 		this.matrix2 = new JButton[10][10];

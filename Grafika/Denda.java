@@ -234,14 +234,17 @@ public class Denda{
 	}
 	
 	private void eguneratu(){
+		frame.getContentPane().validate();
 		frame.getContentPane().repaint();
-		frame.getContentPane().revalidate();
+		frame.validate();
+		frame.repaint();
 	}
 	
 	private class Controller3 implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			label_5.setText("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
 			label_11.setText("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
+			eguneratu();
 		}
 
 	}
