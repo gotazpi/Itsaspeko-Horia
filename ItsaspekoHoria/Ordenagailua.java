@@ -22,13 +22,13 @@ public class Ordenagailua extends Jokalaria {
 	
 	public boolean ordenagailuaTiroEgin(){
 		int norabidea=3;
-		boolean eginda=false, badu=false, emaitza=false;
-		int pX=this.posizioaLortu();
+		boolean eginda=false, badu=false;
+		int pX=this.posizioaLortu();		//random bidez posizio bat aukeratu
 		int pY=this.posizioaLortu();
 		Random random=new Random();
 		while(!eginda){
-			String nahiDuzunArma=this.armaAukeratu();
-			badu=this.armamentua.armaDago(nahiDuzunArma);
+			String nahiDuzunArma=this.armaAukeratu();		//random bidez arma aukeratu
+			badu=this.armamentua.armaDago(nahiDuzunArma);	//konprobatu aukeratutako arma bere armamentuan dagoen
 			if (badu){
 				Arma arma=this.armamentua.hartuArma(nahiDuzunArma);
 				this.armamentua.armaKendu(arma);
@@ -38,12 +38,16 @@ public class Ordenagailua extends Jokalaria {
 					if (arma instanceof Radar){
 						this.radarKoordenatua=koordenatuakGorde(pX, pY);
 					}else{
-						if (this.radarKoordenatua!=null && arma instanceof Ezkutua && arma instanceof Radar){
+						if (this.radarKoordenatua!=null && !(arma instanceof Ezkutua)){
 							pX=this.radarKoordenatua.getErrenkada();
 							pY=this.radarKoordenatua.getZutabea();
 						}
 					}
-					arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+					if (arma instanceof Ezkutua){
+						arma.erabili(jokalariarenTaula, pX, pY, norabidea);
+					}else{
+						arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+					}
 					eginda=true;
 				}
 			}
@@ -58,7 +62,7 @@ public class Ordenagailua extends Jokalaria {
 		while(!eginda){
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
 			if (aukera==0){
-				if (this.armamentua.armakDaude()){
+				if (this.armamentua.armakDaude()){	//bere armamentuan ia armak dauden erabili ahal izanteko 
 					eginda=this.ordenagailuaTiroEgin();
 				}
 			}else{
@@ -107,7 +111,8 @@ public class Ordenagailua extends Jokalaria {
 	public Koordenatuak koordenatuakGorde(int pX, int pY){
 		Koordenatuak barkuKoordenatuak=null;
 		boolean topatua=false;
-		while(!topatua){
+		int i=0;
+		while(!topatua && i<9){
 			if (this.etsaiarenTaula.getOntzia(pX, pY)!=null){
 				if (this.etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof IkutuGabe){
 					barkuKoordenatuak=new Koordenatuak(pX, pY);

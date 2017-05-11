@@ -16,6 +16,7 @@ public class Misil extends Arma {
 				ontziBat.egoeraAldatu(new IkutuGabe());
 			} else {
 				ontziBat.egoeraAldatu(new Suntsituta());
+				ontziBat.ontziaIkutu();
 			}
 		}
 	}

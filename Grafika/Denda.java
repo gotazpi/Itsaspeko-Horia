@@ -9,8 +9,12 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 
 import ItsaspekoHoria.*;
+
 import javax.swing.AbstractAction;
+
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Action;
 
 public class Denda{
@@ -30,6 +34,7 @@ public class Denda{
 	private JLabel label_9 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduGurutzatuaKop());
 	private JLabel label_10 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduNorabideKop());
 	private JLabel label_11 = new JLabel("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
+	private Controller3 controller = new Controller3();
 
 	/**
 	 * Launch the application.
@@ -66,31 +71,37 @@ public class Denda{
 		JButton btnBonba = new JButton("Bonba");
 		btnBonba.setAction(action_1);
 		btnBonba.setBounds(10, 11, 190, 23);
+		btnBonba.addActionListener(controller);
 		frame.getContentPane().add(btnBonba);
 		
 		JButton btnMisil = new JButton("Misil");
 		btnMisil.setAction(action_2);
 		btnMisil.setBounds(10, 45, 190, 23);
+		btnMisil.addActionListener(controller);
 		frame.getContentPane().add(btnMisil);
 		
 		JButton btnRadar = new JButton("Radar");
 		btnRadar.setAction(action_3);
 		btnRadar.setBounds(10, 79, 190, 23);
+		btnRadar.addActionListener(controller);
 		frame.getContentPane().add(btnRadar);
 		
 		JButton btnEzkutua = new JButton("Ezkutua");
 		btnEzkutua.setAction(action_4);
 		btnEzkutua.setBounds(10, 113, 190, 23);
+		btnEzkutua.addActionListener(controller);
 		frame.getContentPane().add(btnEzkutua);
 		
 		JButton btnMisilZuzenduaGurutzatua = new JButton("Misil Zuzendua Gurutzatua");
 		btnMisilZuzenduaGurutzatua.setAction(action_5);
 		btnMisilZuzenduaGurutzatua.setBounds(10, 147, 190, 23);
+		btnMisilZuzenduaGurutzatua.addActionListener(controller);
 		frame.getContentPane().add(btnMisilZuzenduaGurutzatua);
 		
 		JButton btnMisilZuzenduaNorabidea = new JButton("Misil Zuzendua Norabidea");
 		btnMisilZuzenduaNorabidea.setAction(action_6);
 		btnMisilZuzenduaNorabidea.setBounds(10, 181, 190, 23);
+		btnMisilZuzenduaNorabidea.addActionListener(controller);
 		frame.getContentPane().add(btnMisilZuzenduaNorabidea);
 		
 		JLabel lblPrezioa = new JLabel("Prezioa: " + Integer.toString((new Bonba().getKostua())));
@@ -167,8 +178,6 @@ public class Denda{
 		}
 		public void actionPerformed(ActionEvent e) {
 			Erabiltzailea.getErabiltzailea().armaErosi("Bonba");
-			label_5.setText("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
-			label_11.setText("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
 			// denda eguneratu
 			eguneratu();
 		}
@@ -227,5 +236,13 @@ public class Denda{
 	private void eguneratu(){
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
+	}
+	
+	private class Controller3 implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			label_5.setText("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
+			label_11.setText("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
+		}
+
 	}
 }
