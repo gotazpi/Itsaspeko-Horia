@@ -76,10 +76,6 @@ public abstract class Jokalaria {
 		}
 	}
 
-	/*public void galdetuZerEgin() {
-		// mirar en la grafika cual es la option que elije
-	}*/
-
 	public boolean ontziaKonpondu(Ontzia ontzia) {
 		boolean emaitza=false;
 		if (ontzia.getEgoera() instanceof Suntsituta) {
