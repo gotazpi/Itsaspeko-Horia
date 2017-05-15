@@ -29,7 +29,7 @@ public class Erabiltzailea extends Jokalaria {
 			System.out.println("Ez dago ontzirik");
 	}*/
 
-	public void radarra(Radar radar, int pX, int pY) {
+/*	public void radarra(Radar radar, int pX, int pY) {
 		// etsaiarenTaula.radarKontsultatu(pX, pY);
 		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
 	}*/

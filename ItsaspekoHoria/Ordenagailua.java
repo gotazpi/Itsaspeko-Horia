@@ -232,7 +232,6 @@ public class Ordenagailua extends Jokalaria {
 		// ontziaKonponduMetodoa egikarituko
 	}*/
 
-<<<<<<< HEAD
 	/*public boolean radarra() {
 		if (this.armamentua.getRadarKop() != 0) {
 			//int x = this.posizioaLortu();
@@ -243,6 +242,5 @@ public class Ordenagailua extends Jokalaria {
 		}
 		return false;
 	}*/
-=======
->>>>>>> 4b366bc244ec007822ead11cc94b44029dc4b58a
+
 }
