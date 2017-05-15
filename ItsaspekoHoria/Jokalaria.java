@@ -36,10 +36,10 @@ public abstract class Jokalaria {
 	}
 	
 
-	/*
-	 * public void radarraJarri(int x, int y){
-	 * etsaiarenTaula.radarKontsultatu(x, y); }
-	 */
+   /*
+	*public void radarraJarri(int x, int y){
+	* etsaiarenTaula.radarKontsultatu(x, y); }
+	*/
 
 	public boolean ontziakDauzka() { //para que se usa este metodo?
 		if (this.flota.getOntziKop() != 0) {

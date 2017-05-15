@@ -3,6 +3,7 @@ package ItsaspekoHoria;
 import java.util.Random;
 
 public class Ordenagailua extends Jokalaria {
+	
 	// atributuak
 	private static Ordenagailua nireOrdenagailua = null;
 	private Koordenatuak radarKoordenatua=null;
@@ -13,6 +14,14 @@ public class Ordenagailua extends Jokalaria {
 		super();
 	}
 	
+	// metodoak
+	public static Ordenagailua getOrdenagailua() {
+		if (nireOrdenagailua == null) {
+			nireOrdenagailua = new Ordenagailua();
+		}
+		return nireOrdenagailua;
+	}
+
 	public String armaAukeratu(){
 		Random random = new Random();
 		String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua Gurutzatua", "Misil Zuzendua Norabidea",  "Bonba", "Ezkutua"};
@@ -81,32 +90,32 @@ public class Ordenagailua extends Jokalaria {
 	
 	
 	public boolean ordenagailuaOntziaKonpondu(){
-		boolean ondoKonponduDa=false, emaitza=false;
-		Ontzia ontziBat= this.flota.suntsitutakoOntziaLortu(); //bere flotako suntsitutako ontzi bat lortu
+		boolean emaitza=false;
+		Ontzia ontziBat = this.flota.suntsitutakoOntziaLortu(); //bere flotako suntsitutako ontzi bat lortu
 		if (ontziBat!=null){
-			ondoKonponduDa=this.konpondu(ontziBat);
-			if (ondoKonponduDa){
-				emaitza=true;
-			}
+			Koordenatuak koordenatuak = ontziBat.getKoordenatuak();
+			int pX = koordenatuak.getErrenkada();
+			int pY = koordenatuak.getZutabea();
+			emaitza = this.ontziaKonpondu(pX, pY);
 		}
 		return emaitza;
 	}
 	
-	public boolean konpondu(Ontzia ontzia) {  //
+	/*public boolean konpondu(Ontzia ontzia) {  //
 		boolean emaitza=false;
 		if (ontzia.getEgoera() instanceof Suntsituta) {
-			if (ontzia.erosDezake(this.dirua)) { /* Diru nahiko du barkua konpontzeko */
+			if (ontzia.erosDezake(this.dirua)) { 
 				ontzia.egoeraAldatu(new IkutuGabe());
 				ontzia.jasandakoBonbaKopAldatu(0);
 				this.dirua = this.dirua - ontzia.getKonponketaKostua();
 				System.out.println("Barkua konpondu da.");
 				emaitza=true;
 			}
-		}else{/* Aukeratu duzun barkua ez dago suntsituta beraz ezin da konpondu */
+		}else{
 			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
 		}
 		return emaitza;
-	}
+	}*/
 	
 	public Koordenatuak koordenatuakGorde(int pX, int pY){
 		Koordenatuak barkuKoordenatuak=null;
@@ -179,15 +188,6 @@ public class Ordenagailua extends Jokalaria {
 		return barkuKoordenatuak;
 	}
 
-	public static Ordenagailua getOrdenagailua() {
-		if (nireOrdenagailua == null) {
-			nireOrdenagailua = new Ordenagailua();
-		}
-		return nireOrdenagailua;
-	}
-
-	// metodoak
-
 	public void ontziaKokatu() {
 		int i = 0;
 		while (i < 10) {
@@ -222,16 +222,17 @@ public class Ordenagailua extends Jokalaria {
 		return balioa;
 	}
 
-	public void lortuOntzia() {
+	/*public void lortuOntzia() {
 		Ontzia ontziBat = this.flota.suntsitutakoOntziaLortu();
 		if (ontziBat != null) {
 			Koordenatuak koordenatuak = ontziBat.getKoordenatuak();
 			this.ontziaKonpondu(koordenatuak.getErrenkada(), koordenatuak.getZutabea());
-		}
+		
 		// Bere flotan ez dago barku bat suntsituta dagoenik, beraz ez da
 		// ontziaKonponduMetodoa egikarituko
-	}
+	}*/
 
+<<<<<<< HEAD
 	/*public boolean radarra() {
 		if (this.armamentua.getRadarKop() != 0) {
 			//int x = this.posizioaLortu();
@@ -242,4 +243,6 @@ public class Ordenagailua extends Jokalaria {
 		}
 		return false;
 	}*/
+=======
+>>>>>>> 4b366bc244ec007822ead11cc94b44029dc4b58a
 }

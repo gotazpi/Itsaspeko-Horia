@@ -70,86 +70,86 @@ public class Denda{
 		
 		JButton btnBonba = new JButton("Bonba");
 		btnBonba.setAction(action_1);
-		btnBonba.setBounds(10, 11, 190, 23);
+		btnBonba.setBounds(10, 11, 208, 23);
 		btnBonba.addActionListener(controller);
 		frame.getContentPane().add(btnBonba);
 		
 		JButton btnMisil = new JButton("Misil");
 		btnMisil.setAction(action_2);
-		btnMisil.setBounds(10, 45, 190, 23);
+		btnMisil.setBounds(10, 45, 208, 23);
 		btnMisil.addActionListener(controller);
 		frame.getContentPane().add(btnMisil);
 		
 		JButton btnRadar = new JButton("Radar");
 		btnRadar.setAction(action_3);
-		btnRadar.setBounds(10, 79, 190, 23);
+		btnRadar.setBounds(10, 79, 208, 23);
 		btnRadar.addActionListener(controller);
 		frame.getContentPane().add(btnRadar);
 		
 		JButton btnEzkutua = new JButton("Ezkutua");
 		btnEzkutua.setAction(action_4);
-		btnEzkutua.setBounds(10, 113, 190, 23);
+		btnEzkutua.setBounds(10, 113, 208, 23);
 		btnEzkutua.addActionListener(controller);
 		frame.getContentPane().add(btnEzkutua);
 		
 		JButton btnMisilZuzenduaGurutzatua = new JButton("Misil Zuzendua Gurutzatua");
 		btnMisilZuzenduaGurutzatua.setAction(action_5);
-		btnMisilZuzenduaGurutzatua.setBounds(10, 147, 190, 23);
+		btnMisilZuzenduaGurutzatua.setBounds(10, 147, 208, 23);
 		btnMisilZuzenduaGurutzatua.addActionListener(controller);
 		frame.getContentPane().add(btnMisilZuzenduaGurutzatua);
 		
 		JButton btnMisilZuzenduaNorabidea = new JButton("Misil Zuzendua Norabidea");
 		btnMisilZuzenduaNorabidea.setAction(action_6);
-		btnMisilZuzenduaNorabidea.setBounds(10, 181, 190, 23);
+		btnMisilZuzenduaNorabidea.setBounds(10, 181, 208, 23);
 		btnMisilZuzenduaNorabidea.addActionListener(controller);
 		frame.getContentPane().add(btnMisilZuzenduaNorabidea);
 		
 		JLabel lblPrezioa = new JLabel("Prezioa: " + Integer.toString((new Bonba().getKostua())));
-		lblPrezioa.setBounds(210, 15, 65, 14);
+		lblPrezioa.setBounds(228, 12, 74, 14);
 		frame.getContentPane().add(lblPrezioa);
 		
 		JLabel label = new JLabel("Prezioa: " + Integer.toString((new Misil().getKostua())));
-		label.setBounds(210, 49, 65, 14);
+		label.setBounds(228, 46, 74, 14);
 		frame.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("Prezioa: " + Integer.toString((new Radar().getKostua())));
-		label_1.setBounds(210, 83, 65, 14);
+		label_1.setBounds(228, 80, 74, 14);
 		frame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("Prezioa: " + Integer.toString((new Ezkutua().getKostua())));
-		label_2.setBounds(210, 117, 65, 14);
+		label_2.setBounds(228, 114, 74, 14);
 		frame.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("Prezioa: " + Integer.toString((new MisilZuzenduaGurutzatua().getKostua())));
-		label_3.setBounds(210, 151, 65, 14);
+		label_3.setBounds(228, 148, 74, 14);
 		frame.getContentPane().add(label_3);
 		
 		JLabel label_4 = new JLabel("Prezioa: " + Integer.toString((new MisilZuzenduaNorabidea().getKostua())));
-		label_4.setBounds(210, 185, 65, 14);
+		label_4.setBounds(228, 182, 74, 14);
 		frame.getContentPane().add(label_4);
 		
 		JLabel label_5 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().bonbaKop());
-		label_5.setBounds(285, 15, 75, 14);
+		label_5.setBounds(314, 11, 89, 14);
 		frame.getContentPane().add(label_5);
 		
 		JLabel label_6 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilKop());
-		label_6.setBounds(285, 49, 75, 14);
+		label_6.setBounds(314, 45, 86, 14);
 		frame.getContentPane().add(label_6);
 		
 		JLabel label_7 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().getRadarKop());
-		label_7.setBounds(285, 83, 75, 14);
+		label_7.setBounds(314, 79, 86, 14);
 		frame.getContentPane().add(label_7);
 		
 		JLabel label_8 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().ezkutuaKop());
-		label_8.setBounds(285, 117, 75, 14);
+		label_8.setBounds(314, 113, 89, 14);
 		frame.getContentPane().add(label_8);
 		
 		JLabel label_9 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduGurutzatuaKop());
-		label_9.setBounds(285, 151, 75, 14);
+		label_9.setBounds(314, 147, 89, 14);
 		frame.getContentPane().add(label_9);
 		
 		JLabel label_10 = new JLabel("Biltegian: " + Biltegia.getNireBiltegia().misilZuzenduNorabideKop());
-		label_10.setBounds(285, 185, 75, 14);
+		label_10.setBounds(314, 181, 89, 14);
 		frame.getContentPane().add(label_10);
 		
 		JButton btnItzuli = new JButton("Itzuli");
@@ -158,7 +158,7 @@ public class Denda{
 		frame.getContentPane().add(btnItzuli);
 		
 		JLabel label_11 = new JLabel("Dirua: " + Erabiltzailea.getErabiltzailea().getDirua());
-		label_11.setBounds(10, 231, 65, 14);
+		label_11.setBounds(10, 231, 86, 14);
 		frame.getContentPane().add(label_11);
 	}
 	private class SwingAction extends AbstractAction {
