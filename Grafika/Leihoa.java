@@ -322,6 +322,7 @@ public class Leihoa extends JFrame {
 			if (rdbtnMisila.isSelected()) {
 				if(Jokoa.getJokoa().jokalariakTiroEgin("Misil", row, col, 2)){
 				zerDagoen(row,col);
+				ontziIkutuakEguneratu();
 				System.out.println("Bang!");}
 			} 
 			
@@ -571,6 +572,17 @@ public class Leihoa extends JFrame {
 		zerDagoen(i+1,j+1);
 		Leihoa.getLeihoa().refresh();
 		//eliminar un radar del que lo use y pasar turno
+	}
+	public void ontziIkutuakEguneratu(){
+		for(int i =0; i<10; i++){
+			for(int j =0; j<10; j++){
+				if(Jokoa.getJokoa().ontziaDago(i, j)){
+					if(Jokoa.getJokoa().ontziaIkutua(i, j)){
+						aldatuIrudiaGorria(i, j);
+					}
+				}
+			}
+		}
 	}
 
 	/*public void tirokatu(int i, int j) {

@@ -1,6 +1,6 @@
 package ItsaspekoHoria;
 
-import java.util.Observable;
+//import java.util.Observable;
 
 import Grafika.*;
 
@@ -82,7 +82,7 @@ public class Jokoa {
 
 	//El jugador lo usa en la grafica
 	//0Dispara, 1UsasRadar, 2ColocaBarcos, 3PoneEscudos
-	public void tiroEgiteko() {
+	/*public void tiroEgiteko() {
 		zerEgin = 0;
 	}
 
@@ -93,6 +93,7 @@ public class Jokoa {
 	public void ezkutatzeko(){
 		zerEgin = 3;
 	}
+	*/
 	public int getZeregin() {
 		return zerEgin;
 	}

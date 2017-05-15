@@ -18,12 +18,12 @@ public abstract class Ontzia {
 	}
 
 	public boolean ezkutatu() {
-		if (!(egoeraOntzia instanceof Ezkutatuta)) {
+		if (!(egoeraOntzia instanceof Ezkutatuta)&& !(egoeraOntzia instanceof Suntsituta)) {
 			this.egoeraAldatu(new Ezkutatuta());
 			System.out.println("Ontzia ezkutatu da!");
 			return true;
 		} else {
-			System.out.println("Dagoeneko ezkutaturik zegoen");
+			System.out.println("Dagoeneko ezkutaturik edo suntsiturik zegoen ");
 			return false;
 		}
 	}
@@ -118,6 +118,7 @@ public abstract class Ontzia {
 				this.egoeraAldatu(new IkutuGabe());
 				this.jasandakoBonbaKop=0;
 				emaitza=true;
+				System.out.println("Ontzi bat konpondu da");
 			}
 		}else{
 			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");

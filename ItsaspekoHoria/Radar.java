@@ -24,6 +24,6 @@ public class Radar extends Arma {
 	 */
 	@Override
 	public void erabili(Taula etsailarenTaula, int pX, int pY, int misilZuzendua) {
-		// TODO Auto-generated method stub
+		System.out.println("Radarra erabili da");
 	}
 }

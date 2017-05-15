@@ -22,12 +22,12 @@ public class Erabiltzailea extends Jokalaria {
 		jokalariarenTaula.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
 	}
 
-	public void ontziaEzkutatu(int pLerroa, int pZutabea) {
+	/*public void ontziaEzkutatu(int pLerroa, int pZutabea) {
 		if (jokalariarenTaula.ontziaDago(pLerroa, pZutabea)) {
 			jokalariarenTaula.getOntzia(pLerroa, pZutabea).ezkutatu();
 		} else
 			System.out.println("Ez dago ontzirik");
-	}
+	}*/
 
 	public void radarra(Radar radar, int pX, int pY) {
 		// etsaiarenTaula.radarKontsultatu(pX, pY);
@@ -47,7 +47,7 @@ public class Erabiltzailea extends Jokalaria {
 				if(this.jokalariarenTaula.getOntzia(pX, pY)!=null){
 				this.armamentua.armaKendu(nireArma);}
 			}else{
-				System.out.println(pX+""+pY);
+				//System.out.println(pX+""+pY);
 				nireArma.erabili(besteTaula, pX, pY, misilZuzenduNorabidea);
 				this.armamentua.armaKendu(nireArma);
 			}
