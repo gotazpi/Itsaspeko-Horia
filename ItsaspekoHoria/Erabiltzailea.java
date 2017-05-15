@@ -22,7 +22,7 @@ public class Erabiltzailea extends Jokalaria {
 		jokalariarenTaula.ontziOsoaKokatu(pOntzia, pLerroa, pZutabea, pNorantza);
 	}
 
-	public void ontziaEzkutatu(int pLerroa, int pZutabea) {
+	/*public void ontziaEzkutatu(int pLerroa, int pZutabea) {
 		if (jokalariarenTaula.ontziaDago(pLerroa, pZutabea)) {
 			jokalariarenTaula.getOntzia(pLerroa, pZutabea).ezkutatu();
 		} else
@@ -32,7 +32,7 @@ public class Erabiltzailea extends Jokalaria {
 	public void radarra(Radar radar, int pX, int pY) {
 		// etsaiarenTaula.radarKontsultatu(pX, pY);
 		radar.erabili(this.etsaiarenTaula, pX, pY, 3);
-	}
+	}*/
 	
 	public void radarraErabili(){
 		armamentua.armaKendu(new Radar());

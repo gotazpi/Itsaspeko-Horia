@@ -175,14 +175,14 @@ public class Leihoa extends JFrame {
 		contentPane.add(lblOntzia);
 		
 
-		lblTamaina.setBounds(628, 542, 53, 14);
+		lblTamaina.setBounds(628, 542, 61, 11);
 		contentPane.add(lblTamaina);
 		
 		
 		lblAsd.setBounds(691, 517, 103, 14);
 		contentPane.add(lblAsd);
 		
-		lblAsd_1.setBounds(691, 542, 103, 14);
+		lblAsd_1.setBounds(691, 539, 103, 14);
 		contentPane.add(lblAsd_1);
 
 		rdbtnBonba.setBounds(624, 86, 73, 23);
@@ -199,7 +199,7 @@ public class Leihoa extends JFrame {
 		rdbtnMisila.setVisible(false) ;
 		
 		
-		rdbtnMisilZuzenduaNorabidea.setBounds(624, 138, 193, 23);
+		rdbtnMisilZuzenduaNorabidea.setBounds(624, 138, 209, 23);
 		contentPane.add(rdbtnMisilZuzenduaNorabidea);
 		rdbtnMisilZuzenduaNorabidea.setVisible(false) ;
 		
@@ -207,11 +207,11 @@ public class Leihoa extends JFrame {
 		contentPane.add(lblArmak);
 		lblArmak.setVisible(false) ;
 		
-		rdbtnMisilZuzenduaGurutzatua.setBounds(624, 164, 180, 23);
+		rdbtnMisilZuzenduaGurutzatua.setBounds(624, 164, 209, 23);
 		contentPane.add(rdbtnMisilZuzenduaGurutzatua);
 		rdbtnMisilZuzenduaGurutzatua.setVisible(false) ;
 		
-		rdbtnRadarra.setBounds(624, 60, 73, 23);
+		rdbtnRadarra.setBounds(624, 60, 84, 23);
 		contentPane.add(rdbtnRadarra);
 		rdbtnRadarra.setVisible(false) ;
 		
@@ -237,18 +237,18 @@ public class Leihoa extends JFrame {
 		contentPane.add(btnNewButton);
 		btnNewButton.setVisible(false);
 		
-		rdbtnHorizontal.setBounds(819, 138, 109, 23);
+		rdbtnHorizontal.setBounds(836, 138, 109, 23);
 		contentPane.add(rdbtnHorizontal);
 		rdbtnHorizontal.setVisible(false);
 		
-		rdbtnBertikal.setBounds(930, 138, 79, 23);
+		rdbtnBertikal.setBounds(957, 138, 79, 23);
 		contentPane.add(rdbtnBertikal);
 		rdbtnBertikal.setVisible(false);
 		
 		rdbtnOntziaKonpondu.setBounds(624, 409, 141, 23);	
 		contentPane.add(rdbtnOntziaKonpondu);
 		label.setHorizontalAlignment(SwingConstants.LEFT);
-		label.setBounds(701, 64, 46, 14);
+		label.setBounds(701, 65, 46, 14);
 		
 		contentPane.add(label);
 		label_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -258,10 +258,10 @@ public class Leihoa extends JFrame {
 		label_2.setBounds(701, 116, 46, 14);
 		
 		contentPane.add(label_2);
-		label_3.setBounds(1012, 142, 46, 14);
+		label_3.setBounds(1048, 143, 46, 14);
 		
 		contentPane.add(label_3);
-		label_4.setBounds(817, 168, 46, 14);
+		label_4.setBounds(846, 169, 46, 14);
 		
 		contentPane.add(label_4);
 		label_5.setBounds(719, 439, 46, 14);
