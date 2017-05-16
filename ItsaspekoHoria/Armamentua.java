@@ -7,22 +7,23 @@ import java.util.Iterator;
 
 public class Armamentua extends ArmaKolekzioa{
 
-	// atributuak
+	//ATRIBUTUAK
 	
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Armamentua() {
 		this.bonbaKop = 20;
 		this.radarKop = 5;
-		this.misilZuzenduNorabideKop = 5; //aldatzeko
-		this.misilZuzenduGurutzatuaKop=3;	//aldatzeko
+		this.misilZuzenduNorabideKop = 5;
+		this.misilZuzenduGurutzatuaKop=3;
 		this.ezkutuaKop = 3;
 		this.misilKop = 10;
 		this.nireArmak = new ArrayList<Arma>();
 		this.armamentuaBete();
 	}
 	
-	private void armamentuaBete(){  //balio hauek alda daitezke.		
+	//METODOAK
+	private void armamentuaBete(){ 		
 			nireArmak.add(new Bonba());
 			nireArmak.add(new Misil());
 			nireArmak.add(new MisilZuzenduaGurutzatua());

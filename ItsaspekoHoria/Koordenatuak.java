@@ -1,19 +1,20 @@
 package ItsaspekoHoria;
 
 public class Koordenatuak {
-	// atributuak
+	
+	//ATRIBUTUAK
 	private int errenkada;
 	private int zutabea;
 	private boolean ikutua;
 	
-	//eraikitzailea
+	//ERAIKITZAILEA
 	public Koordenatuak(int pErrenkada, int pZutabea){
 		this.errenkada=pErrenkada;
 		this.zutabea=pZutabea;
 		this.ikutua=false;
 	}
 	
-	//metodoak
+	//METODOAK
 	public int getErrenkada(){
 		return this.errenkada;
 	}
@@ -22,13 +23,13 @@ public class Koordenatuak {
 		return this.zutabea;
 	}
 
-	public void setErrenkada(int pErrenkada) {
+	/*public void setErrenkada(int pErrenkada) {
 		this.errenkada = pErrenkada;
 	}
 
 	public void setZutabea(int pZutabea) {
 		this.zutabea = pZutabea;
-	}
+	}*/
 
 	public boolean koordenatuaDa(int pX, int pY) {
 		if ((errenkada == pX) && (zutabea == pY)) {

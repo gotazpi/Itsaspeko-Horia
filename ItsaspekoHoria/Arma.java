@@ -1,17 +1,17 @@
 package ItsaspekoHoria;
 
 public abstract class Arma {
-	// atributuak
+	
+	//ATRIBUTUAK
 	protected int kostua;
 
-	// eraikitzaila
+	//ERAIKITZAILEA
 	public Arma(int pKostua) {
 		this.kostua = pKostua;
 
 	}
 
-	// metodoak
-	
+	//METODOAK
 	public abstract void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea);
 
 	public int getKostua(){

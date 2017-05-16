@@ -12,7 +12,9 @@ public class Ezkutua extends Arma {
 	public void erabili(Taula jokalariarenTaula, int pX, int pY, int misilZuzenduNorabidea) {
 		Ontzia ontziBat = jokalariarenTaula.getOntzia(pX, pY);
 		if (ontziBat != null ) {
-			ontziBat.egoeraAldatu(new Ezkutatuta());
+			if (!ontziBat.laukirenBatIkututa()){
+				ontziBat.egoeraAldatu(new Ezkutatuta());
+			}
 		}
 	}
 }

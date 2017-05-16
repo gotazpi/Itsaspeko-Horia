@@ -5,14 +5,14 @@ import java.util.Iterator;
 
 public class Biltegia extends ArmaKolekzioa{
 
-	// atributuak
+	//ATRIBUTUAK
 	private static Biltegia nBiltegia=null;
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	private Biltegia() {
 		nireArmak = new ArrayList<Arma>();
 		this.biltegiaSortu();
-		this.bonbaKop = 50; // TODO kopuruak aldatu
+		this.bonbaKop = 50;
 		this.misilKop = 50;
 		this.misilZuzenduNorabideKop = 50;
 		this.radarKop = 50;
@@ -20,7 +20,7 @@ public class Biltegia extends ArmaKolekzioa{
 		this.misilZuzenduGurutzatuaKop=50;
 	}
 
-	// metodoak
+	//METODOAK
 	private void biltegiaSortu() {
 			nireArmak.add(new Bonba());
     		nireArmak.add(new Misil());

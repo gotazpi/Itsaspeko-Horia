@@ -44,7 +44,7 @@ public class Ordenagailua extends Jokalaria {
 				if (arma instanceof MisilZuzenduaNorabidea){
 					norabidea=random.nextInt(1); //0=bertikal 1=horizontal
 				}else{
-					if (arma instanceof Radar){
+					if (arma instanceof Radar){	
 						this.radarKoordenatua=koordenatuakGorde(pX, pY);
 					}else{
 						if (this.radarKoordenatua!=null && !(arma instanceof Ezkutua)){
@@ -53,11 +53,15 @@ public class Ordenagailua extends Jokalaria {
 						}
 					}
 					if (arma instanceof Ezkutua){
-						arma.erabili(jokalariarenTaula, pX, pY, norabidea);
+						Ontzia ontzia = this.jokalariarenTaula.getOntzia(pX, pY);
+						if (!ontzia.laukirenBatIkututa()){
+							arma.erabili(this.jokalariarenTaula, pX, pY, norabidea);
+							eginda=true;
+						}
 					}else{
 						arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+						eginda = true;
 					}
-					eginda=true;
 				}
 			}
 		}
@@ -69,7 +73,7 @@ public class Ordenagailua extends Jokalaria {
 		boolean  eginda=false;
 		int i=1;
 		while(!eginda){
-			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=BARKUA KONPUNDU*/
+			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=ONTZIA KONPUNDU*/
 			if (aukera==0){
 				if (this.armamentua.armakDaude()){	//bere armamentuan ia armak dauden erabili ahal izanteko 
 					eginda=this.ordenagailuaTiroEgin();
@@ -202,13 +206,13 @@ public class Ordenagailua extends Jokalaria {
 		}
 	}
 
-	public void ontziaEzkutatu() {
+	/*public void ontziaEzkutatu() {
 		int x = this.posizioaLortu();
 		int y = this.posizioaLortu();
 		if (jokalariarenTaula.ontziaDago(x, y)) {
 			jokalariarenTaula.getOntzia(x, y).ezkutatu();
 		}
-	}
+	}*/
 
 	public int posizioaLortu() {
 		Random random = new Random();

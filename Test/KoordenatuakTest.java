@@ -38,7 +38,7 @@ public class KoordenatuakTest {
 		assertTrue(koordenatuak1.getZutabea()==2);
 		assertFalse(koordenatuak1.getZutabea()==3);
 	}
-	@Test
+	/*@Test
 	public void testSetErrenkada() {
 		assertTrue(koordenatuak1.getErrenkada()==1);
 		koordenatuak1.setErrenkada(3);
@@ -51,7 +51,7 @@ public class KoordenatuakTest {
 		koordenatuak1.setZutabea(4);
 		assertTrue(koordenatuak1.getZutabea()==4);
 		assertFalse(koordenatuak1.getZutabea()==2);
-	}
+	}*/
 	@Test
 	public void testKoordenatuakDa() {
 		assertTrue(koordenatuak1.koordenatuaDa(1, 2));

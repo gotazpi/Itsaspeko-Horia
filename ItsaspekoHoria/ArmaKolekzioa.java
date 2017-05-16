@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public abstract class ArmaKolekzioa {
 	
-	//atributuak
+	//ATRIBUTUAK
 	protected int bonbaKop;
 	protected int radarKop;
 	protected int misilZuzenduNorabideKop;
@@ -14,12 +14,12 @@ public abstract class ArmaKolekzioa {
 	protected int misilZuzenduGurutzatuaKop;
 	protected ArrayList<Arma> nireArmak;
 	
-	//eraikitzailea
+	//ERAIKITZAILEA
 	public ArmaKolekzioa(){
 		
 	}
 	
-	
+	//METODOAK
 	public int getRadarKop(){
 		return radarKop;
 	}
@@ -43,9 +43,6 @@ public abstract class ArmaKolekzioa {
 	public int misilZuzenduGurutzatuaKop(){
 		return misilZuzenduGurutzatuaKop;
 	}
-	/*public void radarKopKendu(){
-		this.radarKop=this.radarKop--;
-	}*/
 	
 	public boolean armaDago(String arma){
 		if (arma.equals("Ezkutua") && this.ezkutuaKop>0){
@@ -79,7 +76,7 @@ public abstract class ArmaKolekzioa {
 		return this.nireArmak.iterator();
 	}
 	
-	public Arma hartuArma(String arma){  /*Tengo que convertir los armak?????*/
+	public Arma hartuArma(String arma){ 
 		Iterator<Arma> it =this.getIterator();
 		boolean topatua=false;
 		Arma egungoa=null;

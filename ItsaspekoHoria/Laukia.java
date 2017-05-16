@@ -1,33 +1,25 @@
 package ItsaspekoHoria;
 
 public class Laukia {
-	// atributuak
+	//ATRIBUTUAK
 	private EgoeraLaukia egoera;
 	private int zutabe;
 	private int lerro;
 	private Ontzia ontzia;
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Laukia(int pZutabe, int pLerro) {
 		this.egoera = new Ura();
 		this.zutabe = pZutabe;
 		this.lerro = pLerro;
 		this.ontzia = null;
 	}
-
+	
+	//METODOAK
 	public void egoeraAldatu(EgoeraLaukia pEgoeraBerria) {
 		this.egoera = pEgoeraBerria;
 	}
 
-	/*
-	 * public boolean getOntziaDago(){ return ontziaDago; } public boolean
-	 * getBarkuaHurbil(){ return barkuaHurbil; }
-	 * 
-	 * public void setBarkuaHurbil(){ barkuaHurbil=true; }
-	 * 
-	 * public void setOntziaDago(){ ontziaDago=true; } public boolean
-	 * ontziaDago(){ return ontziaDago; }
-	 */
 	public void setOntzia(Ontzia pOntzia) {
 		ontzia = pOntzia;
 	}

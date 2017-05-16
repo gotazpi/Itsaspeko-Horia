@@ -130,6 +130,15 @@ public abstract class Ontzia {
 		return this.koordenatuak[0];
 	}
 	
+	public boolean laukirenBatIkututa(){
+		int i=0;
+		boolean emaitza=false;
+		while( !emaitza && i<this.koordenatuak.length){
+			emaitza = this.koordenatuak[i].ikutua();
+		}
+		return emaitza;
+	}
+	
 	
 	
 }
