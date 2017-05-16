@@ -10,9 +10,13 @@ public abstract class MisilZuzendua extends Arma{
 		pY=0;
 		while(pY<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
-				if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
-					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				if (etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof Ezkutatuta){
+					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new IkutuGabe());
+				}else{
+					etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
+					if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
+						etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+					}
 				}
 			}
 			pY++;
@@ -23,9 +27,13 @@ public abstract class MisilZuzendua extends Arma{
 		pX=0;
 		while(pX<=9){
 			if (etsaiarenTaula.getOntzia(pX, pY)!=null){
-				etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
-				if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
-					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+				if (etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof Ezkutatuta){
+					etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new IkutuGabe());
+				}else{
+					etsaiarenTaula.getOntzia(pX, pY).ikutu(pX, pY);
+					if (etsaiarenTaula.getOntzia(pX, pY).koodenadaGuztiakIkututa()){
+						etsaiarenTaula.getOntzia(pX, pY).egoeraAldatu(new Suntsituta());
+					}
 				}
 				
 			}
