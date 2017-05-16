@@ -102,7 +102,7 @@ public abstract class Ontzia {
 	public boolean koodenadaGuztiakIkututa(){
 		boolean emaitza=true;
 		int i=0;
-		while(emaitza && i<=this.koordenatuak.length){
+		while(emaitza && i<this.koordenatuak.length){
 			if (!this.koordenatuak[i].ikutua()){
 				emaitza=false;
 			}
@@ -131,12 +131,13 @@ public abstract class Ontzia {
 	}
 	
 	public boolean laukirenBatIkututa(){
-		int i=0;
-		boolean emaitza=false;
-		while( !emaitza && i<this.koordenatuak.length){
-			emaitza = this.koordenatuak[i].ikutua();
+
+		for(int i=0; i<luzera; i++){
+			if(this.koordenatuak[i].ikutua()){
+				return true;
+			}
 		}
-		return emaitza;
+		return false;
 	}
 	
 	
