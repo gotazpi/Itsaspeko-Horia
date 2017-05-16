@@ -43,13 +43,17 @@ public class Erabiltzailea extends Jokalaria {
 		if (this.armamentua.armaDago(arma)){
 			Arma nireArma = this.armamentua.hartuArma(arma);
 			if (nireArma instanceof Ezkutua){
-				nireArma.erabili(this.jokalariarenTaula, pX, pY, misilZuzenduNorabidea);
 				if(this.jokalariarenTaula.getOntzia(pX, pY)!=null){
-				this.armamentua.armaKendu(nireArma);}
+					if (!this.jokalariarenTaula.getOntzia(pX, pY).laukirenBatIkututa()){
+						nireArma.erabili(this.jokalariarenTaula, pX, pY, misilZuzenduNorabidea);
+						this.armamentua.armaKendu(nireArma);
+						//Jokoa.getJokoa().txandaPasa();
+					}
+				}
 			}else{
-				//System.out.println(pX+""+pY);
 				nireArma.erabili(besteTaula, pX, pY, misilZuzenduNorabidea);
 				this.armamentua.armaKendu(nireArma);
+				//Jokoa.getJokoa().txandaPasa();
 			}
 			emaitza=true;
 		}
