@@ -71,12 +71,12 @@ public class Leihoa extends JFrame {
 	private final JRadioButton rdbtnOntziaKonpondu = new JRadioButton("Ontzia konpondu");
 	JButton btnNewButton = new JButton("Denda");
 	private final Action action = new SwingAction();
-	private final JLabel label = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()));
-	private final JLabel label_1 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().bonbaKop()));
-	private final JLabel label_2 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
-	private final JLabel label_3 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
-	private final JLabel label_4 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
-	private final JLabel label_5 = new JLabel(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
+	private final JLabel label = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().getRadarKop()));
+	private final JLabel label_1 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().bonbaKop()));
+	private final JLabel label_2 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilKop()));
+	private final JLabel label_3 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
+	private final JLabel label_4 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
+	private final JLabel label_5 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
 	private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	
 	
@@ -211,7 +211,7 @@ public class Leihoa extends JFrame {
 		contentPane.add(rdbtnMisilZuzenduaGurutzatua);
 		rdbtnMisilZuzenduaGurutzatua.setVisible(false) ;
 		
-		rdbtnRadarra.setBounds(624, 60, 84, 23);
+		rdbtnRadarra.setBounds(624, 60, 73, 23);
 		contentPane.add(rdbtnRadarra);
 		rdbtnRadarra.setVisible(false) ;
 		
@@ -248,7 +248,7 @@ public class Leihoa extends JFrame {
 		rdbtnOntziaKonpondu.setBounds(624, 409, 141, 23);	
 		contentPane.add(rdbtnOntziaKonpondu);
 		label.setHorizontalAlignment(SwingConstants.LEFT);
-		label.setBounds(701, 65, 46, 14);
+		label.setBounds(703, 64, 46, 14);
 		
 		contentPane.add(label);
 		label_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -355,8 +355,8 @@ public class Leihoa extends JFrame {
 			
 			
 			else if (rdbtnRadarra.isSelected()) {// radar
-				if (Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()>0){
-					Erabiltzailea.getErabiltzailea().radarraErabili();
+				if (Jokoa.getJokoa().getErabiltzailea().getArmamentua().getRadarKop()>0){
+					Jokoa.getJokoa().getErabiltzailea().radarraErabili();
 					zerDagoenRadar(row, col);
 					System.out.println("pirililiii");
 				}
@@ -369,12 +369,12 @@ public class Leihoa extends JFrame {
 	}
 	
 	public void armakEguneratu(){
-		label.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().getRadarKop()));
-		label_1.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().bonbaKop()));
-		label_2.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilKop()));
-		label_3.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
-		label_4.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
-		label_5.setText(Integer.toString(Erabiltzailea.getErabiltzailea().getArmamentua().ezkutuaKop()));
+		label.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().getRadarKop()));
+		label_1.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().bonbaKop()));
+		label_2.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilKop()));
+		label_3.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
+		label_4.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
+		label_5.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
 		label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	}
 

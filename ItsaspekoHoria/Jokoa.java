@@ -185,5 +185,8 @@ public class Jokoa {
 	public Erabiltzailea getErabiltzailea(){
 		return Erabiltzailea.getErabiltzailea();
 	}
+	public Biltegia getBiltegia(){
+		return Biltegia.getNireBiltegia();
+	}
 
 }
