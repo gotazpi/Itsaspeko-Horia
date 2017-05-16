@@ -32,13 +32,11 @@ public class Jokoa {
 	}
 
 	public boolean irabazi() {
-		// TODO
-		return false;
+		return Ordenagailua.getOrdenagailua().flotaUrperatuta();
 	}
 
 	public boolean galdu() {
-		// TODO
-		return false;
+		return Erabiltzailea.getErabiltzailea().flotaUrperatuta();
 	}
 
 	public static void jokoaHasieratu() {

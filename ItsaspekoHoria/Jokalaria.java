@@ -82,5 +82,9 @@ public abstract class Jokalaria {
 			return false;
 		}
 	}
+	
+	public boolean flotaUrperatuta(){
+		return flota.flotaUrperatuta();
+	}
 
 }

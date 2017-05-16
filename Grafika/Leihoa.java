@@ -364,6 +364,13 @@ public class Leihoa extends JFrame {
 			//Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
 			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			armakEguneratu();
+			if (Jokoa.getJokoa().irabazi()){
+				//cerrar la lehioa
+				new Irabazi().main(null);
+			}
+			if (Jokoa.getJokoa().galdu()){
+				new Galdu().main(null);
+			}
 		}
 
 	}

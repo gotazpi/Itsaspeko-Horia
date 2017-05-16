@@ -75,4 +75,16 @@ public class Flota {
 	public void ontziaSuntsitu(int i){				//TEST-A PROBATZEKO BAKARRIK!!!
 		ontziak[i].egoeraAldatu(new Suntsituta());
 	}
+	
+	public boolean flotaUrperatuta(){
+		boolean emaitza = true;
+		int i=0;
+		while ((emaitza)&&(i<ontziak.length)){
+			if (!ontziak[i].koodenadaGuztiakIkututa()){
+				emaitza=false;
+			}
+			i++;
+		}
+		return emaitza;
+	}
 }
