@@ -131,7 +131,6 @@ public abstract class Ontzia {
 	}
 	
 	public boolean laukirenBatIkututa(){
-
 		for(int i=0; i<luzera; i++){
 			if(this.koordenatuak[i].ikutua()){
 				return true;
