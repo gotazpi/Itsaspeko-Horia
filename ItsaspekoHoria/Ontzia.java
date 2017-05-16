@@ -102,7 +102,7 @@ public abstract class Ontzia {
 	public boolean koodenadaGuztiakIkututa(){
 		boolean emaitza=true;
 		int i=0;
-		while(emaitza && i<=this.koordenatuak.length){
+		while(emaitza && i<=this.koordenatuak.length-1){
 			if (!this.koordenatuak[i].ikutua()){
 				emaitza=false;
 			}
