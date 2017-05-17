@@ -12,6 +12,7 @@ public class Jokoa {
 	private static Erabiltzailea erabiltzailea; // txanda 0
 	private int txanda = 0;
 	private int zerEgin = 2;
+	private String mezua = "Lehenik ontziak kokatu eta ondoren jolasten hasiko zara";
 
 	private Jokoa() {
 		super();
@@ -187,6 +188,13 @@ public class Jokoa {
 	}
 	public Biltegia getBiltegia(){
 		return Biltegia.getNireBiltegia();
+	}
+	public String mezua(){
+		return mezua;	
+	}
+	public void setMezua(String pMezua){
+		mezua=pMezua;
+		new warning().main(null);
 	}
 
 }
