@@ -53,18 +53,12 @@ public class Jokoa  extends Observable {
 		ordenagailua.ontziaKokatu();
 	}
 
-	/*
-	 * public void jokatu(){ //METODO NAGUSIA if (jokatuDaiteke()){ if
-	 * (txanda==0){ erabiltzailea.jokatu(); this.txandaPasa(); }else{
-	 * ordenagailua.jokatu(); this.txandaPasa(); } }else{ this.norkIrabaziDu();
-	 * } }
-	 */
 	public void txandaPasa() {
 		setChanged();
 		notifyObservers();
 		if (txanda == 0) {
 			txanda = 1;
-			// this.jokatu();
+			Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
 		} else {
 			txanda = 0;
 			// this.jokatu();

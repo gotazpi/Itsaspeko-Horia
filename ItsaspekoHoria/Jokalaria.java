@@ -4,7 +4,7 @@ public abstract class Jokalaria {
 
 	//ATRIBUTUAK
 	protected Taula jokalariarenTaula;
-	protected Taula etsaiarenTaula;
+	//protected Taula etsaiarenTaula;
 	protected Armamentua armamentua;
 	protected Flota flota;
 	protected int dirua;
@@ -13,7 +13,7 @@ public abstract class Jokalaria {
 	public Jokalaria() {
 		this.armamentua = new Armamentua();
 		this.jokalariarenTaula = new Taula();
-		this.etsaiarenTaula = new Taula();
+		//this.etsaiarenTaula = new Taula();
 		this.flota = new Flota();
 		dirua = 120;
 	}

@@ -59,7 +59,7 @@ public class Ordenagailua extends Jokalaria {
 							eginda=true;
 						}
 					}else{
-						arma.erabili(etsaiarenTaula, pX, pY, norabidea);
+						arma.erabili(Erabiltzailea.getErabiltzailea().getTaula(), pX, pY, norabidea);
 						eginda = true;
 					}
 				}
@@ -69,26 +69,31 @@ public class Ordenagailua extends Jokalaria {
 	}
 	
 	public void ordenagailuaZerEginNahiDu(){	//ausaz aukeratzen da ordenagailuak tiro egin nahi duen, arma 
-		Random random = new Random();			//erosi nahi duen edo ontziren bat konpondu nahi duen
+		Random random = new Random();			//erosi nahi duen edo ontziren bat konpondu nahi duen. Ez da txanda bukatuko tiro egin arte.
 		boolean  eginda=false;
+		boolean  eginda2=false;
 		int i=1;
-		while(!eginda){
+		while(!eginda2){
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=ONTZIA KONPUNDU*/
 			if (aukera==0){
 				if (this.armamentua.armakDaude()){	//bere armamentuan ia armak dauden erabili ahal izateko 
-					eginda=this.ordenagailuaTiroEgin();
+					eginda2=this.ordenagailuaTiroEgin();
+					if(eginda2){
+						Jokoa.getJokoa().txandaPasa();
+					}
 				}
-			}else{
-				if (aukera==1){   //arma erosi
+			}
+			if (aukera==1){   //arma erosi
 					while(!eginda && i<=5){ //5 aldiz saiatuko da arma erosten, bestela beste gauza bat egiten saiatuko da
 						String aukeratutakoArma=this.armaAukeratu();
 						eginda=this.armaErosi(aukeratutakoArma);
 						i++;
 					}
-				}else{ //aukera=2 bada
+				}
+			if (aukera==2){ //aukera=2 bada
 					eginda=this.ordenagailuaOntziaKonpondu();
 				}
-			}
+			
 		}
 	}
 	
@@ -110,56 +115,56 @@ public class Ordenagailua extends Jokalaria {
 		boolean topatua=false;
 		int i=0;
 		while(!topatua && i<9){
-			if (this.etsaiarenTaula.getOntzia(pX, pY)!=null){
-				if (this.etsaiarenTaula.getOntzia(pX, pY).getEgoera() instanceof IkutuGabe){
+			if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX, pY)!=null){
+				if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX, pY).getEgoera() instanceof IkutuGabe){
 					barkuKoordenatuak=new Koordenatuak(pX, pY);
 					topatua=true;
 				}
 			}else{
-				if (pX>0&&pY>0&&etsaiarenTaula.getOntzia(pX-1,pY-1)!=null){
-					if (this.etsaiarenTaula.getOntzia(pX-1, pY-1).getEgoera() instanceof IkutuGabe){
+				if (pX>0&&pY>0&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1,pY-1)!=null){
+					if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1, pY-1).getEgoera() instanceof IkutuGabe){
 						barkuKoordenatuak= new Koordenatuak(pX-1, pY-1);
 						topatua=true;
 					}
 				}else{
-					if (pX>0&&etsaiarenTaula.getOntzia(pX-1,pY)!=null){
-						if (this.etsaiarenTaula.getOntzia(pX-1, pY).getEgoera() instanceof IkutuGabe){
+					if (pX>0&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1,pY)!=null){
+						if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1, pY).getEgoera() instanceof IkutuGabe){
 							barkuKoordenatuak=new Koordenatuak(pX-1, pY);
 							topatua=true;
 						}
 					}else{
-						if (pX>0&&pY<9&&etsaiarenTaula.getOntzia(pX-1,pY+1)!=null){
-							if (this.etsaiarenTaula.getOntzia(pX-1, pY+1).getEgoera() instanceof IkutuGabe){
+						if (pX>0&&pY<9&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1,pY+1)!=null){
+							if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX-1, pY+1).getEgoera() instanceof IkutuGabe){
 								barkuKoordenatuak=new Koordenatuak(pX-1, pY+1);
 								topatua=true;
 							}
 						}else{
-							if (pY>0&&etsaiarenTaula.getOntzia(pX,pY-1)!=null){
-								if (this.etsaiarenTaula.getOntzia(pX, pY-1).getEgoera() instanceof IkutuGabe){
+							if (pY>0&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX,pY-1)!=null){
+								if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX, pY-1).getEgoera() instanceof IkutuGabe){
 									barkuKoordenatuak=new Koordenatuak(pX, pY-1);
 									topatua=true;
 								}
 							}else{
-								if (pY<9&&etsaiarenTaula.getOntzia(pX,pY+1)!=null){
-									if (this.etsaiarenTaula.getOntzia(pX, pY+1).getEgoera() instanceof IkutuGabe){
+								if (pY<9&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX,pY+1)!=null){
+									if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX, pY+1).getEgoera() instanceof IkutuGabe){
 										barkuKoordenatuak=new Koordenatuak(pX, pY+1);
 										topatua=true;
 									}
 								}else{
-									if(pX<9&&pY>0&&etsaiarenTaula.getOntzia(pX+1,pY-1)!=null){
-										if (this.etsaiarenTaula.getOntzia(pX+1, pY-1).getEgoera() instanceof IkutuGabe){
+									if(pX<9&&pY>0&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1,pY-1)!=null){
+										if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1, pY-1).getEgoera() instanceof IkutuGabe){
 											barkuKoordenatuak=new Koordenatuak(pX+1, pY-1);
 											topatua=true;
 										}
 									}else{
-										if (pX<9&&etsaiarenTaula.getOntzia(pX+1,pY)!=null){
-											if (this.etsaiarenTaula.getOntzia(pX+1, pY).getEgoera() instanceof IkutuGabe){
+										if (pX<9&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1,pY)!=null){
+											if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1, pY).getEgoera() instanceof IkutuGabe){
 												barkuKoordenatuak=new Koordenatuak(pX+1, pY);
 												topatua=true;
 											}
 										}else{
-											if (pX<9&&pY<9&&etsaiarenTaula.getOntzia(pX+1,pY+1)!=null){
-												if (this.etsaiarenTaula.getOntzia(pX+1, pY+1).getEgoera() instanceof IkutuGabe){
+											if (pX<9&&pY<9&&Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1,pY+1)!=null){
+												if (Erabiltzailea.getErabiltzailea().getTaula().getOntzia(pX+1, pY+1).getEgoera() instanceof IkutuGabe){
 													barkuKoordenatuak=new Koordenatuak(pX+1, pY+1);
 													topatua=true;
 												}
@@ -224,7 +229,7 @@ public class Ordenagailua extends Jokalaria {
 		if (this.armamentua.getRadarKop() != 0) {
 			//int x = this.posizioaLortu();
 			//int y = this.posizioaLortu();
-			//etsaiarenTaula.radarKontsultatu(x, y);
+			//Erabiltzailea.getErabiltzailea().getTaula().radarKontsultatu(x, y);
 			this.armamentua.radarKopKendu();
 			return true;
 		}

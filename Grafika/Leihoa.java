@@ -313,29 +313,34 @@ public class Leihoa extends JFrame implements Observer{
 			int val = getButton(textField);
 			int row = (val ) / 10;
 			int col = (val % 10);
-			//int aux = Jokoa.getJokoa().getZeregin();
 			if (rdbtnBonba.isSelected()) {
 				if(Jokoa.getJokoa().jokalariakTiroEgin("Bonba", row, col, 2)){
-				zerDagoen(row,col);
-				System.out.println("Bang!");}
+					Jokoa.getJokoa().txandaPasa();
+					zerDagoen(row,col);
+				
+				}
 			} 
 			if (rdbtnMisila.isSelected()) {
 				if(Jokoa.getJokoa().jokalariakTiroEgin("Misil", row, col, 2)){
-				zerDagoen(row,col);
-				ontziIkutuakEguneratu();
-				System.out.println("Bang!");}
+					Jokoa.getJokoa().txandaPasa();
+					zerDagoen(row,col);
+					ontziIkutuakEguneratu();
+				
+				}
 			} 
 			
 			if (rdbtnMisilZuzenduaNorabidea.isSelected()) {
 				if(rdbtnBertikal.isSelected()){
 					if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Norabidea", row, col, 0)){//bertikal
-					for(int i = 0; i<10; i++){
+						Jokoa.getJokoa().txandaPasa();
+						for(int i = 0; i<10; i++){
 						zerDagoen(i, col);
 					}
 					}
 				}
 				if(rdbtnHorizontal.isSelected()){
 					if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Norabidea", row, col, 1)){//Horizontal
+						Jokoa.getJokoa().txandaPasa();
 						for(int i = 0; i<10; i++){
 							zerDagoen(row, i);
 						}
@@ -346,6 +351,7 @@ public class Leihoa extends JFrame implements Observer{
 					
 			if (rdbtnMisilZuzenduaGurutzatua.isSelected()) {// tiro normal
 				if(Jokoa.getJokoa().jokalariakTiroEgin("Misil Zuzendua Gurutzatua", row, col, 2)){
+					Jokoa.getJokoa().txandaPasa();
 					for(int i = 0; i<10; i++){
 						zerDagoen(row, i);
 						zerDagoen(i, col);
@@ -358,11 +364,10 @@ public class Leihoa extends JFrame implements Observer{
 				if (Jokoa.getJokoa().getErabiltzailea().getArmamentua().getRadarKop()>0){
 					Jokoa.getJokoa().getErabiltzailea().radarraErabili();
 					zerDagoenRadar(row, col);
-					System.out.println("pirililiii");
+					Jokoa.getJokoa().txandaPasa();
+				
 				}
 			}
-			//Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
-			
 			armakEguneratu();
 			if (Jokoa.getJokoa().irabazi()){
 				//cerrar la lehioa
@@ -371,6 +376,7 @@ public class Leihoa extends JFrame implements Observer{
 			if (Jokoa.getJokoa().galdu()){
 				new Galdu().main(null);
 			}
+			
 		}
 
 	}
@@ -564,7 +570,7 @@ public class Leihoa extends JFrame implements Observer{
 		label_3.setVisible(true);
 		label_4.setVisible(true);
 		label_5.setVisible(true);
-		//label_6.setVisible(true);
+		label_6.setVisible(true);
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);
