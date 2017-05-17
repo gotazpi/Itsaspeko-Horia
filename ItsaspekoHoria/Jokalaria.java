@@ -2,23 +2,23 @@ package ItsaspekoHoria;
 
 public abstract class Jokalaria {
 
-	// atributuak
+	//ATRIBUTUAK
 	protected Taula jokalariarenTaula;
 	protected Taula etsaiarenTaula;
 	protected Armamentua armamentua;
 	protected Flota flota;
 	protected int dirua;
 	
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Jokalaria() {
 		this.armamentua = new Armamentua();
 		this.jokalariarenTaula = new Taula();
 		this.etsaiarenTaula = new Taula();
 		this.flota = new Flota();
-		dirua = 100;
+		dirua = 120;
 	}
 
-	// metodoak
+	//METODOAK
 	public Taula getTaula() {
 		return this.jokalariarenTaula;
 	}
@@ -35,28 +35,15 @@ public abstract class Jokalaria {
 		return armamentua;
 	}
 	
-
-   /*
-	*public void radarraJarri(int x, int y){
-	* etsaiarenTaula.radarKontsultatu(x, y); }
-	*/
-
-	public boolean ontziakDauzka() { //para que se usa este metodo?
+	/*public boolean ontziakDauzka() { 	//jokalariari ontziren bat gelditzen zaion suntsitu gabe begiratzen du
 		if (this.flota.getOntziKop() != 0) {
 			return true;
 		} else {
 			return false;
 		}
-	}
+	}*/
 
-	/*
-	 * public void jokatu(){ int erantzuna=this.galdetuZerEgin(); if
-	 * (erantzuna==1){ this.armaErosi(arma); //armen zerrenda bat egertuko zaizu
-	 * hau klikatu ostean }else{ if(erantzuna==2){ this.ontziaKonpondu(); }else{
-	 * this.tiroEgin(); } } }
-	 */
-
-	public boolean armaErosi(String arma) {
+	public boolean armaErosi(String arma) {		//jokalariak arma hori erosi ahal duen edo ez konprobatzen du
 		Biltegia biltegia = Biltegia.getNireBiltegia();
 		if (biltegia.armaDago(arma)){
 			Arma nahiDuguna = biltegia.hartuArma(arma);
@@ -73,7 +60,7 @@ public abstract class Jokalaria {
 		}
 	}
 
-	public boolean ontziaKonpondu(int pX, int pY) {
+	public boolean ontziaKonpondu(int pX, int pY) {		//(x,y) posizioen duen ontzia konpondu 
 		Ontzia ontzia = this.jokalariarenTaula.getOntzia(pX, pY);
 		if (ontzia.konpondu(this.dirua)){
 			this.dirua=this.dirua - ontzia.getKonponketaKostua();
@@ -83,7 +70,7 @@ public abstract class Jokalaria {
 		}
 	}
 	
-	public boolean flotaUrperatuta(){
+	public boolean flotaUrperatuta(){		//jokalariaren flota guztia suntsituta dagoen konprobatzen du
 		return flota.flotaUrperatuta();
 	}
 

@@ -2,9 +2,9 @@ package ItsaspekoHoria;
 
 public class Suntsitzailea extends Ontzia {
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Suntsitzailea() {
-		super(2, 20);
+		super(2, 25);	//2=luzera eta 20=konponketa kostua
 	}
 
 }

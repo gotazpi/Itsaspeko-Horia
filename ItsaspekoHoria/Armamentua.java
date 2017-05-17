@@ -1,9 +1,6 @@
 package ItsaspekoHoria;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-
 
 public class Armamentua extends ArmaKolekzioa{
 
@@ -32,7 +29,7 @@ public class Armamentua extends ArmaKolekzioa{
 			nireArmak.add(new Ezkutua());
 	}
 	
-	public void armaGehitu(Arma arma) {
+	public void armaGehitu(Arma arma) {		//arma bat kolekzioan gehitzen du, bere kopurua handituz
 		if (arma instanceof Bonba) {
 			bonbaKop++;
 		} 

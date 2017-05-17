@@ -2,14 +2,14 @@ package ItsaspekoHoria;
 
 public abstract class Ontzia {
 
-	// atributuak
+	//ATRIBUTUAK
 	private int luzera;
 	private int konponketaKostua;
 	private EgoeraOntzia egoeraOntzia;
 	private Koordenatuak[] koordenatuak;
 	private int jasandakoBonbaKop;
 
-	// erabiltzailea
+	//ERAIKITZAILEA
 	public Ontzia(int pLuzera, int pKonponketaKostua) {
 		this.luzera = pLuzera;
 		this.konponketaKostua = pKonponketaKostua;
@@ -17,7 +17,8 @@ public abstract class Ontzia {
 		this.jasandakoBonbaKop = 0;
 	}
 
-	public boolean ezkutatu() {
+	//METODOAK
+	public boolean ezkutatu() {		//ontziak ezkutua bere gainean jartzen du
 		if (!(egoeraOntzia instanceof Ezkutatuta)&& !(egoeraOntzia instanceof Suntsituta)) {
 			this.egoeraAldatu(new Ezkutatuta());
 			System.out.println("Ontzia ezkutatu da!");
@@ -32,15 +33,15 @@ public abstract class Ontzia {
 		return luzera;
 	}
 
-	public boolean ikutua(int pX, int pY) {
+	public boolean ikutua(int pX, int pY) {		//ontziaren (x,y) koordenatua ikutua dagoen edo ez konprobatzen du
 		return bilatuKoordenatuak(pX, pY).ikutua();
 	}
 
-	public void ikutu(int pX, int pY) {
+	public void ikutu(int pX, int pY) {			//ontziaren (x,y) koordenatua ikutzen du
 		bilatuKoordenatuak(pX, pY).ikutu();
 	}
 
-	private Koordenatuak bilatuKoordenatuak(int pX, int pY) {
+	private Koordenatuak bilatuKoordenatuak(int pX, int pY) {	//ontziaren (x,y) koordenatua itzultzen du
 		Koordenatuak aux = null;
 		int i = 0;
 		while (i != koordenatuak.length) {
@@ -52,7 +53,7 @@ public abstract class Ontzia {
 		return aux;
 	}
 	
-	public void ontziaIkutu(){
+	public void ontziaIkutu(){		//ontziaren koordenatu guztiak ikutzen ditu
 		int i =0;
 		while (i<this.koordenatuak.length){
 			this.koordenatuak[i].ikutu();
@@ -68,8 +69,8 @@ public abstract class Ontzia {
 		return this.egoeraOntzia;
 	}
 
-	public boolean jasandakoBonbaKopGainditu() {
-		if (this.jasandakoBonbaKop == 1) {
+	public boolean jasandakoBonbaKopGainditu() {		//bonba bat jada jaso badu hurrengoarekin gainditu egingo da jasan ahal dituen 
+		if (this.jasandakoBonbaKop == 1) {				//bonba kopurua, beraz emaitza true izango da (ezkutua aputzeko)
 			return true;
 		} else {
 			return false;
@@ -80,14 +81,14 @@ public abstract class Ontzia {
 		this.jasandakoBonbaKop = pKop;
 	}
 
-	public void koordenatuakJarri(int pX, int pY, int i) {
+	public void koordenatuakJarri(int pX, int pY, int i) {		//ontziari koordenatuak esleitzen zaizkio
 		if (koordenatuak == null) {
 			koordenatuak = new Koordenatuak[luzera];
 		}
 		koordenatuak[i] = new Koordenatuak(pX, pY);
 	}
 
-	public boolean erosDezake(int dirua) {
+	public boolean erosDezake(int dirua) {		//jokalariak ontzi hori konpodu dezakeen konprobatzen du
 		if (dirua >= this.konponketaKostua) {
 			return true;
 		} else {
@@ -99,7 +100,7 @@ public abstract class Ontzia {
 		return this.konponketaKostua;
 	}
 	
-	public boolean koodenadaGuztiakIkututa(){
+	public boolean koodenadaGuztiakIkututa(){		//ontzi horren koordenada guztiak ikututa dauden edo ez konprobatzen du
 		boolean emaitza=true;
 		int i=0;
 		while(emaitza && i<this.koordenatuak.length){
@@ -111,7 +112,7 @@ public abstract class Ontzia {
 		return emaitza;
 	}
 	
-	public boolean konpondu(int dirua){
+	public boolean konpondu(int dirua){		//ontzia konpondu egiten da
 		boolean emaitza=false;
 		if (this.egoeraOntzia instanceof Suntsituta){
 			if (this.erosDezake(dirua)){
@@ -126,11 +127,11 @@ public abstract class Ontzia {
 		return emaitza;
 	}
 	
-	public Koordenatuak getKoordenatuak(){
+	public Koordenatuak getKoordenatuak(){	//ontziaren lehenego koordenatua itzultzen du
 		return this.koordenatuak[0];
 	}
 	
-	public boolean laukirenBatIkututa(){
+	public boolean laukirenBatIkututa(){	//koordenaturen bt ikututa dagoen konprobatzen du
 		for(int i=0; i<luzera; i++){
 			if(this.koordenatuak[i].ikutua()){
 				return true;

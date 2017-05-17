@@ -31,7 +31,7 @@ public class Koordenatuak {
 		this.zutabea = pZutabea;
 	}*/
 
-	public boolean koordenatuaDa(int pX, int pY) {
+	public boolean koordenatuaDa(int pX, int pY) {		//konprobatzen du ia (x,y) ontziaren koordenatua den 
 		if ((errenkada == pX) && (zutabea == pY)) {
 			return true;
 		} else {
@@ -39,11 +39,11 @@ public class Koordenatuak {
 		}
 	}
 
-	public boolean ikutua() {
+	public boolean ikutua() {	//bueltatzen du ia koordenatu hori ikutua dagoen edo ez
 		return ikutua;
 	}
 
-	public void ikutu() {
+	public void ikutu() {	//ontziaren koordenatu hori ikutu egiten du
 		ikutua = true;
 	}
 

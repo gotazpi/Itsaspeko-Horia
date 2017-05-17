@@ -62,7 +62,8 @@ public class Jokoa {
 	}
 
 	public boolean jokatuDaiteke() {
-		if (erabiltzailea.ontziakDauzka() && ordenagailua.ontziakDauzka()) {
+		if (!erabiltzailea.flotaUrperatuta() && !ordenagailua.flotaUrperatuta()){
+		//if (erabiltzailea.ontziakDauzka() && ordenagailua.ontziakDauzka()) {
 			return true;
 		} else {
 			return false;
@@ -70,7 +71,8 @@ public class Jokoa {
 	}
 
 	public void norkIrabaziDu() {
-		if (erabiltzailea.ontziakDauzka()) {// Grafikan nork irabazi duen
+		if (!erabiltzailea.flotaUrperatuta()){
+		//if (erabiltzailea.ontziakDauzka()) {// Grafikan nork irabazi duen
 											// erakutsi //TODO
 			// erakutsi erabiltzailea grafikan
 		} else {
@@ -111,7 +113,7 @@ public class Jokoa {
 		}
 		else return "Ez dago";
 	}
-	public String getOntziarenTamaina(){//el tamaño del barco que esta por colocar
+	public String getOntziarenTamaina(){//el tamaï¿½o del barco que esta por colocar
 		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
 		if (zein <= 9) {
 		Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);

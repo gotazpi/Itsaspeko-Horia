@@ -44,7 +44,7 @@ public abstract class ArmaKolekzioa {
 		return misilZuzenduGurutzatuaKop;
 	}
 	
-	public boolean armaDago(String arma){
+	public boolean armaDago(String arma){		//armen kolekzioan String bezala pasatutako arma bdagoen edo ez bueltatzen du
 		if (arma.equals("Ezkutua") && this.ezkutuaKop>0){
 			return true;
 		}else{
@@ -76,7 +76,7 @@ public abstract class ArmaKolekzioa {
 		return this.nireArmak.iterator();
 	}
 	
-	public Arma hartuArma(String arma){ 
+	public Arma hartuArma(String arma){ 		//String bezala pasatutako armaren instantzia bueltatzen du
 		Iterator<Arma> it =this.getIterator();
 		boolean topatua=false;
 		Arma egungoa=null;
@@ -109,7 +109,7 @@ public abstract class ArmaKolekzioa {
 		return egungoa;
 	}
 	
-	public boolean armakDaude(){
+	public boolean armakDaude(){		//ia armaren bat gelditzen den bueltatzen du
 		if (bonbaKop==0 && misilKop==0 && radarKop==0 && ezkutuaKop==0 && misilZuzenduGurutzatuaKop==0 && misilZuzenduNorabideKop==0){
 			return false;
 		}else{
@@ -117,7 +117,7 @@ public abstract class ArmaKolekzioa {
 		}
 	}
 	
-	public void armaKendu(Arma arma){
+	public void armaKendu(Arma arma){		//arma kolekzioik kentzen du, bere kopurua txikituz
 		if (arma instanceof Bonba){
 			this.bonbaKop--;
 		}

@@ -2,13 +2,13 @@ package ItsaspekoHoria;
 
 public class Flota {
 
-	// atributuak
+	//ATRIBUTUAK
 
 	private int zein;
 	private int norabidea;
 	private Ontzia[] ontziak;
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Flota() {
 		ontziak = new Ontzia[10];
 		this.hasieratuFlota();
@@ -16,7 +16,7 @@ public class Flota {
 		norabidea = 0;
 	}
 
-	// metodoak
+	//METODOAK
 	private void hasieratuFlota() {
 		ontziak[0] = (new HegazkinOntzia());
 		ontziak[1] = (new Itsaspekoa());
@@ -42,7 +42,7 @@ public class Flota {
 		return this.ontziak.length;
 	}
 
-	public Ontzia getOntzia(int i) {
+	public Ontzia getOntzia(int i) {	//i. posizioan dagoen ontzia bueltatzen du
 		return this.ontziak[i];
 	}
 
@@ -54,7 +54,7 @@ public class Flota {
 		zein++;
 	}
 
-	public Ontzia suntsitutakoOntziaLortu(){
+	public Ontzia suntsitutakoOntziaLortu(){		//flotako suntsituta dagoen lehenengo ontzia itzultzen du
 		int i=0;
 		boolean topatua=false;
 		while(i<=9 && !topatua){
@@ -76,7 +76,7 @@ public class Flota {
 		ontziak[i].egoeraAldatu(new Suntsituta());
 	}
 	
-	public boolean flotaUrperatuta(){
+	public boolean flotaUrperatuta(){	//konprobatzen du flotaren ontzi guztiak suntsituta dauden edo ez
 		boolean emaitza = true;
 		int i=0;
 		while ((emaitza)&&(i<ontziak.length)){

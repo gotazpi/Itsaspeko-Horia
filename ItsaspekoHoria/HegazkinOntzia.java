@@ -2,9 +2,9 @@ package ItsaspekoHoria;
 
 public class HegazkinOntzia extends Ontzia {
 
-	// eraikitzailea;
+	//ERAIKITZAILEA
 	public HegazkinOntzia() {
-		super(4, 40);
+		super(4, 60);	//4=luzera eta 400 konponketa kostua
 	}
 
 }

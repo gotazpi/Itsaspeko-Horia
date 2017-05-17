@@ -4,32 +4,32 @@ import java.util.Random;
 
 public class Ordenagailua extends Jokalaria {
 	
-	// atributuak
+	//ATRIBUTUAK
 	private static Ordenagailua nireOrdenagailua = null;
 	private Koordenatuak radarKoordenatua=null;
 	
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	private Ordenagailua() {
 		super();
 	}
 	
-	// metodoak
-	public static Ordenagailua getOrdenagailua() {
+	//METODOAK
+	public static Ordenagailua getOrdenagailua() {		//ordenagailuaren instantzia lortu
 		if (nireOrdenagailua == null) {
 			nireOrdenagailua = new Ordenagailua();
 		}
 		return nireOrdenagailua;
 	}
 
-	public String armaAukeratu(){
+	public String armaAukeratu(){		//ausaz arma bat aukeratu
 		Random random = new Random();
 		String[] armaAukerak = {"Radar", "Misil", "Misil Zuzendua Gurutzatua", "Misil Zuzendua Norabidea",  "Bonba", "Ezkutua"};
 		int aukeraArma = random.nextInt(5);
 		return armaAukerak[aukeraArma];
 	}
 	
-	public boolean ordenagailuaTiroEgin(){
+	public boolean ordenagailuaTiroEgin(){	//ausaz arma bat aukeratuko da eta arkma hori egikaritu 
 		int norabidea=3;
 		boolean eginda=false, badu=false;
 		int pX=this.posizioaLortu();		//random bidez posizio bat aukeratu
@@ -68,14 +68,14 @@ public class Ordenagailua extends Jokalaria {
 		return eginda;
 	}
 	
-	public void ordenagailuaZerEginNahiDu(){
-		Random random = new Random();
+	public void ordenagailuaZerEginNahiDu(){	//ausaz aukeratzen da ordenagailuak tiro egin nahi duen, arma 
+		Random random = new Random();			//erosi nahi duen edo ontziren bat konpondu nahi duen
 		boolean  eginda=false;
 		int i=1;
 		while(!eginda){
 			int aukera = random.nextInt(3); /* 0=TIRO EGIN, 1=ARMA EROSI 2=ONTZIA KONPUNDU*/
 			if (aukera==0){
-				if (this.armamentua.armakDaude()){	//bere armamentuan ia armak dauden erabili ahal izanteko 
+				if (this.armamentua.armakDaude()){	//bere armamentuan ia armak dauden erabili ahal izateko 
 					eginda=this.ordenagailuaTiroEgin();
 				}
 			}else{
@@ -93,9 +93,9 @@ public class Ordenagailua extends Jokalaria {
 	}
 	
 	
-	public boolean ordenagailuaOntziaKonpondu(){
+	public boolean ordenagailuaOntziaKonpondu(){		//bere flotako suntsituta dagoen ontzi bat aukeratzen du eta konpondu egiten du
 		boolean emaitza=false;
-		Ontzia ontziBat = this.flota.suntsitutakoOntziaLortu(); //bere flotako suntsitutako ontzi bat lortu
+		Ontzia ontziBat = this.flota.suntsitutakoOntziaLortu();
 		if (ontziBat!=null){
 			Koordenatuak koordenatuak = ontziBat.getKoordenatuak();
 			int pX = koordenatuak.getErrenkada();
@@ -105,24 +105,8 @@ public class Ordenagailua extends Jokalaria {
 		return emaitza;
 	}
 	
-	/*public boolean konpondu(Ontzia ontzia) {  //
-		boolean emaitza=false;
-		if (ontzia.getEgoera() instanceof Suntsituta) {
-			if (ontzia.erosDezake(this.dirua)) { 
-				ontzia.egoeraAldatu(new IkutuGabe());
-				ontzia.jasandakoBonbaKopAldatu(0);
-				this.dirua = this.dirua - ontzia.getKonponketaKostua();
-				System.out.println("Barkua konpondu da.");
-				emaitza=true;
-			}
-		}else{
-			System.out.println("Aukeratu duzun barkua ez dago suntsituta beraz ezin duzu konpondu.");
-		}
-		return emaitza;
-	}*/
-	
-	public Koordenatuak koordenatuakGorde(int pX, int pY){
-		Koordenatuak barkuKoordenatuak=null;
+	public Koordenatuak koordenatuakGorde(int pX, int pY){		//(x,y) koordenatuaren inguruan ontziren bat badago, bere koordenatua 
+		Koordenatuak barkuKoordenatuak=null;					//gorde egiten du (radarra erabiltzean)
 		boolean topatua=false;
 		int i=0;
 		while(!topatua && i<9){
@@ -192,7 +176,7 @@ public class Ordenagailua extends Jokalaria {
 		return barkuKoordenatuak;
 	}
 
-	public void ontziaKokatu() {
+	public void ontziaKokatu() {	//ordenagailuaren flota guztia taulan kokatzen du
 		int i = 0;
 		while (i < 10) {
 			int x = this.posizioaLortu();
@@ -214,13 +198,13 @@ public class Ordenagailua extends Jokalaria {
 		}
 	}*/
 
-	public int posizioaLortu() {
+	public int posizioaLortu() {		//x eta y ren balioak ausaz lortzeko 
 		Random random = new Random();
 		int balioa = random.nextInt(10);
 		return balioa;
 	}
 
-	public int norabideaLortu() {
+	public int norabideaLortu() {		//ausaz norabide bat aukeratzen du
 		Random random = new Random();
 		int balioa = random.nextInt(4);
 		return balioa;

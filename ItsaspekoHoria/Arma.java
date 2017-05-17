@@ -12,7 +12,8 @@ public abstract class Arma {
 	}
 
 	//METODOAK
-	public abstract void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea);
+	public abstract void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea);	//arma bakoitza implementatuko du bere 
+																									//modura, bakoitzaren kaltearen arabera
 
 	public int getKostua(){
 		return this.kostua;

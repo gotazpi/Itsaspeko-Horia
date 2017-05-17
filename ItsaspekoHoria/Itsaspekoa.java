@@ -2,9 +2,9 @@ package ItsaspekoHoria;
 
 public class Itsaspekoa extends Ontzia {
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Itsaspekoa() {
-		super(3, 30);
+		super(3, 50);	//3=luzera eta 30=konponketa kostua
 	}
 
 }

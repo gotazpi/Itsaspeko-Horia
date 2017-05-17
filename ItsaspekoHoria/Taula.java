@@ -118,13 +118,13 @@ public class Taula {
 	
 	
 	//ONTZI BAT TAULAN KOKATZEKO (5)
-	public void ipiniOntzia(int x, int y, Ontzia pOntzia) {		//lauki bakoitzari ontzia esleitzen dio eta egoera aldatzen du
+	public void ipiniOntzia(int x, int y, Ontzia pOntzia) {			//lauki bakoitzari ontzia esleitzen dio eta egoera aldatzen du
 		taulaMatrizea[x][y].setOntzia(pOntzia);
 		taulaMatrizea[x][y].egoeraAldatu(new OntziaDago());
 	}
 	
 	//ONTZI BAT TAULAN KOKATZEKO (6)
-	public void inguruaAldatu(int x, int y) {
+	public void inguruaAldatu(int x, int y) {		//OntziarenInguruaAldatzen du BarkuaHurbil egoerara
 		if (x > 0 && y > 0 && taulaMatrizea[x - 1][y - 1].getEgoera() instanceof Ura)
 			taulaMatrizea[x - 1][y - 1].egoeraAldatu(new BarkuaHurbil());
 		if (x > 0 && taulaMatrizea[x - 1][y].getEgoera() instanceof Ura)

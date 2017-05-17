@@ -1,17 +1,18 @@
 package ItsaspekoHoria;
 
 public class MisilZuzenduaGurutzatua extends MisilZuzendua {
-	// atributuak
+	
+	//ATRIBUTUAK
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public MisilZuzenduaGurutzatua() {
 		super();
-		this.kostua=45;
+		this.kostua=60;
 	}
 
-	// metodoak
+	//METODOAK
 	@Override
-	public void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea) {
+	public void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea) {	//Bertikaean eta horizontalean deseustatzen du
 		this.bertikaleanSuntsitu(etsaiarenTaula, pX, pY);
 		this.horizontaleanSuntsitu(etsaiarenTaula, pX, pY);
 	}

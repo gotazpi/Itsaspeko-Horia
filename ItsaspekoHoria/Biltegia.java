@@ -1,7 +1,6 @@
 package ItsaspekoHoria;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Biltegia extends ArmaKolekzioa{
 

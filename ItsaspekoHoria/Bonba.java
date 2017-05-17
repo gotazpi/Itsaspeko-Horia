@@ -1,18 +1,18 @@
 package ItsaspekoHoria;
 
 public class Bonba extends Arma {
-	// atributuak
+	//ATRIBUTUAK
 
-	// eraikitzailea
+	//ERAIKITZAILEA
 	public Bonba() {
-		super(10);
+		super(15);
 	}
 
-	// metodoak
-	public void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea) {
+	//METODOAK
+	public void erabili(Taula etsaiarenTaula, int pX, int pY, int misilZuzenduNorabidea) {	//aukeratutako laukia ikutuko du. 
 		Ontzia ontziBat = etsaiarenTaula.getOntzia(pX, pY);
 		if (ontziBat != null) {  //ontzia badago
-			if (ontziBat.getEgoera() instanceof Ezkutatuta) {
+			if (ontziBat.getEgoera() instanceof Ezkutatuta) {		//ontzi horretan ezkutua badago, bi bonba erori behar dira ezkutua kentzeko
 				if (ontziBat.jasandakoBonbaKopGainditu()) {
 					ontziBat.egoeraAldatu(new IkutuGabe());
 					ontziBat.jasandakoBonbaKopAldatu(0);
