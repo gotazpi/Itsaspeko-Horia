@@ -77,7 +77,7 @@ public class Leihoa extends JFrame implements Observer{
 	private final JLabel label_3 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 	private final JLabel label_4 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	private final JLabel label_5 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
-	//private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
+	private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	
 	
 	public static Leihoa getLeihoa() {
@@ -268,15 +268,15 @@ public class Leihoa extends JFrame implements Observer{
 		
 		contentPane.add(label_5);
 	
-	//	label_6.setBounds(628, 230, 80, 14);
-		//contentPane.add(label_6);
+	label_6.setBounds(628, 230, 80, 14);
+		contentPane.add(label_6);
 		label.setVisible(false);
 		label_1.setVisible(false);
 		label_2.setVisible(false);
 		label_3.setVisible(false);
 		label_4.setVisible(false);
 		label_5.setVisible(false);
-	//	label_6.setVisible(false);
+		label_6.setVisible(false);
 		rdbtnOntziaKonpondu.setVisible(false);
 		
 		
@@ -362,7 +362,7 @@ public class Leihoa extends JFrame implements Observer{
 				}
 			}
 			//Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
-			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
+			
 			armakEguneratu();
 			if (Jokoa.getJokoa().irabazi()){
 				//cerrar la lehioa
@@ -382,7 +382,7 @@ public class Leihoa extends JFrame implements Observer{
 		label_3.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 		label_4.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 		label_5.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
-		//label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
+		label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	}
 
 	private class Controller2 implements ActionListener {
@@ -409,7 +409,6 @@ public class Leihoa extends JFrame implements Observer{
 				}
 				
 			}
-			//meter aqui el txanda pasa, todo lo que sea clicar que haga pasar el turno
 			tablero2Eguneratu();
 			armakEguneratu();
 		}
@@ -578,7 +577,6 @@ public class Leihoa extends JFrame implements Observer{
 		zerDagoen(i+1,j);
 		zerDagoen(i+1,j+1);
 		Leihoa.getLeihoa().refresh();
-		//eliminar un radar del que lo use y pasar turno
 	}
 	public void ontziIkutuakEguneratu(){
 		for(int i =0; i<10; i++){
@@ -592,29 +590,6 @@ public class Leihoa extends JFrame implements Observer{
 		}
 	}
 
-	/*public void tirokatu(int i, int j) {
-		if (i >= 0 && i <= 9 && j >= 0 && j <= 9) {
-			if (!Jokoa.getJokoa().ontziaDago(i, j)) {
-				aldatuIrudiaUrdina(i,j);
-			}
-			;
-			if (Jokoa.getJokoa().ontziaDago(i, j)) {
-				if ((Jokoa.getJokoa().getOntziarenEgoera(i, j) instanceof Ezkutatuta)) {
-					aldatuIrudiaHoria(i,j);
-					// txanda pasa
-				} 
-				else if (!Jokoa.getJokoa().ontziaIkutua(i, j)) {
-					System.out.println("Ikutua");
-					aldatuIrudiaGorria(i, j);
-				}
-				else if(Jokoa.getJokoa().ontziaIkutua(i, j)){
-					aldatuIrudiaBerdea(i,j);
-				}
-			}
-			;
-		}
-	}
-	*/
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
 			putValue(NAME, "Denda");
@@ -627,7 +602,6 @@ public class Leihoa extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		System.out.println("asdasd");
 		tablero2Eguneratu();
 		armakEguneratu();
 	}
