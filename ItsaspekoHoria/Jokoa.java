@@ -1,10 +1,11 @@
 package ItsaspekoHoria;
 
-//import java.util.Observable;
+import java.util.Observable;
+
 
 import Grafika.*;
 
-public class Jokoa {
+public class Jokoa  extends Observable {
 
 	private static Jokoa nireJokoa;
 
@@ -28,6 +29,12 @@ public class Jokoa {
 	public static void main(String[] args) {
 		ordenagailua = Ordenagailua.getOrdenagailua();
 		erabiltzailea = Erabiltzailea.getErabiltzailea();
+		Denda observado = Denda.getDenda();
+        Jokoa observado2 = Jokoa.getJokoa();
+        Leihoa observador = Leihoa.getLeihoa();
+        
+        observado.addObserver(observador);
+        observado2.addObserver(observador);
 		jokoaHasieratu();
 		Leihoa.getLeihoa().hasiera();
 	}
@@ -53,6 +60,8 @@ public class Jokoa {
 	 * } }
 	 */
 	public void txandaPasa() {
+		setChanged();
+		notifyObservers();
 		if (txanda == 0) {
 			txanda = 1;
 			// this.jokatu();

@@ -1,4 +1,5 @@
 package ItsaspekoHoria;
+import java.util.Observable;
 
 public class Taula {
 	

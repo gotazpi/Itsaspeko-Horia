@@ -38,9 +38,9 @@ import javax.swing.JTextPane;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-public class Leihoa extends JFrame {
+public class Leihoa extends JFrame implements Observer{
 	
-	private static Leihoa nireLeihoa;
+	private static Leihoa frame;
 	private JPanel contentPane;
 	private JButton[][] matrix1;
 	private JButton[][] matrix2;
@@ -77,14 +77,14 @@ public class Leihoa extends JFrame {
 	private final JLabel label_3 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 	private final JLabel label_4 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	private final JLabel label_5 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
-	private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
+	//private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	
 	
 	public static Leihoa getLeihoa() {
-		if (nireLeihoa == null) {
-			nireLeihoa = new Leihoa();
+		if (frame == null) {
+			frame = new Leihoa();
 		}
-		return nireLeihoa;
+		return frame;
 	}
 
 
@@ -96,7 +96,7 @@ public class Leihoa extends JFrame {
 			public void run() {
 				try {
 					//Erabiltzailea j = Erabiltzailea.getErabiltzailea();
-					Leihoa frame = new Leihoa();
+					//Leihoa frame = new Leihoa();
 					frame.setVisible(true);
 					new warning().main(null);
 				} catch (Exception e) {
@@ -268,15 +268,15 @@ public class Leihoa extends JFrame {
 		
 		contentPane.add(label_5);
 	
-		label_6.setBounds(628, 230, 80, 14);
-		contentPane.add(label_6);
+	//	label_6.setBounds(628, 230, 80, 14);
+		//contentPane.add(label_6);
 		label.setVisible(false);
 		label_1.setVisible(false);
 		label_2.setVisible(false);
 		label_3.setVisible(false);
 		label_4.setVisible(false);
 		label_5.setVisible(false);
-		label_6.setVisible(false);
+	//	label_6.setVisible(false);
 		rdbtnOntziaKonpondu.setVisible(false);
 		
 		
@@ -382,7 +382,7 @@ public class Leihoa extends JFrame {
 		label_3.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduNorabideKop()));
 		label_4.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 		label_5.setText(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
-		label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
+		//label_6.setText("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
 	}
 
 	private class Controller2 implements ActionListener {
@@ -565,7 +565,7 @@ public class Leihoa extends JFrame {
 		label_3.setVisible(true);
 		label_4.setVisible(true);
 		label_5.setVisible(true);
-		label_6.setVisible(true);
+		//label_6.setVisible(true);
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);
@@ -621,7 +621,14 @@ public class Leihoa extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			new Denda().main(null);
+			Denda.getDenda().main(null);
 		}
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		System.out.println("asdasd");
+		tablero2Eguneratu();
+		armakEguneratu();
 	}
 }

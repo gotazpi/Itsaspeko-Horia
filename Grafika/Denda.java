@@ -14,10 +14,11 @@ import javax.swing.AbstractAction;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
 
 import javax.swing.Action;
 
-public class Denda{
+public class Denda extends Observable{
 
 	private JFrame frame;
 	/*private final Action action = new SwingAction();
@@ -27,6 +28,7 @@ public class Denda{
 	private final Action action_4 = new SwingAction_4();
 	private final Action action_5 = new SwingAction_5();
 	private final Action action_6 = new SwingAction_6();*/
+	private static Denda window;
 
 	private JLabel label_5 = new JLabel("Biltegian: " + 	Jokoa.getJokoa().getBiltegia().bonbaKop());
 	private JLabel label_6 = new JLabel("Biltegian: " + Jokoa.getJokoa().getBiltegia().misilKop());
@@ -40,12 +42,21 @@ public class Denda{
 	/**
 	 * Launch the application.
 	 */
+	
+	public static Denda getDenda() {
+		if (window == null) {
+			window = new Denda();
+		}
+		//main(null);
+		return window;
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Denda window = new Denda();
-					window.frame.setVisible(true);
+					//Denda window = new Denda();
+					getDenda().frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -186,8 +197,11 @@ public class Denda{
 		JButton btnItzuli = new JButton("Itzuli");
 		btnItzuli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Leihoa.getLeihoa().armakEguneratu();
+				//Leihoa.getLeihoa().armakEguneratu();
+				setChanged();
+				notifyObservers();
 				frame.dispose();
+				
 			}
 		});
 		btnItzuli.setBounds(335, 227, 89, 23);
