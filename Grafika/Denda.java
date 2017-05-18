@@ -213,7 +213,8 @@ public class Denda extends Observable{
 	}
 	
 	private void eguneratu(){
-
+		setChanged();
+		notifyObservers();
 		label_5.setText("Biltegian: " + Jokoa.getJokoa().getBiltegia().bonbaKop());
 		label_6.setText("Biltegian: " + Jokoa.getJokoa().getBiltegia().misilKop());
 		label_7.setText("Biltegian: " + Jokoa.getJokoa().getBiltegia().getRadarKop());

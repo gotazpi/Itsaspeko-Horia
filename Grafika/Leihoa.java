@@ -78,6 +78,15 @@ public class Leihoa extends JFrame implements Observer{
 	private final JLabel label_4 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().misilZuzenduGurutzatuaKop()));
 	private final JLabel label_5 = new JLabel(Integer.toString(Jokoa.getJokoa().getErabiltzailea().getArmamentua().ezkutuaKop()));
 	private final JLabel label_6 = new JLabel("Dirua: " + Jokoa.getJokoa().getErabiltzailea().getDirua());
+	JLabel lblOria = new JLabel("Horia: Ontzia ezkutuarekin");
+	JLabel lblGorriaOntziaIkutua = new JLabel("Gorria: Ontzia ikutua");
+	JLabel lblBerdeaOntziaIkutu = new JLabel("Berdea: Ontzia ikutu gabe");
+	JLabel lblTamainakoak_3 = new JLabel("4 tamainakoak: 60");
+	JLabel lblTamainakoak_2 = new JLabel("3 tamainakoak: 50");
+	JLabel lblTamainakoak_1 = new JLabel("2 tamainakoak: 25");
+	JLabel lblTamainakoak = new JLabel("1 tamainakoak: 20");
+	JLabel lblKonponketaKostuak = new JLabel("Konponketa kostuak:");
+	JLabel lblArmaBatAukeratu = new JLabel("Arma bat aukeratu eta ondoren goiko tableroan tiro egin bertan klikatuz");
 	
 	
 	public static Leihoa getLeihoa() {
@@ -270,6 +279,52 @@ public class Leihoa extends JFrame implements Observer{
 	
 	label_6.setBounds(628, 230, 80, 14);
 		contentPane.add(label_6);
+		
+		
+		lblArmaBatAukeratu.setBounds(638, 38, 425, 14);
+		contentPane.add(lblArmaBatAukeratu);
+		lblArmaBatAukeratu.setVisible(false);
+		
+		
+		lblKonponketaKostuak.setBounds(795, 413, 150, 14);
+		contentPane.add(lblKonponketaKostuak);
+		lblKonponketaKostuak.setVisible(false);
+		
+		
+		lblTamainakoak.setBounds(846, 439, 141, 14);
+		contentPane.add(lblTamainakoak);
+		lblTamainakoak.setVisible(false);
+		
+		
+		lblTamainakoak_1.setBounds(846, 463, 141, 14);
+		contentPane.add(lblTamainakoak_1);
+		lblTamainakoak_1.setVisible(false);
+		
+		
+		lblTamainakoak_2.setBounds(846, 488, 141, 14);
+		contentPane.add(lblTamainakoak_2);
+		lblTamainakoak_2.setVisible(false);
+		
+		
+		lblTamainakoak_3.setBounds(846, 513, 141, 14);
+		contentPane.add(lblTamainakoak_3);
+		lblTamainakoak_3.setVisible(false);
+		
+		
+		lblBerdeaOntziaIkutu.setBounds(628, 274, 181, 14);
+		contentPane.add(lblBerdeaOntziaIkutu);
+		lblBerdeaOntziaIkutu.setVisible(false);
+		
+
+		lblGorriaOntziaIkutua.setBounds(628, 299, 181, 14);
+		contentPane.add(lblGorriaOntziaIkutua);
+		lblGorriaOntziaIkutua.setVisible(false);
+		
+		
+		lblOria.setBounds(628, 324, 181, 14);
+		contentPane.add(lblOria);
+		lblOria.setVisible(false);
+		
 		label.setVisible(false);
 		label_1.setVisible(false);
 		label_2.setVisible(false);
@@ -411,6 +466,7 @@ public class Leihoa extends JFrame implements Observer{
 			}
 			if(rdbtnEzkutua.isSelected()==true){
 				if(Jokoa.getJokoa().jokalariakTiroEgin("Ezkutua", row, col, 2)){
+					Jokoa.getJokoa().txandaPasa();
 					aldatuIrudiaHoria2(row, col);
 				}
 				
@@ -560,6 +616,22 @@ public class Leihoa extends JFrame implements Observer{
 		rdbtnHorizontal.setVisible(true);
 		rdbtnOntziaKonpondu.setVisible(true);
 		btnNewButton.setVisible(true);
+		label.setVisible(true);
+		label_1.setVisible(true);
+		label_2.setVisible(true);
+		label_3.setVisible(true);
+		label_4.setVisible(true);
+		label_5.setVisible(true);
+		label_6.setVisible(true);
+		lblArmaBatAukeratu.setVisible(true);
+		lblKonponketaKostuak.setVisible(true);
+		lblTamainakoak.setVisible(true);
+		lblTamainakoak_1.setVisible(true);
+		lblTamainakoak_2.setVisible(true);
+		lblTamainakoak_3.setVisible(true);	
+		lblBerdeaOntziaIkutu.setVisible(true);
+		lblGorriaOntziaIkutua.setVisible(true);
+		lblOria.setVisible(true);
 		
 		button.setVisible(false);
 		button_2.setVisible(false);
@@ -569,13 +641,8 @@ public class Leihoa extends JFrame implements Observer{
 		lblAsd_1.setVisible(false);
 		lblOntzia.setVisible(false);
 		lblTamaina.setVisible(false);
-		label.setVisible(true);
-		label_1.setVisible(true);
-		label_2.setVisible(true);
-		label_3.setVisible(true);
-		label_4.setVisible(true);
-		label_5.setVisible(true);
-		label_6.setVisible(true);
+		
+		
 	}
 	public void zerDagoenRadar(int i, int j) {
 		zerDagoen(i-1,j-1);
