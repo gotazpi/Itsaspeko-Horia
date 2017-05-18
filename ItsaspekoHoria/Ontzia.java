@@ -94,6 +94,7 @@ public abstract class Ontzia {
 		if (dirua >= this.konponketaKostua) {
 			return true;
 		} else {
+			System.out.println("Ez dago diru nahikorik konponketarako");
 			return false;
 		}
 	}

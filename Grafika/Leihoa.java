@@ -415,6 +415,11 @@ public class Leihoa extends JFrame implements Observer{
 				}
 				
 			}
+			if(rdbtnOntziaKonpondu.isSelected()==true){
+				if(Jokoa.getJokoa().ontziaKonpondu(row, col)){
+					aldatuIrudiaBerdea2(row, col);
+				}
+			}
 			tablero2Eguneratu();
 			armakEguneratu();
 		}

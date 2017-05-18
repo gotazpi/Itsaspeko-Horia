@@ -35,7 +35,7 @@ public class Jokoa  extends Observable {
         
         observado.addObserver(observador);
         observado2.addObserver(observador);
-		//jokoaHasieratu();
+		jokoaHasieratu();
 		Leihoa.getLeihoa().hasiera();
 	}
 
@@ -47,11 +47,11 @@ public class Jokoa  extends Observable {
 		return Erabiltzailea.getErabiltzailea().flotaUrperatuta();
 	}
 
-	/*public static void jokoaHasieratu() {
+	public static void jokoaHasieratu() {
 		//armamentua hasieratu eta gauza gehiago
 		
 		ordenagailua.ontziaKokatu();
-	}*/
+	}
 
 	public void txandaPasa() {
 		setChanged();
@@ -184,6 +184,10 @@ public class Jokoa  extends Observable {
 		if (txanda==0){besteTaula=Ordenagailua.getOrdenagailua().getTaula();}
 		if (txanda==1){besteTaula=Erabiltzailea.getErabiltzailea().getTaula();}
 		return Erabiltzailea.getErabiltzailea().tiroEgin(arma, pX, pY,misilZuzenduNorabidea, besteTaula);
+	}
+	
+	public boolean ontziaKonpondu(int pX, int pY){
+		return Erabiltzailea.getErabiltzailea().ontziaKonpondu(pX, pY);
 	}
 	
 	public Erabiltzailea getErabiltzailea(){
