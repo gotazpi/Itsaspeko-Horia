@@ -15,7 +15,7 @@ public abstract class Jokalaria {
 		this.jokalariarenTaula = new Taula();
 		//this.etsaiarenTaula = new Taula();
 		this.flota = new Flota();
-		dirua = 5;
+		dirua = 120;
 	}
 
 	//METODOAK
