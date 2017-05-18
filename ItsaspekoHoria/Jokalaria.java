@@ -15,7 +15,7 @@ public abstract class Jokalaria {
 		this.jokalariarenTaula = new Taula();
 		//this.etsaiarenTaula = new Taula();
 		this.flota = new Flota();
-		dirua = 120;
+		dirua = 5;
 	}
 
 	//METODOAK
@@ -51,8 +51,10 @@ public abstract class Jokalaria {
 				biltegia.armaKendu(nahiDuguna);
 				this.dirua = this.dirua - nahiDuguna.getKostua();
 				this.armamentua.armaGehitu(nahiDuguna);
+				System.out.println(arma +" arma erosi duzu");
 				return true;
 			}else{
+				System.out.println("ez duzu diru nahikorik arma erosteko");
 				return false;
 			}
 		}else{

@@ -61,13 +61,15 @@ public class KoordenatuakTest {
 	@Test
 	public void testIkutua() {
 		assertFalse(koordenatuak1.ikutua());
-		koordenatuak1.ikutu();
+		koordenatuak1.ikutu(true);
 		assertTrue(koordenatuak1.ikutua());
+		koordenatuak1.ikutu(false);
+		assertFalse(koordenatuak1.ikutua());
 	}
 	@Test
 	public void testIkutu() {
 		assertFalse(koordenatuak1.ikutua());
-		koordenatuak1.ikutu();
+		koordenatuak1.ikutu(true);
 		assertTrue(koordenatuak1.ikutua());
 	}
 }

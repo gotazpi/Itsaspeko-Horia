@@ -13,7 +13,7 @@ public class Jokoa  extends Observable {
 	private static Erabiltzailea erabiltzailea; // txanda 0
 	private int txanda = 0;
 	private int zerEgin = 2;
-	private String mezua = "Lehenik ontziak kokatu eta ondoren jolasten hasiko zara";
+	private String mezua = "Lehenik beheko taulan ontziak kokatu eta ondoren jolasten hasiko zara";
 
 	private Jokoa() {
 		super();
@@ -35,7 +35,7 @@ public class Jokoa  extends Observable {
         
         observado.addObserver(observador);
         observado2.addObserver(observador);
-		jokoaHasieratu();
+		//jokoaHasieratu();
 		Leihoa.getLeihoa().hasiera();
 	}
 
@@ -47,34 +47,34 @@ public class Jokoa  extends Observable {
 		return Erabiltzailea.getErabiltzailea().flotaUrperatuta();
 	}
 
-	public static void jokoaHasieratu() {
-		// TODO armamentua hasieratu eta gauza gehiago
+	/*public static void jokoaHasieratu() {
+		//armamentua hasieratu eta gauza gehiago
 		
 		ordenagailua.ontziaKokatu();
-	}
+	}*/
 
 	public void txandaPasa() {
 		setChanged();
 		notifyObservers();
 		if (txanda == 0) {
 			txanda = 1;
+			ordenagailua.dirua = ordenagailua.dirua+20;
 			Ordenagailua.getOrdenagailua().ordenagailuaZerEginNahiDu();
 		} else {
 			txanda = 0;
-			// this.jokatu();
+			erabiltzailea.dirua = erabiltzailea.dirua + 20;
 		}
 	}
 
 	public boolean jokatuDaiteke() {
 		if (!erabiltzailea.flotaUrperatuta() && !ordenagailua.flotaUrperatuta()){
-		//if (erabiltzailea.ontziakDauzka() && ordenagailua.ontziakDauzka()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public void norkIrabaziDu() {
+	/*public void norkIrabaziDu() {
 		if (!erabiltzailea.flotaUrperatuta()){
 		//if (erabiltzailea.ontziakDauzka()) {// Grafikan nork irabazi duen
 											// erakutsi //TODO
@@ -82,7 +82,7 @@ public class Jokoa  extends Observable {
 		} else {
 			// erakutsi ordenagailua grafikan
 		}
-	}
+	}*/
 
 	//El jugador lo usa en la grafica
 	//0Dispara, 1UsasRadar, 2ColocaBarcos, 3PoneEscudos
@@ -117,7 +117,7 @@ public class Jokoa  extends Observable {
 		}
 		else return "Ez dago";
 	}
-	public String getOntziarenTamaina(){//el tama�o del barco que esta por colocar
+	public String getOntziarenTamaina(){//el tamano del barco que esta por colocar
 		int zein = Erabiltzailea.getErabiltzailea().getFlota().getZein();
 		if (zein <= 9) {
 		Ontzia ontzia = Erabiltzailea.getErabiltzailea().getFlota().getOntzia(zein);

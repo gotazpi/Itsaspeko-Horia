@@ -43,8 +43,8 @@ public class Koordenatuak {
 		return ikutua;
 	}
 
-	public void ikutu() {	//ontziaren koordenatu hori ikutu egiten du
-		ikutua = true;
+	public void ikutu(boolean ikutu) {	//ontziaren koordenatu hori ikutu egiten du
+		ikutua = ikutu;
 	}
 
 }

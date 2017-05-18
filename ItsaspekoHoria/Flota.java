@@ -87,4 +87,18 @@ public class Flota {
 		}
 		return emaitza;
 	}
+	
+	public Ontzia ikutuGabekoOntzia(){
+		int i = 0;
+		Ontzia emaitza=null;
+		boolean topatua=false;
+		while ((i<ontziak.length) && !(topatua)){
+			if (!ontziak[i].laukirenBatIkututa()){
+				topatua=true;
+				emaitza=ontziak[i];
+			}
+			i++;
+		}
+		return emaitza;
+	}
 }

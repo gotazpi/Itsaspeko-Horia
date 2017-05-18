@@ -40,7 +40,7 @@ public abstract class Ontzia {
 	}
 
 	public void ikutu(int pX, int pY) {			//ontziaren (x,y) koordenatua ikutzen du
-		bilatuKoordenatuak(pX, pY).ikutu();
+		bilatuKoordenatuak(pX, pY).ikutu(true);
 	}
 
 	private Koordenatuak bilatuKoordenatuak(int pX, int pY) {	//ontziaren (x,y) koordenatua itzultzen du
@@ -58,7 +58,7 @@ public abstract class Ontzia {
 	public void ontziaIkutu(){		//ontziaren koordenatu guztiak ikutzen ditu
 		int i =0;
 		while (i<this.koordenatuak.length){
-			this.koordenatuak[i].ikutu();
+			this.koordenatuak[i].ikutu(true);
 			i++;
 		}
 	}
@@ -119,6 +119,9 @@ public abstract class Ontzia {
 		if (this.egoeraOntzia instanceof Suntsituta){
 			if (this.erosDezake(dirua)){
 				this.egoeraAldatu(new IkutuGabe());
+				for (int i=0; i<this.luzera; i++){
+					this.koordenatuak[i].ikutu(false);
+				}
 				this.jasandakoBonbaKop=0;
 				emaitza=true;
 				System.out.println("Ontzi bat konpondu da");
@@ -134,12 +137,25 @@ public abstract class Ontzia {
 	}
 	
 	public boolean laukirenBatIkututa(){	//koordenaturen bt ikututa dagoen konprobatzen du
-		for(int i=0; i<luzera; i++){
+		int i = 0;
+		boolean topatua = false;
+		while (i<luzera && topatua==false){
+			if (this.koordenatuak[i].ikutua()){
+				topatua=true;
+			}
+			i++;
+		}
+		if (topatua){
+			return true;
+		}else{
+			return false;
+		}
+		/*for(int i=0; i<luzera; i++){
 			if(this.koordenatuak[i].ikutua()){
 				return true;
 			}
 		}
-		return false;
+		return false;*/
 	}
 	
 	
